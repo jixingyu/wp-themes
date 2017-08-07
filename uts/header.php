@@ -81,24 +81,26 @@
     <div class="container">
       <div class="row clearfix">
         <div class="col-md-12 column">
-          <nav class="navbar navbar-youtong" role="navigation">
-            <div class="navbar-header">
-               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse"> <span class="sr-only">切换</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> 
-               <a class="navbar-brand" href="/"><div class="logo"><img src="<?php bloginfo('template_url');?>/img/logo.png" /></div></a>
-            </div>
-          
-            <div class="collapse navbar-collapse" id="navbar-collapse">
-              <?php
-                  wp_nav_menu( array(
-                      'theme_location' => 'navmain',
-                      'walker' => new Uts_Navmain_Walker(),
-                      'container' => '',
-                      'items_wrap' => '<ul class="nav navbar-nav navbar-right">%3$s</ul>',
-                      'depth' => 2
-                  ) );
-              ?>
-            </div>
-          </nav>
+          <div class="navbar navbar-youtong">
+            <nav class="navbar navbar-youtong" role="navigation">
+              <div class="navbar-header">
+                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse"> <span class="sr-only">切换</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> 
+                 <a class="navbar-brand" href="/"><div class="logo"><img src="<?php bloginfo('template_url');?>/img/logo.png" /></div></a>
+              </div>
+            
+              <div class="collapse navbar-collapse" id="navbar-collapse">
+                <?php
+                    wp_nav_menu( array(
+                        'theme_location' => 'navmain',
+                        'walker' => new Uts_Navmain_Walker(),
+                        'container' => '',
+                        'items_wrap' => '<ul class="nav navbar-nav navbar-right">%3$s</ul>',
+                        'depth' => 2
+                    ) );
+                ?>
+              </div>
+            </nav>
+          </div>
         </div>
       </div>
     </div>

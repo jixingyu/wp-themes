@@ -32,12 +32,69 @@
   h6{font-size:16px;}
   .h7{font-size:14px;}
   p{font-size:12px;}
-
+  a:link,a:active,a:hover,a:visited{
+    outline: none;
+  }
 
 
   body{
     background-color: #fff;
   }
+  /*重写bootstrap3.css*/
+  .container {
+    width: 1170px;
+  }
+  article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+    display: block;
+  }
+  .navbar-header {
+    float: left;
+    height: 90px;
+    overflow: hidden;
+  }
+  .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11 {
+    float: left;
+  }
+
+  .col-md-12 {
+    width: 100%;
+  }
+  .col-md-6 {
+    width: 50%;
+  }
+  .col-md-2 {
+    width: 16.666666666666664%;
+  }
+  .col-md-3 {
+    width: 25%;
+  }
+  .navbar-collapse.collapse {
+    display: block!important;
+    height: auto!important;
+    padding-bottom: 0;
+    overflow: visible!important;
+  }
+  .navbar-collapse {
+    width: auto;
+    border-top: 0;
+    box-shadow: none;
+  }
+  .navbar-nav {
+    float: left;
+    margin: 0;
+  }
+  .navbar-right {
+    float: right !important;
+  }
+  .navbar-nav>li {
+    float: left;
+  }
+  .navbar-collapse .navbar-nav.navbar-right:last-child {
+    margin-right: -15px;
+  }
+
+
+
   /*顶部导航*/
   .topbg{
       background: #000;
@@ -102,14 +159,14 @@
       border-color: #000;
       }
       .dropdown .dropdown-menu{
-      width:100%;
-      padding:0;
+        border:0;
+        width:100%;
+        padding:0;
+        max-width: 100%;
+        min-width: 100%;
+        background: #E49A09;
       }
-      .dropdown .dropdown-menu{
-      max-width: 100%;
-      min-width: 100%;
-      background: #E49A09;
-      }
+
 
       .dropdown .dropdown-menu li{
       float: left;
@@ -142,6 +199,9 @@
 
 
   /*幻灯片样式重写*/
+  /*.sildebg{
+    max-width: 1440px;
+  }*/
   .glyphicon-chevron-left:before,.glyphicon-chevron-right:before{
       content: "";
       }
@@ -171,6 +231,9 @@
       .carousel-indicators li.active{
       background-color: #f29b00;
       border-color:#f29b00;
+      }
+      .carousel-inner>.item>img, .carousel-inner>.item>a>img{
+        width:100%;
       }
     
 
@@ -289,13 +352,16 @@
         background:#eee;
         border-radius: 5px;
         width: 100%;
-        padding: 2px 15px;
+        padding: 6px 15px;
         cursor: pointer;
       }
       .user-icon,.password-icon{
-        width: 42px;
-        height: 52px;
-        transform: scale(0.65);
+        /*width: 42px;
+        height: 52px;*/
+        width: 27px;
+        height: 33px;
+        /*transform: scale(0.65);
+        zoom:50%/0;*/
       }
       .taborgform2 span,.taborgform2 input{
         display: inline-block;
@@ -321,6 +387,7 @@
         background-color: transparent;
         font-size: 16px;
         color:#333;
+        padding: 9.5px 0;
       }
       :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
           color: #bbb; opacity:1; 
@@ -346,9 +413,9 @@
         z-index:-1;
         display: none;
         position: absolute;
-        top: 8px;
+        top: 4px;
         color: #ff4200;
-        left: 81px;
+        left: 66px;
         background: #eee;
         width: 445px;
         text-align: left;
@@ -560,6 +627,34 @@
         width: 104px;
         padding-right: 0;
         text-align: center;
+      }
+      .weixinfooter{
+        position: relative;
+        padding: 15px 40px;
+        font-size: 16px;
+        color: #fff;
+        line-height: 20px;
+        cursor: pointer;
+      }
+      .hideweixin{
+        display: none;
+        position: absolute;
+        bottom: 60px;
+        right: 32%;
+        background-color: #333;
+        padding:8%;
+      }
+      .hideweixin:after{
+        position: absolute;
+        bottom: -8px;
+        content: "";
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-top: 8px solid #333;
+        right: 20px;
+      }
+      .weixinfooter:hover .hideweixin{
+        display:block;
       }
    
 

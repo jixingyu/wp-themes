@@ -7,7 +7,7 @@
           <div class="collapse navbar-collapse">
             <?php
               wp_nav_menu( array(
-                'theme_location' => 'navmain',
+                'theme_location' => 'navfooter',
                 'walker' => new Uts_Navfooter_Walker(),
                 'container' => '',
                 'items_wrap' => '<ul class="nav navbar-nav">%3$s</ul>',
