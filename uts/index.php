@@ -134,7 +134,7 @@
             <?php
               $query = new WP_Query( array(
                 'cat' => $itab1,
-                'posts_per_page' => 5,
+                'posts_per_page' => 6,
                 'ignore_sticky_posts' => true
               ) );
               while( $query->have_posts() ):
@@ -184,6 +184,7 @@
             <img src="<?php echo xy_thumb();?>" alt="">
             <div class="hidetext">
               <h3><?php the_title();?></h3>
+              <p><?php the_time('Y-m-d');?></p>
               <div class="h7"><?php echo get_the_excerpt();?></div>
             </div>
           </div>
@@ -194,115 +195,150 @@
   </div>
   <?php } ?>
 <script>
-(function(){
-  // $('#dropdown-toggle').hover(function(){
-  //   $(".dropdown").addClass('open');
-  // },function(){
-  //  $(".dropdown").removeClass('open');
-  // }); 
-  $('#form-js').on('click',function(){
-    $('#placediv').hide();
-    $('#textareaway').css({'z-index':'99'}).focus();
-  });
+ (function(){
 
-  function restwaybill(){
-    var html ='<h5>您可以输入运单号进行查询</h5><h6>最多可查询20条，以逗号，空格或回车建隔开</h6>';
-    $("#placediv").html(html).show();
-    $('.taborg-waybill').removeClass('active');
-  }
-
-  var iswaybill=0,isqiyeuser=0,islogin = true,textareaway='';
-
-  $('#waybill').on('click',function(e){
-    iswaybill++;
-    if(iswaybill%2==1){
-      $('.taborg-waybill').addClass('active');
-    }else{
-      restwaybill();
-    }
-    e.stopPropagation();
-  });
-
-  
-  var $from2inputs = $('#form2-js').find('label');
-  $from2inputs.on('click',function(e){
-    $(this).find('.errorlog').hide().css({'z-index':'-1'});
-    $(this).find('input').focus();
-  });
-
-  $('#qiyeuser').on('click',function(e){
-    isqiyeuser++;
-    if(isqiyeuser%2==1){
-      $('.taborg-qiyeuser').addClass('active');
-    }else{
-      $('.taborg-qiyeuser').removeClass('active');
-    }
-  });
-
-  
-
-  // 点击提交运单号
-  $('#subBtn').on('click',function(){
-    // 首先判断是否登录 ， 然后判断输入是否为空，如果为空则提示输入为空，如果有值则直接查询
-    if(!islogin){
-      alert("请先登录");
-    }
-    textareaway = $('#textareaway').val();
-
-    if(!textareaway||textareaway==''){
-      var html ="<h5 class='error'>请先输入运单号</h5>";
-      $("#placediv").html(html).show();
-    }
-    // 查询订单
-    var data ={};
-    data.waynum=textareaway;
-    // $.ajax({
-    //  type: "POST",
-    //  url: "#",
-    //  data: data,
-    //  dataType: "json",
-    //  success: function(data){
-    //     restwaybill();
-        
-    //   }
-    // });
-  });
-
-  // 企业用户登录
-  var username='',password='';
-  $('#loginBtn').on('click',function(){
-    var data={};
-    // 首先判断用户名密码是否非空，如果非空，则去空格后提交
-    username = $.trim($('input[name="username"]').val());
-    password = $.trim($('input[name="password"]').val());
-    console.log(username);
-    console.log(password);
-
-    if(!username||!password){
-      !username && $('input[name="username"]').next().text('请输入用户名').show().css({'z-index':'2'});
-      !password && $('input[name="password"]').next().text('请输入密码').show().css({'z-index':'2'});
-      return false;
+    // 企业新闻截取
+    var thiswidth,maxlength=60;
+    thiswidth = $(window).width();
+    if(thiswidth<=568){
+       maxlength = 35;
     }
     
-    data.username = username;
-    data.password = password;
-    // 提交到后台
+    var $newstexts = $('.newsrow .hoverdiv').find('.h7');
+    $.each($newstexts,function(){
+      var str = $(this).text();
+      str=str.substr(0,maxlength);
+      $(this).html(str+'...<a href="#" target="_blank">[详情]</a>');
+    });
 
-    // $.ajax({
-    //  type: "POST",
-    //  url: "#",
-    //  data: data,
-    //  dataType: "json",
-    //  success: function(data){
-    //     restwaybill();
-    // $('input[name="username"]').next().text('用户名不存在').show().css({'z-index':'2'});
-    // $('input[name="password"]').next().text('密码不正确').show().css({'z-index':'2'});
-        
-    //   }
-    // });
+    // totop
+    $(window).scroll(function(){
+       var sc=$(window).scrollTop();
+       var rwidth=$(window).width()
+       if(sc>500){
+          $("#totop").show();
+       }else{
+          $("#totop").hide();
+       }
+     })
+     $("#totop").click(function(){
+       var sc=$(window).scrollTop();
+       $('body,html').animate({scrollTop:0},500);
+     })
 
-  });
-  
-})();
+
+
+    // 订单号查询  以及 企业用户登录
+
+    $('#form-js').on('click',function(){
+      $('#placediv').hide();
+      $('#textareaway').css({'z-index':'99'}).focus();
+    });
+
+    function restwaybill(){
+      var html ='<h5>您可以输入运单号进行查询</h5><h6>最多可查询20条，以逗号，空格或回车建隔开</h6>';
+      $("#placediv").html(html).show();
+      $('#textareaway').val('');
+      $('.taborg-waybill').removeClass('active');
+    }
+    function restuserlogin(){
+      $('#form2-js input').val('').blur();;
+      $('.taborg-qiyeuser').removeClass('active');
+      $('.taborg-qiyeuser .errorlog').css({'z-index':'-1'}).text('');
+    }
+
+    var iswaybill=0,isqiyeuser=0,islogin = true,textareaway='';
+
+    $('#waybill').on('click',function(e){
+      iswaybill++;
+      if(iswaybill%2==1){
+        $('.taborg-waybill').addClass('active');
+      }else{
+        restwaybill();
+      }
+      e.stopPropagation();
+    });
+
+    
+    var $from2inputs = $('#form2-js').find('label');
+    $from2inputs.on('click',function(e){
+      $(this).find('.errorlog').hide().css({'z-index':'-1'});
+      $(this).find('input').focus();
+    });
+
+    $('#qiyeuser').on('click',function(e){
+      isqiyeuser++;
+      if(isqiyeuser%2==1){
+        $('.taborg-qiyeuser').addClass('active');
+      }else{
+        restuserlogin();
+      }
+    });
+
+    
+
+    // 点击提交运单号
+    $('#subBtn').on('click',function(){
+      // 首先判断是否登录 ， 然后判断输入是否为空，如果为空则提示输入为空，如果有值则直接查询
+      if(!islogin){
+        alert("请先登录");
+      }
+      textareaway = $('#textareaway').val();
+
+      if(!textareaway||textareaway==''){
+        var html ="<h5 class='error'>请先输入运单号</h5>";
+        $("#placediv").html(html).show();
+      }
+      // 查询订单
+      var data ={};
+      data.waynum=textareaway;
+      // $.ajax({
+      //  type: "POST",
+      //  url: "#",
+      //  data: data,
+      //  dataType: "json",
+      //  success: function(data){
+      //     restwaybill();
+          
+      //   }
+      // });
+    });
+
+    // 企业用户登录
+    var username='',password='';
+    $('#loginBtn').on('click',function(){
+      var data={};
+      // 首先判断用户名密码是否非空，如果非空，则去空格后提交
+      username = $.trim($('input[name="username"]').val());
+      password = $.trim($('input[name="password"]').val());
+      console.log(username);
+      console.log(password);
+
+      if(!username||!password){
+        !username && $('input[name="username"]').next().text('请输入用户名').show().css({'z-index':'2'});
+        !password && $('input[name="password"]').next().text('请输入密码').show().css({'z-index':'2'});
+        return false;
+      }
+      
+      data.username = username;
+      data.password = password;
+      // 提交到后台
+
+      // $.ajax({
+      //  type: "POST",
+      //  url: "#",
+      //  data: data,
+      //  dataType: "json",
+      //  success: function(data){
+      //     restwaybill();
+      // $('input[name="username"]').next().text('用户名不存在').show().css({'z-index':'2'});
+      // $('input[name="password"]').next().text('密码不正确').show().css({'z-index':'2'});
+          
+      //   }
+      // });
+
+    });
+    
+  })();
 </script>
 <?php get_footer(); ?>

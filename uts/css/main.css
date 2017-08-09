@@ -40,6 +40,13 @@
   body{
     background-color: #fff;
   }
+
+  .phonehidden{
+    display: block;
+  }
+  .phoneshow{
+    display: none;
+  }
   /*重写bootstrap3.css*/
   .container {
     width: 1170px;
@@ -69,10 +76,10 @@
     width: 25%;
   }
   .navbar-collapse.collapse {
-    display: block!important;
-    height: auto!important;
+    display: block;
+    height: auto;
     padding-bottom: 0;
-    overflow: visible!important;
+    overflow: visible;
   }
   .navbar-collapse {
     width: auto;
@@ -80,11 +87,11 @@
     box-shadow: none;
   }
   .navbar-nav {
-    float: left;
+    /*float: left;*/
     margin: 0;
   }
   .navbar-right {
-    float: right !important;
+    float: right;
   }
   .navbar-nav>li {
     float: left;
@@ -106,6 +113,9 @@
       text-align: right;
       height: 30px;
       padding-top: 7px;
+      }
+      .quicknav a{
+        font-size:12px;
       }
       .quicknav a,.quicknav a:link,.quicknav a:active,.quicknav a:hover,.quicknav a:visited{
       color:#fff;
@@ -175,15 +185,16 @@
       }
         
       .navbar-youtong .nav .dropdown .dropdown-menu a{
-      color: #fff;
-      font-size: 16px;
-      height:30px;
-      line-height: 30px;
-      padding:0 5px;
-      overflow: hidden;
-      text-align: center;
-      border-bottom: 0;
-      text-shadow:none;
+        color: #fff;
+        font-size: 16px;
+        height:30px;
+        line-height: 30px;
+        padding:0 5px;
+        overflow: hidden;
+        text-align: center;
+        border-bottom: 0;
+        text-shadow:none;
+        display: block;
       }
 
       .navbar-youtong .nav .dropdown .dropdown-menu a:link,
@@ -196,8 +207,10 @@
       background-color: #FDB712;
       border-bottom: 0;
       }
-
-
+    .navbar-toggle {
+      display: none;
+    }
+  
   /*幻灯片样式重写*/
   /*.sildebg{
     max-width: 1440px;
@@ -314,9 +327,10 @@
       position: relative;
       }
       .placediv{
-      position: absolute;
-      top:15px;
-      left:15px;
+        position: absolute;
+        top:15px;
+        left:15px;
+        width: 90%;
       }
       .placediv h5{
       color:#666;
@@ -326,7 +340,8 @@
       color:#ff4200;
       }
       .placediv h6{
-      color:#999;
+        color:#999;
+        text-align: left;
       }
       .subBtn{
       background-color: #f29b00;
@@ -488,6 +503,7 @@
         border-radius: 5px;
         box-shadow: 0 0 5px #000;
         width: 94%;
+        margin: 0 auto;
       }
       .listimgdiv img{
         width:100%;
@@ -556,6 +572,9 @@
         text-align: justify;
         height: 55%;
         overflow: hidden;
+      }
+      .hidetext p{
+        display:none;
       }
       .hoverdiv:hover  .hidetext{
         display: block;
@@ -680,3 +699,642 @@
         left:0;
       }
         
+
+    .totop{
+      display: none;
+      position: fixed;
+      right:2%;
+      bottom:5%;
+    }
+    .totop img{
+      width:50px;
+    }
+    /*适配*/
+    @media screen and (max-width: 1180px) {
+  body {
+     
+  }
+  .container {
+    width: 98%;
+  }
+  .row {
+    margin-right: 0; 
+    margin-left: 0; 
+  }
+  .padding60-0 {
+    padding: 5% 0;
+  }
+  .padding50-0 {
+    padding: 2% 0;
+  }
+  .hidetext h3 {
+    margin: 5% auto;
+  }
+  .user-icon, .password-icon{
+    max-width:15%;
+  }
+  .taborgform2 .line-right{
+    max-width: 2%;
+  }
+  .taborgform2 input{
+    max-width: 83%;
+  }
+  .waybillform label{
+    overflow: hidden;
+  }
+  
+}
+@media screen and (max-width: 1140px) {
+  .listdiv, .listdiv ul {
+    height: 300px;
+  }
+  .listimgdiv img,.listdiv li{
+    height: auto;
+  }
+  h3{font-size:22px;}
+  .titlediv {
+    margin-bottom: 3%;
+  }
+  
+}
+@media screen and (max-width: 1050px) {
+  .navbar-header {
+    width: 20%;
+  }
+  .logo img{
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1010px) {
+  .navbar-header {
+    height: 80px;
+  }
+  .navbar-youtong .collapse .nav a {
+    font-size: 18px;
+    padding: 15px 20px;
+  }
+}
+@media screen and (max-width: 910px) {
+  h2 {
+    font-size: 24px;
+  }
+  h3 {
+    font-size: 18px;
+  }
+  h4 {
+    font-size: 16px;
+  }
+  h5 {
+    font-size: 15px;
+  }
+  h6 {
+    font-size: 14px;
+  }
+  .h7 {
+    font-size: 13px;
+  }
+  .footer-right .float-bottom {
+    bottom: auto;
+    top:0;
+    left: 15px;
+  }
+  .listdiv, .listdiv ul {
+    height: 240px;
+  }
+  .dropdown:hover .dropdown-menu{
+    display: none;
+  }
+  .navbar-nav .open .dropdown-menu{
+    position: absolute;
+    display: block;
+  }
+  .placediv h5 {
+    margin-bottom: 120px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .navbar-youtong .collapse .nav a {
+    font-size: 14px;
+    padding: 15px;
+    display: inline-block;
+  }
+  .navbar-youtong .nav .dropdown .dropdown-menu a {
+    font-size: 12px;
+    height: 24px;
+    line-height: 24px;
+  }
+  .waybillform label{
+        padding: 2%;
+  }
+  .taborg p.errorlog {
+    left: 16%;
+    width: 83%;
+  }
+  .newsrow{
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  .newsrow .col-md-3 {
+    width: 50%;
+  }
+  
+  
+}
+
+
+@media screen and (max-width: 737px) {
+  .navbar-youtong .collapse {
+    margin-top: 0;
+  }
+  .navbar-header {
+    height: 60px;
+  }
+  .waybillform textarea {
+    height: 200px;
+  }
+  .subBtn {
+    font-size: 18px;
+    height: 40px;
+    line-height: 40px;
+  }
+  .taborgform2 .line-right{
+    margin-left:2%;
+    margin-right:2%;
+  }
+  .phonefooter{
+    background: #333;
+    border-top:5px solid #f29b00;
+  }
+  .weixinfooter span,.phonefooterli{
+    color:#fff;
+    font-size:16px;
+  }
+  .phonefooter li{
+    border-bottom:1px solid #525252;
+  }
+  .phonefooter li.indent{
+     padding-left:5%;
+  }
+  .phonefooterli{
+    width:85%;
+    margin: 0 auto;
+    padding: 15px 20px;
+  }
+  .copyright{
+    width:85%;
+    color:#999;
+    font-size:14px;
+    text-align: center;
+    margin: 10px auto;
+    line-height: 1.6;
+  }
+  .phonefooterli a:link,.phonefooterli a:active,.phonefooterli a:hover,.phonefooterli a:visited{
+    color:#fff;
+  }
+  .weixinfooter .weixinicon{
+    position: absolute;
+    right: 2%;
+    top: 5px;
+    width: 40px;
+  }
+  .hideweixin{
+    right:0;
+    bottom: 65px;
+    width: 50%;
+    padding: 15px;
+  }
+  .hideweixin img{
+    width:100%;
+  }
+  .hideweixin p{
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.4;
+    margin-top: 15px;
+  }
+  
+}
+
+@media screen and (max-width: 668px) {
+  .phonehidden{
+    display: none;
+  }
+  .phoneshow{
+    display: block;
+  }
+  .navbg .col-md-12{
+    padding:0;
+  }
+  .taborg p.errorlog {
+    width: 80%;
+    left:18%;
+  }
+
+  .taborgform2 input{
+    max-width: 80%;
+  }
+  .placediv h5 {
+    margin-bottom: 125px;
+  }  
+  .placediv h6 {
+    text-align: left;
+  }
+  .business .col-md-2,.listdiv li{
+    width: 33.3333%;
+    margin-bottom:3%;
+  }
+  .listdiv, .listdiv ul {
+    height: auto;
+  }
+  .newsrow {
+    max-width: 100%;
+    border: 0;
+  }
+  .newsrow .col-md-3 {
+    width: 100%;
+    background: #eee;
+    border-top:1px solid #f6f6f6;
+    border-bottom:1px solid #f6f6f6;
+    margin-bottom:3%;
+  }
+  .hoverdiv {
+    max-width: 80%;
+    margin: 3% auto;
+  }
+
+  .newsrow img {
+    max-width: 40%;
+    border: 1px solid #dedede;
+  }
+  .hidetext{
+    display:block;
+    background: none;
+    width: 60%;
+    left: 40%;
+    padding: 0 5%;
+  }
+  .hidetext h3{
+    margin: 2% auto;
+    color: #333;
+    text-align: left;
+    font-size:20px;
+  }
+  .hidetext .h7{
+    color: #666;
+  }
+  .hidetext p{
+    display:block;
+    color: #999;
+  }
+  .hidetext .h7,.hidetext p{
+    font-size:16px;
+    margin: 3% 0;
+  }
+  .hidetext a:link,.hidetext a:active,.hidetext a:hover,.hidetext a:visited{
+    color:#f29b00;
+    font-size:16px;
+  }
+ 
+}
+@media screen and (max-width: 641px) {
+  .navbar-youtong .collapse {
+    padding: 0;
+  }
+  .navbar-youtong .collapse .nav a {
+    padding: 13px 10px;
+  }
+  .weixinfooter,.footernav .nav>li>a {
+    padding: 15px 20px;
+  }
+  
+}
+
+@media screen and (max-width: 569px) {
+  .container {
+      width: 100%;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  h3 {
+    font-size: 16px;
+  }
+  h4,h5{
+    font-size: 14px;
+  }
+
+  h6,.h7 {
+    font-size: 12.5px;
+  }
+  .navbg {
+    background: #1e3a49;
+  }
+  .navbg .container {
+    width: 100%;
+    padding: 0;
+  }
+  .navbar-header{
+    width:100%;
+    height: 55px;
+  }
+  .logo img {
+    width: 115px;
+  }
+  .navbar-youtong{
+    border: none;
+    z-index: 20;
+  }
+  .navbar-youtong .navbar-brand {
+    height: 50px;
+    padding-top: 9px;
+    padding-left: 15px;
+  }
+  .navbar-toggle {
+    display: block;
+    background-color: #0a161b;
+    margin: 0;
+    border-radius: 0;
+    height: 100%;
+    width: 50px;
+    
+  }
+  .navbar-toggle:focus,.navbar-toggle:active{
+    border: 0;
+    outline: none;
+  }
+  .navbar-nav>li ,.navbar-right{
+    float: inherit;
+  }
+  .navbar-collapse.collapse {
+    display: none;
+  }
+
+
+  .navbar-toggle .icon-bar{
+    background-color: #fff;
+    width: 100%;
+    height: 3px;
+    border-radius: 0;
+  }
+  .line-iconbar{
+    position: absolute;
+    width: 3px;
+    height: 20px;
+    background: #0a161c;
+    top: 17px;     left: 15px;
+  }
+  .navbar-toggle:hover .icon-bar{
+    background-color: #f29b00;
+  }
+  .navbar-collapse{
+    background: #333;
+    padding-left: 0;
+    border-top: 4px solid #f29b00;
+  }
+  .navbar-nav>li {
+    border-bottom: 1px solid #555;
+  }
+  .navbar-nav>li>a{
+    padding-left: 25px;
+  }
+     
+  .navbar-nav>li>a:link,
+  .navbar-nav>li>a:visited,
+  .navbar-youtong .nav .dropdown .dropdown-menu a:link,
+  .navbar-youtong .nav .dropdown .dropdown-menu a:visited{
+    color:#fff;
+    outline: none;
+    background: transparent;
+  }
+
+  .navbar-nav>li>a:hover,.navbar-nav>li>a:active,
+  .nav .open>a, .nav .open>a:hover, .nav .open>a:focus,
+   .navbar-youtong .nav .dropdown .dropdown-menu a:active,
+   .navbar-youtong .nav .dropdown .dropdown-menu a:hover{
+    color:#f29b00;
+    background: transparent;
+  }
+  
+  .navbar-nav .open .dropdown-menu{
+    display: block;
+  }
+  .navbar-youtong .navbar-nav>li a{
+     position: relative;
+  }
+  .navbar-youtong .navbar-nav>li a:after,.navbar-youtong .navbar-nav>li.dropdown a.dropdown-toggle:after{
+    position: absolute;
+    content: '';
+    width:20px;
+    height:22px;
+    background: url(../img/nav-icons.png) no-repeat;
+    background-position: 0 -24px;
+    right: 15px;
+    top: 10px;
+  }
+  .navbar-youtong .navbar-nav>li.active a:after{
+    background: none;
+  }
+  .navbar-youtong .navbar-nav>li.dropdown a.dropdown-toggle:after{
+    background-position: 0 0;
+  }
+  .navbar-youtong .navbar-nav>li.dropdown.open a.dropdown-toggle:after{
+    background-position: 0 -50px;
+  }
+
+  .dropdown .dropdown-menu{
+    background: #333;
+  }
+  .dropdown .dropdown-menu li{
+    background: transparent; 
+    padding-left: 25px;
+    border-bottom: 1px solid #555;
+  }
+  .navbar-youtong .nav .dropdown .dropdown-menu a{
+    text-align: left;
+    padding:10px 15px;
+    height: 40px;
+    line-height: 20px;
+  }
+  
+
+  .carousel-control .icon-prev, 
+    .carousel-control .glyphicon-chevron-left,
+      .carousel-control .icon-next,
+        .carousel-control .glyphicon-chevron-right,
+        .tabicon01, .tabicon02,.user-icon, .password-icon{
+        -ms-transform: scale(.60);
+        -moz-transform: scale(.60);
+        -webkit-transform: scale(0.60);
+        -o-transform: scale(.60);
+        transform: scale(.60);
+        top:30%;
+  }
+
+  .carousel-indicators li, .carousel-indicators li.active {
+      width: 40px;
+      height:6px;
+  }
+  .taborgbg .container{
+    padding:0;
+  }
+
+
+  .taborg .tabicon01,.taborg .tabicon02,.taborg h6{
+    display:inline-block;
+    vertical-align: middle;
+    margin: 0;
+  }
+
+  .waybillform{
+    bottom:90px;
+    padding: 10px;
+    z-index: 15;
+  }
+  .waybillform h5,.waybillform h6{
+    font-size:12px;
+  }
+  .placediv {
+    top: 10px;
+    left: 10px;
+  }
+  .placediv h5 {
+      margin-bottom: 75px;
+  }
+  .waybillform textarea{
+    padding: 10px;
+    font-size: 12px;
+    height: 140px;
+  }
+  .subBtn {
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 10px;
+  }
+  .waybillform label {
+      margin: 5px 0;
+      padding: 0 2%;
+  }
+  .taborgform2 input {
+      max-width: 75%;
+  }
+  .user-icon, .password-icon{
+    max-width: 16%;
+  }
+  .taborgform2 .line-right {
+    margin-left: 1%;
+    margin-right: 1%;
+    height: 17px;
+    margin-top: 1px;
+  }
+
+  .taborg p.errorlog {
+    width: 75%;
+    left: 45px;
+    margin: 6px auto;
+  }
+  .hidetext h3 {
+    font-size: 16px;
+  }
+  .hidetext .h7, .hidetext p,
+    .hidetext a:link, .hidetext a:active,
+     .hidetext a:hover, .hidetext a:visited,
+     .weixinfooter span, .phonefooterli,.hideweixin p,
+     .listimgdiv h4,.taborgform2 input,.taborg p{
+      font-size: 12px;
+  }
+  .listdiv, .listdiv ul{
+    width: 98%;
+    margin: 0 auto;
+  }
+  .totop img {
+    width: 40px;
+  }
+  .navbar-nav .open .dropdown-menu{
+    position: static;
+  }
+
+}
+@media screen and (max-width: 415px) {
+  .taborg p.errorlog{
+    left: 23%;
+  }
+  .hoverdiv {
+    max-width: 90%;
+  }
+  .newsrow img {
+    width: 40%;
+    max-width: 120px;
+  }
+  .hidetext {
+    padding: 0 2%;
+  }
+}
+@media screen and (max-width: 376px) {
+  .carousel-control .icon-prev,
+   .carousel-control .glyphicon-chevron-left, 
+   .carousel-control .icon-next,
+    .carousel-control .glyphicon-chevron-right,
+    .tabicon01, .tabicon02, .user-icon, .password-icon{
+    -ms-transform: scale(.50);
+    -moz-transform: scale(.50);
+    -webkit-transform: scale(0.50);
+    -o-transform: scale(.50);
+    transform: scale(.50);
+        top: 25%;
+  }
+
+  .carousel-control .icon-prev, .carousel-control .glyphicon-chevron-left{
+    left:-20px;
+  }
+  .carousel-control .icon-next,
+    .carousel-control .glyphicon-chevron-right{
+      right:-20px;
+    }
+
+  .taborgform2 .line-right {
+    height: 15px;
+    margin-top: -1px;
+  }
+  
+  
+  
+  .waybillform {
+    top:90px;
+    background-color: #fff;
+    height: 200px;
+    box-shadow: 0 0 10px #c9c9c9;
+  }
+  .taborg-qiyeuser .waybillform{
+    height: 155px;
+  }
+  .user-icon, .password-icon {
+    max-width: 20%;
+  }
+  .taborgform2 .line-right {
+    margin-left: -4%;
+    height: 14px;
+    margin-top: 1px;
+  }
+  .taborg p.errorlog {
+      left: 33px;
+  }
+  .weixinfooter .weixinicon{
+    width:35px;
+  }
+  .placediv h5 {
+    margin-bottom: 65px;
+  }
+  .taborg h6{
+    margin-left:-12%;
+  }
+  .taborg .placediv h6{
+    margin-left:0;
+  }
+  
+
+}
+@media screen and (max-width: 321px) {
+
+  
+}

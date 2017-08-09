@@ -70,8 +70,8 @@
   <div class="topbg">
     <div class="container">
       <div class="row clearfix">
-        <div class="col-md-12 column quicknav">
-           <a href="" rel="sidebar" title="优通供应链" onclick="addFavorite()">加入收藏夹</a>
+        <div class="col-md-12 quicknav">
+          <a href="" rel="sidebar" title="优通供应链" onclick="addFavorite()">加入收藏夹</a>
         </div>
       </div>  
     </div>
@@ -84,8 +84,8 @@
           <div class="navbar navbar-youtong">
             <nav class="navbar navbar-youtong" role="navigation">
               <div class="navbar-header">
-                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse"> <span class="sr-only">切换</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> 
-                 <a class="navbar-brand" href="/"><div class="logo"><img src="<?php bloginfo('template_url');?>/img/logo.png" /></div></a>
+                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse"> <span class="sr-only">切换</span><div class="line-iconbar"></div><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> 
+                 <a class="navbar-brand" href="#"><div class="logo"><img src="<?php bloginfo('template_url');?>/img/logo.png" /></div></a>
               </div>
             
               <div class="collapse navbar-collapse" id="navbar-collapse">

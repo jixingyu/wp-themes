@@ -50,6 +50,7 @@ class Uts_Navmain_Walker extends Walker_Nav_Menu {
 		$atts['href']   = ! empty( $item->url )        ? $item->url        : '';
 		if ($idropdown) {
 			$atts['class'] = 'dropdown-toggle';
+			$atts['data-toggle'] = 'dropdown';
 		}
 
 		/**
@@ -192,19 +193,11 @@ class Uts_Navfooter_Walker extends Walker_Nav_Menu {
 		 */
 		$title = apply_filters( 'nav_menu_item_title', $title, $item, $args, $depth );
 
-		if (strpos($title, 'qr-') === 0) {
-			$title = substr($title, 3);
-			$item_output = '<div id="hoverweixin" class="weixinfooter">'
-            	. '<div class="hideweixin"><img src="' . $atts['href']. '" alt="' . $title . '" title="' . $title . '"></div>'
-            	. $title
-            	. '</div>';
-		} else {
-			$item_output = $args->before;
-			$item_output .= '<a'. $attributes .'>';
-			$item_output .= $args->link_before . $title . $args->link_after;
-			$item_output .= '</a>';
-			$item_output .= $args->after;
-		}
+		$item_output = $args->before;
+		$item_output .= '<a'. $attributes .'>';
+		$item_output .= $args->link_before . $title . $args->link_after;
+		$item_output .= '</a>';
+		$item_output .= $args->after;
 
 		/**
 		 * Filter a menu item's starting output.
