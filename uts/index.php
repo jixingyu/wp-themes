@@ -198,35 +198,20 @@
  (function(){
 
     // 企业新闻截取
-    var thiswidth,maxlength=60;
-    thiswidth = $(window).width();
-    if(thiswidth<=568){
-       maxlength = 35;
-    }
+    // var thiswidth,maxlength=60;
+    // thiswidth = $(window).width();
+    // if(thiswidth<=568){
+    //    maxlength = 37;
+    // }
     
-    var $newstexts = $('.newsrow .hoverdiv').find('.h7');
-    $.each($newstexts,function(){
-      var str = $(this).text();
-      str=str.substr(0,maxlength);
-      $(this).html(str+'...<a href="#" target="_blank">[详情]</a>');
-    });
-
-    // totop
-    $(window).scroll(function(){
-       var sc=$(window).scrollTop();
-       var rwidth=$(window).width()
-       if(sc>500){
-          $("#totop").show();
-       }else{
-          $("#totop").hide();
-       }
-     })
-     $("#totop").click(function(){
-       var sc=$(window).scrollTop();
-       $('body,html').animate({scrollTop:0},500);
-     })
-
-
+    // var $newstexts = $('.newsrow .hoverdiv').find('.h7');
+    // $.each($newstexts,function(){
+    //   var str = $(this).text();
+    //   if(str.length>maxlength){
+    //     str=str.substr(0,maxlength);
+    //     $(this).html(str+'...');
+    //   }
+    // });
 
     // 订单号查询  以及 企业用户登录
 

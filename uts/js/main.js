@@ -18,3 +18,20 @@ function addFavorite() {
     	alert('您的浏览器不支持,请按 Ctrl+D 手动收藏!');
     }
 }
+
+(function(){
+    // totop
+    $(window).scroll(function(){
+        var sc=$(window).scrollTop();
+        var rwidth=$(window).width()
+        if(sc>500){
+            $("#totop").show();
+        }else{
+            $("#totop").hide();
+        }
+    });
+    $("#totop").click(function(){
+        var sc=$(window).scrollTop();console.log(sc);
+        $('body,html').animate({scrollTop:0},500);
+    });
+})();
