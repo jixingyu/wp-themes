@@ -29,6 +29,7 @@ require_once( 'inc/class-init.php' );
 require_once( 'inc/class-nav-walker.php' );
 require_once( 'settings/class-settings.php' );
 require_once( 'settings/fields/class-fields.php' );
+require_once( 'settings/cat-options/class-cat-options.php' );
 
 function get_ssl_avatar($avatar) {
    $avatar = preg_replace('/.*\/avatar\/(.*)\?s=([\d]+)&.*/','<img src="https://secure.gravatar.com/avatar/$1?s=$2&d=mm" class="avatar avatar-$2" height="$2" width="$2">',$avatar);
@@ -50,7 +51,7 @@ if (is_admin()) {
 	}
 }
 
-function xy_breadcrumb($theme_location = 'main', $separator = '&gt;') {
+function xy_breadcrumb($theme_location = 'navmain', $separator = '') {
 
 	$locations = get_nav_menu_locations();
 	if (isset($locations[$theme_location])) {
@@ -62,9 +63,9 @@ function xy_breadcrumb($theme_location = 'main', $separator = '&gt;') {
 	    $match_item = false;
 	    foreach($items as $item) {
 	        if ($item->current_item_ancestor) {
-	            $crumbs[] = "<a href=\"{$item->url}\">{$item->title}</a>";
+	            $crumbs[] = "<li><a href=\"{$item->url}\">{$item->title}</a></li>";
 	        } elseif ($item->current) {
-	            $crumbs[] = "<a href=\"{$item->url}\">{$item->title}</a>";
+	            $crumbs[] = "<li><a href=\"{$item->url}\">{$item->title}</a></li>";
 	            break;
 	        }
 	        if ($item->current_item_parent == true) {
@@ -74,7 +75,7 @@ function xy_breadcrumb($theme_location = 'main', $separator = '&gt;') {
 	    }
 	    if (empty($crumbs) && $match_item) {
 	    	while ($match_item->ID != $match_item->menu_item_parent) {
-	    		array_unshift($crumbs, "<a href=\"{$match_item->url}\">{$match_item->title}</a>");
+	    		array_unshift($crumbs, "<li><a href=\"{$match_item->url}\">{$match_item->title}</a></li>");
 	    		if (!$match_item->menu_item_parent) {
 	    			break;
 	    		}
@@ -82,9 +83,9 @@ function xy_breadcrumb($theme_location = 'main', $separator = '&gt;') {
 	    	}
 	    }
 	    if (empty($crumbs)) {
-	    	echo sprintf('您当前的位置%s<a href="%s">首页</a>', $separator, home_url());
+	    	echo sprintf('<li><span class="left-line dis-min"></span>当前位置：<a href="%s">首页</a></li>', home_url());
 	    } else {
-	    	echo sprintf('您当前的位置%s<a href="%s">首页</a>%s%s', $separator, home_url(), $separator, implode($separator, $crumbs));
+	    	echo sprintf('<li><span class="left-line dis-min"></span>当前位置：<a href="%s">首页</a></li>%s%s', home_url(), $separator, implode($separator, $crumbs));
 	    }
 	}
 }
@@ -198,6 +199,76 @@ function xy_thumb( $args = array() ) {
 	}	
 	// Return
 	return $res;
+}
+
+//文章页上一篇下一篇导航
+function xy_post_nav(){
+
+	$previous = get_previous_post_link( '<p>上一篇：%link</p>', '%title', true );
+	$next = get_next_post_link( '<p>下一篇：%link</p>', '%title', true );
+
+	if ( ( ! $next && ! $previous ) || is_attachment() ) {
+		return;
+	}
+
+	?><div class="preornext">
+		<?php echo $previous . $next;?>
+	</div><?php
+}
+
+/* 访问计数 */
+function record_visitors()
+{
+	if (is_singular()) {
+		global $post;
+		$post_ID = $post->ID;
+		if ($post_ID) {
+			$post_views = (int)get_post_meta($post_ID, 'views', true);
+			if (!update_post_meta($post_ID, 'views', ($post_views+1))) {
+				add_post_meta($post_ID, 'views', 1, true);
+			}
+		}
+	}
+}
+add_action('wp_head', 'record_visitors');
+/// 函数作用：取得文章的阅读次数
+function post_views($before = '浏览：', $after = '次', $echo = 1)
+{
+	global $post;
+	$post_ID = $post->ID;
+	$views = (int)get_post_meta($post_ID, 'views', true);
+	if ($echo) echo $before, number_format($views), $after;
+	else return $views;
+}
+
+function get_most_viewed_format($mode = '', $limit = 10, $show_date = 0, $term_id = 0, $beforetitle= '(', $aftertitle = ')', $beforedate= '(', $afterdate = ')', $beforecount= '(', $aftercount = ')') {
+	global $wpdb, $post;
+	$output = '';
+	$mode = ($mode == '') ? 'post' : $mode;
+	$type_sql = ($mode != 'both') ? "AND post_type='$mode'" : '';
+	$term_sql = (is_array($term_id)) ? "AND $wpdb->term_taxonomy.term_id IN (" . join(',', $term_id) . ')' : ($term_id != 0 ? "AND $wpdb->term_taxonomy.term_id = $term_id" : '');
+	$term_sql.= $term_id ? " AND $wpdb->term_taxonomy.taxonomy != 'link_category'" : '';
+	$inr_join = $term_id ? "INNER JOIN $wpdb->term_relationships ON ($wpdb->posts.ID = $wpdb->term_relationships.object_id) INNER JOIN $wpdb->term_taxonomy ON ($wpdb->term_relationships.term_taxonomy_id = $wpdb->term_taxonomy.term_taxonomy_id)" : '';
+
+	// database query
+	$most_viewed = $wpdb->get_results("SELECT ID, post_date, post_title, (meta_value+0) AS views FROM $wpdb->posts LEFT JOIN $wpdb->postmeta ON ($wpdb->posts.ID = $wpdb->postmeta.post_id) $inr_join WHERE post_status = 'publish' AND post_password = '' $term_sql $type_sql AND meta_key = 'views' GROUP BY ID ORDER BY views DESC LIMIT $limit");
+	if ($most_viewed) {
+		foreach ($most_viewed as $viewed) {
+			$post_ID    = $viewed->ID;
+			$post_views = number_format($viewed->views);
+			$post_title = esc_attr($viewed->post_title);
+			$get_permalink = esc_attr(get_permalink($post_ID));
+			$output .= "<li>$beforetitle$post_title$aftertitle";
+			if ($show_date) {
+				$posted = date(get_option('date_format'), strtotime($viewed->post_date));
+				$output .= "$beforedate $posted $afterdate";
+			}
+			$output .= "$beforecount $post_views $aftercount</li>";
+		}
+	} else {
+		$output = "<li>N/A</li>n";
+	}
+	echo $output;
 }
 
 ?>
