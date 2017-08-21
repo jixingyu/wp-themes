@@ -85,7 +85,7 @@
             <nav class="navbar navbar-youtong" role="navigation">
               <div class="navbar-header">
                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse"> <span class="sr-only">切换</span><div class="line-iconbar"></div><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> 
-                 <a class="navbar-brand" href="#"><div class="logo"><img src="<?php bloginfo('template_url');?>/img/logo.png" /></div></a>
+                 <a class="navbar-brand" href="/"><div class="logo"><img src="<?php bloginfo('template_url');?>/img/logo.png" /></div></a>
               </div>
             
               <div class="collapse navbar-collapse" id="navbar-collapse">
