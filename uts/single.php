@@ -2,7 +2,7 @@
 
 <!-- banner -->
 <div class="banner">
-  <img alt="" src="" class="bannerimg"/>
+  <img alt="" src="<?php echo empty($th_options['head-banner-img']) ? get_bloginfo('template_url') . '/img/long-banner.jpg' : $th_options['head-banner-img'];?>" class="bannerimg"/>
 </div>
 
 <div class="container">

@@ -1,6 +1,11 @@
 <?php
 
 $datas_1 = array(
+	'banner' => array(
+		'section_title' => '头部图像',
+		'section_text' => '',
+		array( 'type' => 'upload', 'name' => 'head-banner-img', 'label' => '头部图像', 'tips' => '建议图片尺寸：1920*508' ),
+	),
 	'slider' => array(
 		'section_title' => '首页轮播图',
 		'section_text' => '',

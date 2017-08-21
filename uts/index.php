@@ -1,5 +1,14 @@
 <?php get_header(); ?>
-
+  <style>
+    .listdiv li:nth-child(6){
+      display: none;
+    }
+    @media screen and (max-width: 668px) {
+      .listdiv li:nth-child(6){
+          display: block;
+      }
+    }
+  </style>
   <!-- 幻灯切换 -->
   <?php
     $slider_num = ( isset( $th_options['head-slider-num'] ) && $th_options['head-slider-num'] ) ? (int) $th_options['head-slider-num'] : 0;
@@ -122,7 +131,7 @@
   <!-- 案例中心 -->
   <?php
     $itab1 = isset( $th_options['index-tab-1'] ) ? (int) $th_options['index-tab-1'] : -1;
-    if ($itab1 != 1) {
+    if ($itab1 != -1) {
   ?>
   <div class="bg53">
     <div class="container padding40-0 ">
@@ -161,7 +170,7 @@
   <!-- 公司新闻 -->
   <?php
     $itab2 = isset( $th_options['index-tab-2'] ) ? (int) $th_options['index-tab-2'] : -1;
-    if ($itab2 != 1) {
+    if ($itab2 != -1) {
   ?>
   <div class="container padding60-0">
     <div class="row clearfix">

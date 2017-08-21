@@ -23,7 +23,7 @@ function addFavorite() {
     // totop
     $(window).scroll(function(){
         var sc=$(window).scrollTop();
-        var rwidth=$(window).width()
+        var rwidth=$(window).width();
         if(sc>500){
             $("#totop").show();
         }else{

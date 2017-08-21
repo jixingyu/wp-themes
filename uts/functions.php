@@ -2,6 +2,23 @@
 define( 'THEME_PREFIX', 'uts' );
 $th_options = get_option( THEME_PREFIX.'_theme_settings' );
 
+// add_action('admin_init', 'xy_author_upload_image_limit');
+// function xy_author_upload_image_limit(){
+// 	//除管理员以外，其他用户都限制
+// 	// if( !current_user_can( 'manage_options') )
+// 		add_filter( 'wp_handle_upload_prefilter', 'xy_upload_image_limit' );
+// }
+// function xy_upload_image_limit( $file ){
+// 	// 检测文件的类型是否是图片
+// 	$mimes = array( 'image/jpeg', 'image/png', 'image/gif' );
+// 	// 如果不是图片，直接返回文件
+// 	if( !in_array( $file['type'], $mimes ) )
+// 		return $file;
+// 	if ( $file['size'] > 2097152 )
+// 		$file['error'] = '图片太大了，请不要超过2M';
+// 	return $file;
+// }
+
 add_filter('pre_site_transient_update_core',    create_function('$a', "return null;"));
 add_filter('pre_site_transient_update_plugins', create_function('$a', "return null;"));
 add_filter('pre_site_transient_update_themes',  create_function('$a', "return null;"));
@@ -47,7 +64,7 @@ add_action( 'init', 'coolwp_remove_open_sans_from_wp_core' );
 if (is_admin()) {
 	add_filter( 'admin_post_thumbnail_html', 'add_featured_image_instruction');
 	function add_featured_image_instruction( $content ) {
-		return $content .= '<p>特色图像将用来作为缩略图，裁剪大小为250*187，请务必选择超过这个尺寸的图片。</p>';
+		return $content .= '<p>特色图像将用来作为缩略图，请务必选择超过 300*300 的图片。</p>';
 	}
 }
 

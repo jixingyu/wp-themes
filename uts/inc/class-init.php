@@ -30,7 +30,7 @@ class Uts_init {
 	}
 
 	function my_init_method() {
-		wp_deregister_script( 'jquery' );
+		// wp_deregister_script( 'jquery' );
 	}
 
 	function enable_more_buttons($buttons) {
@@ -45,7 +45,7 @@ class Uts_init {
 	        // __('Posts'),
 	        // __('Media'),
 	        __('Links'),
-	        __('Pages'),
+	        // __('Pages'),
 	        // __('Appearance'),
 	        __('Tools'),
 	        // __('Users'),
