@@ -4,6 +4,8 @@
   global $wp_query;
   $cat_option = get_option( THEME_PREFIX . '_cat_options_' . $wp_query->queried_object_id );
   $tmp = ( is_category() && isset( $cat_option['template'] ) ) ? $cat_option['template'] : 'default';
+  $category = get_the_category();
+  $cur_cat = $category[0];
   if ( $tmp == 'picture' ) :
 ?>
 <style>
@@ -34,7 +36,7 @@
   <div class="bg53">
     <div class="container">
       <div class="row clearfix padding60-0 caserow">
-        <h2><?php $category = get_the_category(); echo $category[0]->name;?></h2>
+        <h2><?php $cur_cat->name;?></h2>
       	<?php if( have_posts() ): ?>
         <div class="listdiv padding40-0 listdivlist">
           <ul>
@@ -52,25 +54,7 @@
           </ul>
         </div>
         <div class="col-md-12 center pagefooter">
-          <nav aria-label="Page navigation">
-            <ul class="pagination">
-              <li>
-                <a href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                </a>
-              </li>
-              <li><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li>
-                <a href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
+          <?php xy_paginate();?>
         </div>
       	<?php endif;?>
       </div>
@@ -95,49 +79,22 @@
 	            <?php endif; ?>
 	            <div class="list-r-text">
 	              <h4 class="ellipsis"><?php the_title(); ?></h4>
-	              <div class="list-text-b"><span class="float-l">发布时间：<?php the_time('Y-m-d'); ?></span><span class="float-r"><?php post_views();?></span></div>
+	              <div class="list-text-b"><span class="float-l">发布时间：<?php the_time('Y-m-d'); ?></span><span class="float-r"><?php xy_post_views();?></span></div>
 	            </div>
 	          </a>
           </li>
           <?php endwhile; ?>
         </ul>
         <div class="col-md-12 center pagefooter">
-          <nav aria-label="Page navigation">
-            <ul class="pagination">
-              <li>
-                <a href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                </a>
-              </li>
-              <li><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li>
-                <a href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
+          <?php xy_paginate();?>
         </div>
 				<?php endif; ?>
       </div>
       <div class="col-md-3 newslist-r">
         <div class="hotnews">
-          <h5>热门新闻</h5>
+          <h5>热门</h5>
           <ol>
-            <li><a href="" target="_blank" class="ellipsis">手机新品首发手机新,品首发手机新品首发手,机新品首发手机新品首发,</a></li>
-            <li><a href="" target="_blank" class="ellipsis">建林讲物流，了解到了福建三地</a></li>
-            <li><a href="" target="_blank" class="ellipsis">手机新品首发手机新,品首发手机新品首发手,机新品首发手机新品首发,</a></li>
-            <li><a href="" target="_blank" class="ellipsis">建林讲物流，了解到了福建三地</a></li>
-            <li><a href="" target="_blank" class="ellipsis">手机新品首发手机新,品首发手机新品首发手,机新品首发手机新品首发,</a></li>
-            <li><a href="" target="_blank" class="ellipsis">建林讲物流，了解到了福建三地</a></li>
-            <li><a href="" target="_blank" class="ellipsis">手机新品首发手机新,品首发手机新品首发手,机新品首发手机新品首发,</a></li>
-            <li><a href="" target="_blank" class="ellipsis">建林讲物流，了解到了福建三地</a></li>
-            <li><a href="" target="_blank" class="ellipsis">手机新品首发手机新,品首发手机新品首发手,机新品首发手机新品首发,</a></li>
-            <li><a href="" target="_blank" class="ellipsis">建林讲物流，了解到了福建三地</a></li>
+            <?php xy_most_viewed_format($cur_cat->term_id);?>
           </ol>
         </div>
       </div>

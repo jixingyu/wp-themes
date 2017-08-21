@@ -29,6 +29,11 @@ $datas_2 = array(
 		array( 'type' => 'category', 'name' => 'index-tab-1', 'label' => '首页图片导航（5条）', 'selected' => -1 ),
 		array( 'type' => 'category', 'name' => 'index-tab-2', 'label' => '首页图片新闻（8条）', 'selected' => -1 ),
 	),
+	'business' => array(
+		'section_title' => '业务介绍',
+		'section_text' => '',
+		array( 'type' => 'text', 'name' => 'business-posts', 'label' => '文章集（6篇）')
+	),
 );
 
-$settings = array( '图片设置' => $datas_1, '首页栏目' => $datas_2 );
+$settings = array( '图片设置' => $datas_1, '栏目' => $datas_2 );

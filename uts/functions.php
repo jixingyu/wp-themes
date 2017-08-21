@@ -113,14 +113,19 @@ function xy_paginate( $pages = false ) {
 		'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
 		'format' => '?paged=%#%',
 		'current' => max( 1, get_query_var('paged') ),
-		'type' => 'plain'
+		'type' => 'array',
 	);
 	if ($pages) {
 		$args['total'] = $pages;
 	}
-	echo '<div class="tcdPageCode" style="margin-left: -149px;">';
-	echo paginate_links( $args );
-	echo '</div>';
+	$pages_array = paginate_links($args);
+	if( is_array( $pages_array ) ) {
+        echo '<nav aria-label="Page navigation"><ul class="pagination">';
+        foreach ( $pages_array as $page ) {
+            echo "<li>$page</li>";
+        }
+        echo '</ul></nav>';
+    }
 }
 
 function xy_thumb( $args = array() ) {
@@ -234,7 +239,7 @@ function xy_post_nav(){
 }
 
 /* 访问计数 */
-function record_visitors()
+function xy_record_visitors()
 {
 	if (is_singular()) {
 		global $post;
@@ -247,9 +252,9 @@ function record_visitors()
 		}
 	}
 }
-add_action('wp_head', 'record_visitors');
+add_action('wp_head', 'xy_record_visitors');
 /// 函数作用：取得文章的阅读次数
-function post_views($before = '浏览：', $after = '次', $echo = 1)
+function xy_post_views($before = '浏览：', $after = '次', $echo = 1)
 {
 	global $post;
 	$post_ID = $post->ID;
@@ -258,7 +263,7 @@ function post_views($before = '浏览：', $after = '次', $echo = 1)
 	else return $views;
 }
 
-function get_most_viewed_format($mode = '', $limit = 10, $show_date = 0, $term_id = 0, $beforetitle= '(', $aftertitle = ')', $beforedate= '(', $afterdate = ')', $beforecount= '(', $aftercount = ')') {
+function xy_most_viewed_format($term_id = 0, $echo = true, $limit = 10, $mode = '') {
 	global $wpdb, $post;
 	$output = '';
 	$mode = ($mode == '') ? 'post' : $mode;
@@ -272,20 +277,16 @@ function get_most_viewed_format($mode = '', $limit = 10, $show_date = 0, $term_i
 	if ($most_viewed) {
 		foreach ($most_viewed as $viewed) {
 			$post_ID    = $viewed->ID;
-			$post_views = number_format($viewed->views);
 			$post_title = esc_attr($viewed->post_title);
-			$get_permalink = esc_attr(get_permalink($post_ID));
-			$output .= "<li>$beforetitle$post_title$aftertitle";
-			if ($show_date) {
-				$posted = date(get_option('date_format'), strtotime($viewed->post_date));
-				$output .= "$beforedate $posted $afterdate";
-			}
-			$output .= "$beforecount $post_views $aftercount</li>";
+			$post_permalink = esc_attr(get_permalink($post_ID));
+            $output .= sprintf('<li><a href="%s" target="_blank" class="ellipsis">%s</a></li>', $post_permalink, $post_title);
 		}
-	} else {
-		$output = "<li>N/A</li>n";
 	}
-	echo $output;
+	if ($echo) {
+		echo $output;
+	} else {
+		return $output;
+	}
 }
 
 ?>

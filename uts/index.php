@@ -102,30 +102,27 @@
       </div>
     </div>
     <div class="row clearfix padding50-0 business">
+      <?php
+        $business_ids = ( isset( $th_options['business-posts'] ) && $th_options['business-posts'] ) ? $th_options['business-posts'] : '';
+        $business_ids = trim($business_ids);
+        if ($business_ids) {
+          $business_ids = explode(',', $business_ids);
+        } else {
+          $business_ids = array();
+        }
+        for ($i = 0; $i < 6; $i++) {
+          if (!isset($business_ids[$i]))
+            $business_ids[$i] = 1;
+          $business_ids[$i] = (int) $business_ids[$i];
+          $item_title = get_the_title($business_ids[$i]);
+      ?>
       <div class="col-md-2">
-        <img src="<?php bloginfo('template_url');?>/img/introud01.png" alt="干线运输" title="干线运输">
-        <h4>干线运输</h4>
+        <a href="<?php echo get_the_permalink($business_ids[$i]);?>">
+          <img src="<?php bloginfo('template_url');?>/img/introud0<?php echo $i + 1;?>.png" alt="<?php echo $item_title; ?>" title="<?php echo $item_title; ?>">
+          <h4><?php echo $item_title; ?></h4>
+        </a>
       </div>
-      <div class="col-md-2">
-        <img src="<?php bloginfo('template_url');?>/img/introud02.png" alt="仓库管理" title="仓库管理">
-        <h4>仓库管理</h4>
-      </div>
-      <div class="col-md-2">
-        <img src="<?php bloginfo('template_url');?>/img/introud03.png" alt="城市配送" title="城市配送">
-        <h4>城市配送</h4>
-      </div>
-      <div class="col-md-2">
-        <img src="<?php bloginfo('template_url');?>/img/introud04.png" alt="信息处理" title="信息处理">
-        <h4>信息处理</h4>
-      </div>
-      <div class="col-md-2">
-        <img src="<?php bloginfo('template_url');?>/img/introud05.png" alt="供应链金融" title="供应链金融">
-        <h4>供应链金融</h4>
-      </div>
-      <div class="col-md-2">
-        <img src="<?php bloginfo('template_url');?>/img/introud06.png" alt="国际货代" title="国际货代">
-        <h4>国际货代</h4>
-      </div>
+      <?php } ?>
     </div>
   </div>
   <!-- 案例中心 -->
