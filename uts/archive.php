@@ -8,23 +8,38 @@
   $cur_cat = $category[0];
   if ( $tmp == 'picture' ) :
 ?>
-<style>
-  .caserow h2{
-    display: none;
-    color: #fff;
-    font-size: 24px;
-    text-align: center;
-    padding: 5% 0;
-  }
-  @media screen and (max-width: 800px) {
-    .listdiv li:nth-child(10){
-        display: none;
+  <style>
+    .listdiv li{
+      width:25%;
+      margin-bottom: 2%;
     }
+   
     .caserow h2{
-      display: block;
+      display: none;
+      color: #fff;
+      font-size: 24px;
+      text-align: center;
+      padding: 5% 0;
     }
-  }
-</style>
+    @media screen and (max-width: 800px) {
+      .caserow h2{
+        display: block;
+      }
+    }
+    @media screen and (max-width: 737px) {
+      
+    }
+    @media screen and (max-width: 450px) {
+      .listdiv li{
+        width:33.3333%;
+      }
+      .pagination>li>a, .pagination>li>span{
+        padding:6px 7px;
+      }
+    }
+   
+
+  </style>
 <?php endif; ?>
 
 <!-- banner -->
@@ -44,7 +59,7 @@
             <li>
               <a href="<?php the_permalink();?>">
                 <div class="listimgdiv">
-                  <img src="<?php echo xy_thumb();?>" alt="手机新品首发">
+                  <img src="<?php echo xy_thumb();?>" alt="">
                   <div class="listimgbg"></div>
                   <h4><?php the_title(); ?></h4>
                 </div>
