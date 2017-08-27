@@ -1,0 +1,62 @@
+#settings-container {
+	width: 900px;
+}
+#settings-container h2{
+	margin-bottom: 20px;
+}
+#settings-container #tabs-wrap {
+   padding-left: 10px;
+   padding-right: 10px;
+}
+#settings-container .form-text, #settings-container .form-textarea, #settings-container .form-password {
+	width: 90%;
+	vertical-align: middle;
+}
+#settings-container .form-textarea {
+	height: 80px;
+}
+#settings-container p.description {
+	color: #999;
+}
+#settings-container .field-wrap {
+    position: relative;
+}
+#settings-container img.help {
+	vertical-align: middle;
+	margin-left: 20px;
+	cursor: help;
+}
+#settings-container .media-upload-text {
+    width: 80%;
+}
+#settings-container .wp-editor-wrap {
+	width: 90%;
+}
+#settings-container .field-wrap-color img.help {
+	margin-top: -20px;
+}
+#settings-container .field-wrap-editor {
+    position: relative;
+}
+#settings-container .field-wrap-editor img.help {
+    position: absolute;
+    right: 30px;
+    top: 50px;
+}
+#settings-container .section-text {
+	line-height: 220%;
+	border-radius: 5px;
+	padding: 0 10px;
+}
+#settings-container .checkbox-span {
+	margin-right: 5px;
+}
+
+/* Fix */
+.wp-picker-holder .iris-slider-offset {
+	border: none !important;
+	background: none !important;
+}
+.wp_themeSkin iframe {
+	min-height: 128px !important;
+}

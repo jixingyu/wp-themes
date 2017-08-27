@@ -286,13 +286,13 @@
       font-size: 16px;
       text-align: center;
       }
-      .taborg.active{
+      .taborg-waybill.active{
       background-color: #fff;
       }
-      .taborg.active h6{
+      .taborg-waybill.active h6{
       color:#f29b00;
       }
-      .taborg.active .tabicon01,.taborg.active .tabicon02{
+      .taborg-waybill.active .tabicon01,.taborg-waybill.active .tabicon02{
       background-position: 0 -90px; 
       }
       .taborg-waybill{
@@ -301,9 +301,11 @@
       #waybill{
         border-right: 1px solid #fff;
       }
+      .taborg-waybill .waybillform{
+        display: none;
+      }
       
       .waybillform{
-        display: none;
         background: #fff;
         padding: 20px;
         position: absolute;
@@ -325,7 +327,7 @@
       border:0;
       outline:0;
       }
-      .waybillform form{
+      .waybillform form,.waybillformuser form{
       position: relative;
       }
       .placediv{
@@ -363,7 +365,7 @@
       .taborg.active .waybillform{
       display: block;
       }
-      .waybillform label{
+      .waybillform label,.waybillformuser label{
         position: relative;
         margin:15px 0;
         background:#eee;
@@ -468,6 +470,8 @@
       }
       .business img{
         width:95%;
+        padding-left: 10%;
+        padding-right: 10%;
       }
       .business h4{
         text-align: center;
@@ -736,7 +740,7 @@
 
 
     /*新闻列表*/
-    .banner{width:100%;overflow:hidden;height:505px;}
+    .banner{width:100%;overflow:hidden;}
       .bannerimg{width:1920px;margin-left:-960px;left:50%;position:relative;}
       .breadcrumbdiv{margin: 20px 0;padding-bottom: 20px; padding-left: 0;}
       .breadcrumb {
@@ -927,7 +931,7 @@
     /*业务介绍*/
     .navbussies{background: #f1f1f1; height: 178px;margin-bottom:5%;}
     .navbussies ul{}
-    .navbussies ul li{float:left;width: 16.6666666666%;position: relative; text-align: center;}
+    .navbussies ul li{float:left;width: 25%;position: relative; text-align: center;}
     .navbussies .icons{
       width:88px;
       height:88px;
@@ -1005,7 +1009,7 @@
       .taborgform2 input{
         max-width: 83%;
       }
-      .waybillform label{
+      .waybillform label,.waybillformuser label{
         overflow: hidden;
       }
       /*news-list*/
@@ -1136,7 +1140,7 @@
         height: 24px;
         line-height: 24px;
       }
-      .waybillform label{
+      .waybillform label,.waybillformuser label{
             padding: 2%;
       }
       .taborg p.errorlog {
@@ -1204,7 +1208,7 @@
       .navbar-header {
         height: 60px;
       }
-      .waybillform textarea {
+      .waybillform textarea{
         height: 200px;
       }
       .subBtn {
@@ -1287,7 +1291,7 @@
       .navbg .col-md-12{
         padding:0;
       }
-      .taborg p.errorlog {
+      .taborg-waybill p.errorlog {
         width: 80%;
         left:18%;
       }
@@ -1563,7 +1567,8 @@
         padding: 10px;
         z-index: 15;
       }
-      .waybillform h5,.waybillform h6{
+      .waybillform h5,.waybillform h6,
+      .waybillformuser h5,.waybillformuser h6{
         font-size:12px;
       }
       .placediv {
@@ -1584,7 +1589,7 @@
         line-height: 30px;
         margin-top: 10px;
       }
-      .waybillform label {
+      .waybillform label,.waybillformuser label{
           margin: 5px 0;
           padding: 0 2%;
       }
@@ -1674,7 +1679,7 @@
       }
     }
     @media screen and (max-width: 415px) {
-      .taborg p.errorlog{
+      .taborg-waybill p.errorlog{
         left: 23%;
       }
       .hoverdiv {
@@ -1708,11 +1713,12 @@
 
     }
     @media screen and (max-width: 376px) {
+      /*.user-icon,*/
       .carousel-control .icon-prev,
        .carousel-control .glyphicon-chevron-left, 
        .carousel-control .icon-next,
         .carousel-control .glyphicon-chevron-right,
-        .tabicon01, .tabicon02, .user-icon, .password-icon{
+        .tabicon01, .tabicon02,  .password-icon{
         -ms-transform: scale(.50);
         -moz-transform: scale(.50);
         -webkit-transform: scale(0.50);
@@ -1742,18 +1748,18 @@
         height: 200px;
         box-shadow: 0 0 10px #c9c9c9;
       }
-      .taborg-qiyeuser .waybillform{
+      .taborg-qiyeuser .waybillform,.taborg-qiyeuser .waybillformuser{
         height: 155px;
       }
       .user-icon, .password-icon {
         max-width: 20%;
       }
-      .taborgform2 .line-right {
+      /*.taborgform2 .line-right {
         margin-left: -4%;
         height: 14px;
         margin-top: 1px;
-      }
-      .taborg p.errorlog {
+      }*/
+      .taborg-waybill p.errorlog {
           left: 33px;
       }
       .weixinfooter .weixinicon{
@@ -1762,7 +1768,7 @@
       .placediv h5 {
         margin-bottom: 65px;
       }
-      .taborg h6{
+      .taborg-waybill h6{
         margin-left:-12%;
       }
       .taborg .placediv h6{

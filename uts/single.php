@@ -19,7 +19,7 @@
   <!-- 业务介绍导航条 -->
   <div class="navbussies">
     <ul>
-      <?php for ($i = 0; $i < 6; $i++) {if (!isset($business_ids[$i])) $business_ids[$i] = 1; $business_ids[$i] = (int) $business_ids[$i]; ?>
+      <?php for ($i = 0; $i < 4; $i++) {if (!isset($business_ids[$i])) $business_ids[$i] = 1; $business_ids[$i] = (int) $business_ids[$i]; ?>
         <?php if ($business_ids[$i] == $cur_post_id) :?>
         <li class="active">
           <a href="javascript:void(0);">

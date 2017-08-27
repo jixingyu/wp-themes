@@ -1,0 +1,7 @@
+.dx-metabox-item label {
+	display: inline-block;
+	width: 50px;
+}
+.dx-metabox-item input.form-text{
+	width: 60%;
+}

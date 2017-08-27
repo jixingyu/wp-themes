@@ -1,11 +1,6 @@
 <?php
 
 $datas_1 = array(
-	'banner' => array(
-		'section_title' => '头部图像',
-		'section_text' => '',
-		array( 'type' => 'upload', 'name' => 'head-banner-img', 'label' => '头部图像', 'tips' => '建议图片尺寸：1920*508' ),
-	),
 	'slider' => array(
 		'section_title' => '首页轮播图',
 		'section_text' => '',
@@ -23,10 +18,11 @@ if( 0 < $slider_num ) {
 }
 
 $datas_2 = array(
-	'business' => array(
-		'section_title' => '业务介绍',
+	'index' => array(
+		'section_title' => '首页栏目设置',
 		'section_text' => '',
-		array( 'type' => 'text', 'name' => 'business-posts', 'label' => '文章集（6篇）')
+		array( 'type' => 'text', 'name' => 'index-posts', 'label' => '图片文章集（7篇）' ),
+		array( 'type' => 'category', 'name' => 'index-notice', 'label' => '首页公告', 'selected' => -1 ),
 	),
 );
 

@@ -4,8 +4,8 @@
   global $wp_query;
   $cat_option = get_option( THEME_PREFIX . '_cat_options_' . $wp_query->queried_object_id );
   $tmp = ( is_category() && isset( $cat_option['template'] ) ) ? $cat_option['template'] : 'default';
-  $category = get_the_category();
-  $cur_cat = $category[0];
+  $cat_ID = get_query_var('cat');
+  $cur_cat = get_category($cat_ID);
   if ( $tmp == 'picture' ) :
 ?>
   <style>
@@ -51,7 +51,7 @@
   <div class="bg53">
     <div class="container">
       <div class="row clearfix padding60-0 caserow">
-        <h2><?php $cur_cat->name;?></h2>
+        <h2><?php echo $cur_cat->name;?></h2>
       	<?php if( have_posts() ): ?>
         <div class="listdiv padding40-0 listdivlist">
           <ul>
@@ -94,7 +94,7 @@
 	            <?php endif; ?>
 	            <div class="list-r-text">
 	              <h4 class="ellipsis"><?php the_title(); ?></h4>
-	              <div class="list-text-b"><span class="float-l">发布时间：<?php the_time('Y-m-d'); ?></span><span class="float-r"><?php xy_post_views();?></span></div>
+	              <div class="list-text-b"><span class="float-l">发布时间：<?php the_time('Y-m-d'); ?></span></div>
 	            </div>
 	          </a>
           </li>

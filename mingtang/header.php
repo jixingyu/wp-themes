@@ -17,14 +17,15 @@
             echo '页面未找到!';
         } else {
             wp_title('',true);
-        } ?></title>
+        } ?>
+    </title>
     <?php
         $description = '';
         $keywords = '';
 
         if (is_home() || is_page()) {
-           $description = get_bloginfo('name');
-           $keywords = get_bloginfo('name');
+           $description = "优通";
+           $keywords = "优通";
         } elseif (is_single()) {
            $description1 = get_post_meta($post->ID, "description", true);
            $description2 = str_replace("\n","",mb_strimwidth(strip_tags($post->post_content), 0, 200, "…", 'utf-8'));
@@ -48,9 +49,6 @@
            $description = tag_description();
            $keywords = single_tag_title('', false);
         }
-        if (empty($keywords)) {
-          $keywords = get_bloginfo('name');
-        }
         $description = trim(strip_tags($description));
         $keywords = trim(strip_tags($keywords));
     ?>
@@ -63,36 +61,60 @@
 
     <?php
         global $th_options;
+        global $tplRootUrl;
+        $tplRootUrl = get_bloginfo('template_url');
         wp_head();
     ?>
 </head>
 <body>
-  <!-- 导航 -->
-  <div class="navbg">
+  <!-- 顶部 -->
+
+  <div class="topbg">
     <div class="container">
       <div class="row clearfix">
-        <div class="col-md-12 column">
-          <div class="navbar navbar-youtong">
-            <nav class="navbar navbar-youtong" role="navigation">
+        <div class="col-md-12">
+          <div class="navbar navbar-mingtang">
+            <nav class="navbar navbar-mingtang" role="navigation">
               <div class="navbar-header">
-                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse"> <span class="sr-only">切换</span><div class="line-iconbar"></div><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> 
-                 <a class="navbar-brand" href="/"><div class="logo"><img src="<?php bloginfo('template_url');?>/img/logo.png" /></div></a>
+                 <a class="navbar-brand" href="Javascript: void(0)"><div class="logo"><img src="<?php echo $tplRootUrl;?>/img/logo.png" /><img src="<?php echo $tplRootUrl;?>/img/logo-top.png" alt=""></div></a>
               </div>
-            
-              <div class="collapse navbar-collapse" id="navbar-collapse">
-                <?php
-                    wp_nav_menu( array(
-                        'theme_location' => 'navmain',
-                        'walker' => new Uts_Navmain_Walker(),
-                        'container' => '',
-                        'items_wrap' => '<ul class="nav navbar-nav navbar-right">%3$s</ul>',
-                        'depth' => 2
-                    ) );
-                ?>
-              </div>
+              <ul class="navber-top float-r">
+                <li>
+                  <a href="#"><span class="icons icon-shop dis-mid"></span>商店</a>
+                </li>
+                <li>
+                  <a href="#"><span class="icons icon-guanzhu  dis-mid"></span>关注我们</a>
+                </li>
+                <li class="share-hover">
+                  <a href="Javascript: void(0)">
+                    <span class="icons icon-share  dis-mid"></span>分享
+                    <div class="hideshare">
+                      <div class="jiathis_style_32x32">
+                        <a class="jiathis_button_qzone"></a>
+                        <a class="jiathis_button_tsina"></a>
+                        <a class="jiathis_button_tqq"></a>
+                        <a class="jiathis_button_weixin"></a>
+                        <a class="jiathis_button_renren"></a>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
             </nav>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+              <?php
+                wp_nav_menu( array(
+                  'theme_location' => 'navmain',
+                  'walker' => new Xy_Navmain_Walker(),
+                  'container' => '',
+                  'items_wrap' => '<ul class="nav navbar-nav navbar-right">%3$s</ul>',
+                  'depth' => 2
+                ) );
+              ?>
+            </div>
           </div>
         </div>
-      </div>
+      </div>  
     </div>
   </div>

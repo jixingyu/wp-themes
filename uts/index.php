@@ -34,15 +34,7 @@
               echo '<div class="item' . $active . '"><img src="' . $pic . '"></div>';
             }          }
         ?>
-      </div> 
-      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
+      </div>
     </div>
   </div>
   <?php endif; ?>
@@ -97,7 +89,7 @@
   <div class="container padding60-0">
     <div class="row clearfix">
       <div class="col-md-12 titlediv">
-        <h2>优通业务介绍</h2>
+        <h2>业务介绍</h2>
         <div class="title-bottom"></div>
       </div>
     </div>
@@ -110,13 +102,13 @@
         } else {
           $business_ids = array();
         }
-        for ($i = 0; $i < 6; $i++) {
+        for ($i = 0; $i < 4; $i++) {
           if (!isset($business_ids[$i]))
             $business_ids[$i] = 1;
           $business_ids[$i] = (int) $business_ids[$i];
           $item_title = get_the_title($business_ids[$i]);
       ?>
-      <div class="col-md-2">
+      <div class="col-md-3">
         <a href="<?php echo get_the_permalink($business_ids[$i]);?>">
           <img src="<?php bloginfo('template_url');?>/img/introud0<?php echo $i + 1;?>.png" alt="<?php echo $item_title; ?>" title="<?php echo $item_title; ?>">
           <h4><?php echo $item_title; ?></h4>
@@ -125,83 +117,6 @@
       <?php } ?>
     </div>
   </div>
-  <!-- 案例中心 -->
-  <?php
-    $itab1 = isset( $th_options['index-tab-1'] ) ? (int) $th_options['index-tab-1'] : -1;
-    if ($itab1 != -1) {
-  ?>
-  <div class="bg53">
-    <div class="container padding40-0 ">
-      <div class="row clearfix">
-        <div class="col-md-12 titlediv">
-          <h2><?php echo get_cat_name( $itab1 ); ?></h2>
-          <div class="title-bottom"></div>
-        </div>
-        <div class="listdiv">
-          <ul>
-            <?php
-              $query = new WP_Query( array(
-                'cat' => $itab1,
-                'posts_per_page' => 6,
-                'ignore_sticky_posts' => true
-              ) );
-              while( $query->have_posts() ):
-                $query->the_post();
-            ?>
-            <li>
-              <a href="<?php the_permalink();?>">
-                <div class="listimgdiv">
-                  <img src="<?php echo xy_thumb();?>">
-                  <div class="listimgbg"></div>
-                  <h4><?php the_title();?></h4>
-                </div>
-              </a>
-            </li>
-            <?php endwhile;wp_reset_postdata(); ?>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <?php } ?>
-  <!-- 公司新闻 -->
-  <?php
-    $itab2 = isset( $th_options['index-tab-2'] ) ? (int) $th_options['index-tab-2'] : -1;
-    if ($itab2 != -1) {
-  ?>
-  <div class="container padding60-0">
-    <div class="row clearfix">
-      <div class="col-md-12 titlediv">
-        <h2><?php echo get_cat_name( $itab2 ); ?></h2>
-        <div class="title-bottom"></div>
-      </div>
-    </div>
-    <div class="row clearfix newsrow">
-      <?php
-        $query = new WP_Query( array(
-          'cat' => $itab2,
-          'posts_per_page' => 8,
-          'ignore_sticky_posts' => true
-        ) );
-        while( $query->have_posts() ):
-          $query->the_post();
-      ?>
-      <div class="col-md-3">
-        <a href="<?php the_permalink();?>">
-          <div class="hoverdiv">
-            <img src="<?php echo xy_thumb();?>" alt="">
-            <div class="hidetext">
-              <h3><?php the_title();?></h3>
-              <p><?php the_time('Y-m-d');?></p>
-              <div class="h7"><?php echo get_the_excerpt();?></div>
-            </div>
-          </div>
-        </a>
-      </div>
-    <?php endwhile;wp_reset_postdata(); ?>
-    </div>
-  </div>
-  <?php } ?>
 <script>
  (function(){
 
