@@ -235,7 +235,9 @@
       right: 0;
       }
       .carousel-indicators li,.carousel-indicators li.active{
-      width:60px;
+      width:60px;height:6px;
+      margin: 1px;
+
       }
       .carousel-indicators li{
       background-color: #878b8e;
@@ -741,7 +743,12 @@
 
     /*新闻列表*/
     .banner{width:100%;overflow:hidden;}
-      .bannerimg{width:1920px;margin-left:-960px;left:50%;position:relative;}
+      .bannerimg{    
+        width: 100%;
+        margin-left: -50%;
+        left: 50%;
+        position: relative;
+      }
       .breadcrumbdiv{margin: 20px 0;padding-bottom: 20px; padding-left: 0;}
       .breadcrumb {
         padding: 0;
@@ -1548,7 +1555,7 @@
       }
 
       .carousel-indicators li, .carousel-indicators li.active {
-          width: 40px;
+          width: 60px;
           height:6px;
       }
       .taborgbg .container{
@@ -1659,11 +1666,7 @@
       /*详情*/
       .newsdetails .news-title,.newsdetails .list-text-b{
         width:100%;
-      }
-
-      .navbussies ul li{width:33.3333%;}
-      .navbussies{height:340px;}
-      
+      }      
     }
 
     @media screen and (max-width: 481px) {

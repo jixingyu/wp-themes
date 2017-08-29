@@ -48,6 +48,7 @@ require_once( 'settings/class-settings.php' );
 require_once( 'settings/fields/class-fields.php' );
 require_once( 'settings/cat-options/class-cat-options.php' );
 require_once( 'settings/post-metabox/class-metabox.php' );
+require_once( 'tpl/reglist.php' );
 
 function get_ssl_avatar($avatar) {
    $avatar = preg_replace('/.*\/avatar\/(.*)\?s=([\d]+)&.*/','<img src="https://secure.gravatar.com/avatar/$1?s=$2&d=mm" class="avatar avatar-$2" height="$2" width="$2">',$avatar);

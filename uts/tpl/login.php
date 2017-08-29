@@ -10,7 +10,8 @@ get_header();
       width:50%;
       min-width: 365px;
       margin: 0 auto;
-      padding-bottom:15%;
+      padding-bottom:12%;
+      padding-top: 10%;
     }
     .waybillformuser{
       background: #fff;
