@@ -1,5 +1,7 @@
 <?php get_header(); ?>
   <style>
+    .newsdetails .border0{border-bottom:0;padding-bottom: 0;}
+    .newsdetails{display: none;}
     .listdiv li:nth-child(6){
       display: none;
     }
@@ -60,40 +62,19 @@
           </div>
         </div>
         <div class="col-md-6 taborg taborg-qiyeuser">
-          <div id="qiyeuser">
-            <div class="tabicon02"></div>
-            <h6>企业用户登录</h6>
-          </div>
-          <div class="waybillform" >
-            <form id="form2-js" class="taborgform2">
-              <label for="username">
-                <span class="user-icon"></span>
-                <span class="line-right"></span>
-                <input type="username" name="username" placeholder="请输入用户名" onfocus="if(placeholder=='请输入用户名') {placeholder=''}" onblur="if (value=='') {placeholder='请输入用户名'}">
-                <p class="errorlog">请输入用户名</p>
-              </label>
-              <label for="password">
-                <span class="password-icon"></span>
-                <span class="line-right"></span>
-                <input type="password" name="password" placeholder="请输入密码" onfocus="if(placeholder=='请输入密码') {placeholder=''}" onblur="if (value=='') {placeholder='请输入密码'}">
-                <p class="errorlog">请输入密码</p>
-              </label>
-            </form>
-            <div id="loginBtn"  class="subBtn">登录</div>
-          </div>
+          <a href="/uts-login">
+            <div id="qiyeuser">
+              <div class="tabicon02"></div>
+              <h6>企业用户登录</h6>
+            </div>
+          </a>
         </div>
       </div>
     </div>
   </div>
   <!-- 业务介绍 -->
-  <div class="container padding60-0">
-    <div class="row clearfix">
-      <div class="col-md-12 titlediv">
-        <h2>业务介绍</h2>
-        <div class="title-bottom"></div>
-      </div>
-    </div>
-    <div class="row clearfix padding50-0 business">
+  <div class="navbussies">
+    <ul>
       <?php
         $business_ids = ( isset( $th_options['business-posts'] ) && $th_options['business-posts'] ) ? $th_options['business-posts'] : '';
         $business_ids = trim($business_ids);
@@ -102,23 +83,68 @@
         } else {
           $business_ids = array();
         }
-        for ($i = 0; $i < 4; $i++) {
-          if (!isset($business_ids[$i]))
-            $business_ids[$i] = 1;
-          $business_ids[$i] = (int) $business_ids[$i];
-          $item_title = get_the_title($business_ids[$i]);
+        $query = new WP_Query( array(
+          'post__in' => $business_ids,
+          'posts_per_page' => 4,
+          'ignore_sticky_posts' => true,
+          'orderby' => 'post__in',
+        ) );
+        $i = 0;
+        while( $query->have_posts() ):
+          $query->the_post();
+          $i++;
       ?>
-      <div class="col-md-3">
-        <a href="<?php echo get_the_permalink($business_ids[$i]);?>">
-          <img src="<?php bloginfo('template_url');?>/img/introud0<?php echo $i + 1;?>.png" alt="<?php echo $item_title; ?>" title="<?php echo $item_title; ?>">
-          <h4><?php echo $item_title; ?></h4>
+      <li<?php if ($i == 1) echo ' class="active"'; ?>>
+        <a href="Javascript: void(0)">
+          <span class="icons<?php switch ($i) {
+            case 1:
+              echo ' icon-buss02';
+              break;
+            case 2:
+              echo ' icon-buss03';
+              break;
+            case 3:
+              echo ' icon-buss05';
+              break;
+            case 4:
+            default:
+              echo ' icon-buss06';
+              break;
+          }?>"></span>
+          <h4><?php the_title();?></h4>
         </a>
+      </li>
+      <?php endwhile;wp_reset_postdata(); ?>
+    </ul>
+  </div>
+  <div class="clear"></div>
+  <div class="container">
+    <?php
+      $i = 0;
+      while( $query->have_posts() ):
+        $query->the_post();
+        $i++;
+    ?>
+    <div class="row clearfix newsdetails">
+      <div class="col-md-12">
+        <div class="details border0">
+          <?php the_content();?>
+        </div>
       </div>
-      <?php } ?>
     </div>
+    <?php endwhile;wp_reset_postdata(); ?>
   </div>
 <script>
  (function(){
+    // tab切换
+    $(".newsdetails").eq(0).show();
+    $(".navbussies").eq(0).addClass('active');
+    $(".navbussies li").on("mouseover",function(){
+      $(this).addClass('active').siblings().removeClass('active');
+      var num =$(".navbussies li").index(this);
+      $(".newsdetails").hide();
+      $(".newsdetails").eq(num).show().siblings().hide();
+    });
 
     // 企业新闻截取
     // var thiswidth,maxlength=60;

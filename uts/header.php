@@ -56,7 +56,7 @@
     ?>
     <meta name="description" content="<?php echo $description; ?>" />
     <meta name="keywords" content="<?php echo $keywords; ?>" />
-    <!-- <link rel="shortcut icon" href="favicon.ico" /> -->
+    <link rel="shortcut icon" href="/wp-content/themes/uts/img/favicon.ico" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />

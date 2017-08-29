@@ -26,7 +26,7 @@ $datas_2 = array(
 	'business' => array(
 		'section_title' => '业务介绍',
 		'section_text' => '',
-		array( 'type' => 'text', 'name' => 'business-posts', 'label' => '文章集（6篇）')
+		array( 'type' => 'text', 'name' => 'business-posts', 'label' => '文章集（4篇）')
 	),
 );
 
