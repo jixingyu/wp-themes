@@ -8,7 +8,8 @@
   $cur_cat = get_category($cat_ID);
 ?>
 
-  <div class="newsbg"<?php if ($pic) echo ' style="background: url(' . $pic . ') center 0 no-repeat;"';?>>
+  <div class="newsbg">
+    <img src="<?php echo $pic ? $pic : $tplRootUrl . '/img/news-bg.gif';?>" alt="">
   </div>
   <div class="container padding-b300">
     <div class="row clearfix">

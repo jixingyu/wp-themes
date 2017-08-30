@@ -5,7 +5,8 @@
     $meta = get_post_meta( $wp_query->queried_object_id , '_' . THEME_PREFIX . '_top_pic', true );
     $pic = ( isset( $meta['pic'] ) && $meta['pic'] ) ? $meta['pic'] : '';
 ?>
-  <div class="newsbg"<?php if ($pic) echo ' style="background: url(' . $pic . ') center 0 no-repeat;"';?>>
+  <div class="newsbg">
+    <img src="<?php echo $pic ? $pic : $tplRootUrl . '/img/news-bg.gif';?>" alt="">
   </div>
   <div class="container padding-b300">
     <div class="row clearfix">

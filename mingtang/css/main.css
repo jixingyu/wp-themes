@@ -114,7 +114,7 @@
 
 /*顶部导航*/
 .topbg{
-  background: url(../img/top-bg.png) no-repeat;
+  background: url(../img/top-bg.png) center 0 no-repeat;
   width:100%;
   height:198px;
   }
@@ -262,8 +262,9 @@
 
 /*幻灯片样式重写*/
 .carousel-indicators li,.carousel-indicators li.active{
-  width:13px;
-  height:13px;
+    width:13px;
+    height:13px;
+    margin:5px;
   }
   .carousel-indicators li{
     opacity: .55;
@@ -291,9 +292,10 @@
   .container-img .imglist{position: relative;padding: 0;margin-bottom:20px;margin-left:1%;margin-right:1%;cursor: pointer;}
   .imgtext{display: none;position: absolute;top:0;left:0;width:100%;height:100%;padding: 15px 30px;background: url(../img/black-bg2.png) repeat;z-index: 2;}
   .container-img .imglist:hover .imgtext{display:block;}
-  .imgtext h2,.imgtext h6{color:#fff;}
-  .imgtext h6{margin-top:170px;}
-  .container-img .imglist img{width:100%;border: 1px solid #eee;}
+  .imgtext h2,.imgtext h6{color:#fff;position: absolute; left:5%; width:90%;}
+  .imgtext h2{top:8%; text-overflow: ellipsis;white-space: nowrap;overflow: hidden;}
+  .imgtext h6{bottom:15%;height:60px;overflow: hidden;}
+  .container-img .imglist img{width:100%;border: 1px solid #eee;min-height: 375px;}
   .container-img .imglist img:hover{box-shadow: 0 0 20px #333;}
 
 /*footer*/
@@ -318,7 +320,7 @@
       white-space: nowrap;
       overflow: hidden;}
     .footercol4 ul li h6{float:right;}
-    .footercol4 .col-md-4{border-right:3px solid #b2bbc6;height: 227px;padding-left:20px;padding-right:20px;}
+    .footercol4 .col-md-4{width:33.3%;border-right:3px solid #b2bbc6;height: 227px;padding-left:20px;padding-right:20px;}
     .footercol4 .col-md-4:last-child{border:0;}
   .footer-bg{background: url(../img/black-bg.png) repeat; width:100%;height:180px;position: absolute;bottom:0;}
     .footernav{
@@ -368,11 +370,16 @@
   }
 
 /*fixed-r*/
-.fixed-r{position: fixed;right:0;top:15%;width:200px; z-index:5;}
+.fixed-r{position: fixed;right:0;top:15%;width:145px; z-index:5;}
   .fixed-r .askbg{display: block;background: url(../img/ask-bg.png) no-repeat;
-    font-size:20px;color:#fff;width:200px;
-    height:83px;line-height: 83px;padding-left:20px;}
-  .fixed-r .weixinimg{width:183px;height:183px;margin-top:20px;}
+    font-size:20px;color:#fff;width:200px;font-size: 16px;
+    color: #fff;
+    width: 100%;
+    height: 53px;
+    line-height: 58px;
+    padding-left: 17px;
+    }
+  .fixed-r .weixinimg{width:120px;height:120px;margin-top: 15px;margin-left: 12px;}
 
 
 
@@ -393,9 +400,7 @@
     .content h5 img{margin-right:20px;}
     .content-b-img{margin:30px auto;}
 /*资讯*/
-.newsbg{
-  background: url(../img/news-bg.gif) center 0 no-repeat;
-  min-height: 610px;width:100%;padding-bottom:300px;}
+.newsbg{text-align: center;width:100%;}
   .newslist  li{color:#000;font-size:24px; position: relative;padding-left:35px;height: 50px;
     line-height: 50px;} 
   .newslist  li:before{
@@ -435,7 +440,7 @@
 
 @media screen and (max-width: 1180px) {
   .container {
-    width: 98%;
+    width: 100%;
   }
   .row {
     margin-right: 0; 
@@ -444,17 +449,9 @@
   
   
 }
-@media screen and (max-width: 1140px) {
- 
-  
-}
-@media screen and (max-width: 1050px) {
- 
-}
-@media screen and (max-width: 1010px) {
-  
-}
-@media screen and (max-width: 910px) {
+
+
+@media screen and (max-width: 995px) {
   h2 {
     font-size: 24px;
   }
@@ -467,23 +464,23 @@
   h5 {
     font-size: 15px;
   }
-  h6 {
-    font-size: 14px;
-  }
   .h7 {
     font-size: 13px;
   }
-  
-}
-@media screen and (max-width: 800px) {
-  
+  .imgtext{
+    display: block;
+  }
   
 }
 
 
-@media screen and (max-width: 737px) {
-  
-  
+@media screen and (max-width: 769px) {
+  .fixed-r{display: none;}
+  .navber-top>li>a{
+    padding: 5px 10px;
+  }
+  .footerlink .navbar-nav>li>a{padding:15px 10px;}
+  .container-img .imglist img{min-height: 300px;}
 }
 
 @media screen and (max-width: 668px) {
@@ -495,9 +492,7 @@
 }
 
 @media screen and (max-width: 569px) {
-  .container {
-      width: 100%;
-  }
+ 
   h2 {
     font-size: 20px;
   }
@@ -518,13 +513,54 @@
 
 
 @media screen and (max-width: 415px) {
-  
+  .container-img .col-md-4,.footercol4 .col-md-4{
+    width:100%;
+  }
+  .navbar-mingtang .navbar-brand{padding:0;width:80%;}
+  .navber-top{display: none;}
+  .footer-mingtang{
+    background: none;
+    padding-bottom:200px;
+    height:auto;
+  }
+  .footercol4 .col-md-4{
+    border-right:0;
+  }
+  .footer-bg{height:100px;}
+  .navbar-toggle{ 
+    display: block;
+    background-color: #0a161b;
+    margin: 0;
+    border-radius: 0;
+    height: 100%;
+    width: 50px;
+  }
+  .navbar-header{ width: 100%;}
+   .navbar-toggle:focus,.navbar-toggle:active{
+      border: 0;
+      outline: none;
+    }
+    .navbar-toggle .icon-bar{
+        background-color: #fff;
+        width: 100%;
+        height: 3px;
+        border-radius: 0;
+      }
+      
+      .navbar-toggle:hover .icon-bar{
+        background-color: #f29b00;
+      }
+      .navbar-nav>li ,.navbar-right{
+        float: inherit;
+      }
+      .navbar-nav>li>a{color:#fff;}
+  .navbar-collapse.collapse{display: none;}
+  .col-md-12,.topbg .container{padding:0;}
+  .topbg{height:auto;background-repeat: repeat-y;}
 
 }
 @media screen and (max-width: 376px) {
-  
-   
-
+  .logorightimg{width:70%;}
 }
 @media screen and (max-width: 321px) {
  
