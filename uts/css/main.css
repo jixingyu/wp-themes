@@ -1166,7 +1166,7 @@
         width: 300px;
       }
       /*联系我们*/
-      .contactrow{padding-top: 80px;background-color: #f0f0f0;margin-bottom: 70px;}
+      .contactrow{padding-top: 80px;margin-bottom: 70px;}
       .contactrow .col-md-4 {
         width: 100%;
       }
@@ -1798,10 +1798,6 @@
       .borderpart{
         width:100%;
       }
-      .contactrow{
-        margin-top:95px;
-      }
-
     }
     @media screen and (max-width: 321px) {
       .listimgdiv,.listimgdiv img{

@@ -55,7 +55,7 @@
       <li><div class="phonefooterli indent">地址：上海闵行区都会路2338弄15/16栋</div></li>
       <li>
         <div class="copyright">
-          上海优通供应链管理有限公司<br>Copyright © 2014 上海优通供应链管理有限公司(沪ICP备15020782号)
+          © 2017 上海优通供应链管理有限公司 (沪ICP备15020782号)
         </div>
       </li>
     </ul>

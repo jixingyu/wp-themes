@@ -341,12 +341,41 @@
 
     /*适配*/
 
+
+
+/*新底部样式*/
+.footerlink ul li {float:left;position: relative;}
+  .footerlink ul li:after{
+    content: "";
+    position: absolute;
+    right:0;
+    top:18px;
+    height:13px;
+    width:1px;
+    background-color: #fff;
+  }
+  .footerlink ul li:last-child:after{
+    display: none;
+  }
+  .footerlink .navbar-nav>li>a{
+    font-size:14px;
+    padding:15px 25px;
+  }
+  .footerlink .navbar-nav>li>a:link,.footerlink .navbar-nav>li>a:visited,.footerlink .navbar-nav>li>a:hover,
+  .footerlink .navbar-nav>li>a:active{
+    color:#fff;
+    background: transparent;
+  }
+
 /*fixed-r*/
 .fixed-r{position: fixed;right:0;top:15%;width:200px; z-index:5;}
   .fixed-r .askbg{display: block;background: url(../img/ask-bg.png) no-repeat;
     font-size:20px;color:#fff;width:200px;
     height:83px;line-height: 83px;padding-left:20px;}
   .fixed-r .weixinimg{width:183px;height:183px;margin-top:20px;}
+
+
+
 
 /*简介*/
 .introducbg{background: url(../img/introduc-bg.gif) center 0 no-repeat;min-height: 500px;

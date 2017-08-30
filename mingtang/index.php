@@ -105,7 +105,6 @@
   </div>
 
   <div class="fixed-r">
-    <img src="<?php echo $tplRootUrl;?>/img/asktop.png" alt="">
     <a href="" class="askbg">参观画展预约</a>
     <a href="" class="askbg">体验课预约</a>
     <img class="weixinimg" src="<?php echo $tplRootUrl;?>/img/weixin.jpg" alt="扫一扫">

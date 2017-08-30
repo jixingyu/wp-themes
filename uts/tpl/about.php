@@ -45,4 +45,4 @@ Template Name: 关于我们
       </div>
     </div>
   </div>
-<?php get_footer(); ?>
+<?php get_footer('about'); ?>
