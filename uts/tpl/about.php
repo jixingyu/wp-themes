@@ -41,8 +41,28 @@ Template Name: 关于我们
       </div>
     </div>
     <div class="row clearfix">
-      <div class="col-md-12 mapdiv">
+      <div id="mapdiv" class="col-md-12 mapdiv">
       </div>
     </div>
   </div>
+
+  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=9heVASdNFpkcDNyWj0pvOSBEaO6lryFh"></script>
+  <script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("mapdiv");
+    var point = new BMap.Point(121.425161,31.077908);
+    var marker = new BMap.Marker(point);
+    map.addOverlay(marker);
+    map.centerAndZoom(point, 17);
+    var opts = {
+      width : 200,
+      height: 100,
+      title : "<?php bloginfo('name');?>"
+    }
+    var infoWindow = new BMap.InfoWindow("地址：上海闵行区都会路2338弄15/16栋", opts);
+    marker.addEventListener("click", function(){
+      map.openInfoWindow(infoWindow,point);
+    });
+    map.enableScrollWheelZoom(true);
+  </script>
 <?php get_footer('about'); ?>
