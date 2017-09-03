@@ -105,8 +105,19 @@
   </div>
 
   <div class="fixed-r">
-    <a href="" class="askbg">参观画展预约</a>
-    <a href="" class="askbg">体验课预约</a>
+    <?php
+      require_once(ABSPATH . 'wp-content/themes/mingtang/mt-config.php');
+      $indexregtypes = $th_options['index-reg_types'];
+      if (!empty($indexregtypes)) {
+        $indexregtypes = explode(',', $indexregtypes);
+        foreach ($indexregtypes as $regtype_id) {
+          $regtype_id = (int) $regtype_id;
+          if (isset($all_reg_types[$regtype_id])) {
+            echo '<a href="/mtreg?t=' . $regtype_id . '" class="askbg">' . $all_reg_types[$regtype_id] . '</a>';
+          }
+        }
+      }
+    ?>
     <img class="weixinimg" src="<?php echo $tplRootUrl;?>/img/weixin.jpg" alt="扫一扫">
   </div>
 <?php get_footer(); ?>

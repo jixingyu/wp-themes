@@ -3,16 +3,13 @@
 create table wp_mingtang_reg(
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `real_name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
+  `phone` varchar(64) NOT NULL,
   `reg_type` tinyint(1) NOT NULL default 1,
   `create_time` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 */
-$reg_types = array(
-    1 => '参观画展',
-    2 => '体验课',
-);
+require_once(ABSPATH . 'wp-content/themes/mingtang/mt-config.php');
 if (!class_exists('WP_List_Table')) {
     require_once(ABSPATH . 'wp-admin/includes/class-wp-list-table.php');
 }
@@ -51,7 +48,7 @@ class Xy_reg_List_Table extends WP_List_Table
     {
         $columns = array(
             'real_name' => '姓名',
-            'email' => '邮箱',
+            'phone' => '电话',
             'reg_type' => '预约类型',
             'create_time' => '报名时间',
         );
@@ -103,7 +100,7 @@ class Xy_reg_List_Table extends WP_List_Table
         $where = '';
         if (!empty($_REQUEST['regq'])) {
             $regq = '%' . $wpdb->esc_like($_REQUEST['regq']) . '%';
-            $where = $wpdb->prepare("`real_name` like %s or `email` like %s", $regq, $regq);
+            $where = $wpdb->prepare("`real_name` like %s or `phone` like %s", $regq, $regq);
         }
         if (!empty($_REQUEST['regtype'])) {
             if ($where) {
@@ -117,10 +114,10 @@ class Xy_reg_List_Table extends WP_List_Table
         $total_items = $wpdb->get_var("SELECT COUNT(id) FROM $table_name" . $where);
         $this->items = $wpdb->get_results("SELECT * FROM $table_name" . $where . " ORDER BY $orderby $order LIMIT $per_page OFFSET " . $per_page * $paged, ARRAY_A);
         if (!empty($this->items)) {
-            global $reg_types;
+            global $all_reg_types;
             foreach ($this->items as $kk => $vv) {
                 $reg_type = $vv['reg_type'];
-                $this->items[$kk]['reg_type'] = $reg_types[$reg_type];
+                $this->items[$kk]['reg_type'] = $all_reg_types[$reg_type];
                 $this->items[$kk]['create_time'] = date('Y-m-d H:i:s', $vv['create_time']);
             }
         }
@@ -160,9 +157,9 @@ function xy_reg_list_page_handler()
             <label class="screen-reader-text" for="post-search-input">搜索:</label>
             <select name="regtype">
                 <option value="0">All</option>
-                <?php global $reg_types;?>
-                <?php foreach ($reg_types as $type_key => $type_value) { ?>
-                    <option value="<?php echo $type_key;?>"<?php echo $_REQUEST['regtype'] ? ' selected="selected"' : ''; ?>><?php echo $type_value;?></option>
+                <?php global $all_reg_types;?>
+                <?php foreach ($all_reg_types as $type_key => $type_value) { ?>
+                    <option value="<?php echo $type_key;?>"<?php echo isset($_REQUEST['regtype']) && $_REQUEST['regtype'] == $type_key ? ' selected="selected"' : ''; ?>><?php echo '[' . $type_key . ']' . $type_value;?></option>
                 <?php } ?>
             </select>
             <input type="text" name="regq" value="<?php echo isset($_REQUEST['regq']) ? $_REQUEST['regq'] : ''; ?>">

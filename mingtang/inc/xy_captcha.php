@@ -6,11 +6,11 @@ class xy_captcha
     private $charset = 'abcdefghkmnprstuvwxyzABCDEFGHKMNPRSTUVWXYZ23456789';
     private $code;
     private $codelen = 4;
-    private $width = 130;
-    private $height = 50;
+    private $width = 100;
+    private $height = 30;
     private $img;
     private $font;
-    private $fontsize = 20;
+    private $fontsize = 16;
     private $fontcolor;
 
     private function createCode() {
