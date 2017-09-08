@@ -80,10 +80,10 @@
               </div>
               <ul class="navber-top float-r">
                 <li>
-                  <a href="#"><span class="icons icon-shop dis-mid"></span>商店</a>
+                  <a href="https://weidian.com/?userid=976576791"><span class="icons icon-shop dis-mid"></span>商店</a>
                 </li>
                 <li>
-                  <a href="#"><span class="icons icon-guanzhu  dis-mid"></span>关注我们</a>
+                  <a href="http://weibo.com/p/1006061741488111/home?is_hot=1"><span class="icons icon-guanzhu  dis-mid"></span>关注我们</a>
                 </li>
                 <li class="share-hover">
                   <a href="Javascript: void(0)">
