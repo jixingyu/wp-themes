@@ -7,6 +7,8 @@ class Uts_init {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_action( 'wp_print_footer_scripts', array( $this, 'print_footer_scripts' ) );
 		add_filter( 'excerpt_length', array( $this, 'excerpt_length' ) );
+		add_action( 'wp_ajax_nopriv_xy_more_posts', array($this, 'xy_more_posts') );
+		add_action( 'wp_ajax_xy_more_posts', array($this, 'xy_more_posts') );
 		if (is_admin()){
 			// add_action('init', array( $this, 'myprefix_unregister_tags'));
 			// add_action('wp_dashboard_setup', array( $this, 'remove_dashboard_widgets' ));
@@ -112,6 +114,31 @@ class Uts_init {
 
 	function print_footer_scripts() {
 		
+	}
+
+	function xy_more_posts() {
+		$response = array( 'code' => 1 );
+
+		$args = array('cat' => (int)$_GET['cat'], 'posts_per_page' => 5);
+		query_posts($args);
+		while ( have_posts() ) {
+			the_post();
+			$jsonpost['id'] = get_the_ID();
+			$jsonpost['title'] = get_the_title();
+			$jsonpost['url'] = apply_filters('the_permalink', get_permalink());
+			$jsonpost['img'] = xy_thumb();
+			if (has_excerpt()) {
+				$jsonpost["content"] = mb_strimwidth(strip_tags(get_the_excerpt()), 0, 400,"...", 'utf-8');
+			} else{
+				$jsonpost["content"] = mb_strimwidth(strip_tags(get_the_content()), 0, 400,"...", 'utf-8');
+			}
+			$jsonpost["date"] = get_the_time('Y-m-d');
+			$result[] = $jsonpost;
+		}
+		$response['data'] = $result;
+		header( 'Content-Type: application/json' );
+		echo json_encode($response);
+		exit;
 	}
 }
 
