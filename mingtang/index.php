@@ -55,7 +55,7 @@
       ?>
       <div class="<?php echo $i == 1 ? 'col-md-12' : 'col-md-4';?> imglist">
         <a href="<?php the_permalink();?>">
-          <img src="<?php echo xy_thumb();?>" alt="">
+          <img src="<?php echo $i == 1 ? xy_thumb(array('size' => 'full')) : xy_thumb(array('size' => 'medium'));?>" alt="">
           <div class="imgtext">
             <h2><?php the_title(); ?></h2>
             <h6><?php echo strip_tags(get_the_excerpt()); ?></h6>
