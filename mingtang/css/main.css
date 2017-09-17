@@ -303,7 +303,7 @@
   .container-img .imglist:hover .imgtext{display:block;}
   .imgtext h2,.imgtext h6{color:#fff;position: absolute; left:5%; width:90%;}
   .imgtext h2{top:8%; text-overflow: ellipsis;white-space: nowrap;overflow: hidden;}
-  .imgtext h6{bottom:15%;height:60px;overflow: hidden;}
+  .imgtext h6{bottom:15%;height:58px;overflow: hidden;}
   .container-img .imglist img{width:100%;border: 1px solid #eee;min-height: 375px;}
   .container-img .imglist img:hover{box-shadow: 0 0 20px #333;}
 
@@ -469,6 +469,7 @@
     line-height: 30px;
     border: 1px solid #5e5e5e;
     float: left;
+    cursor: pointer;
   }
   .fromdiv input.randominput{width:140px;margin-left:20px; float: left;}
   .submit{border:1px solid #5e6c86; border-radius: 8px;width:128px;height:34px;

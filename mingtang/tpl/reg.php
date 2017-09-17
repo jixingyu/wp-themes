@@ -129,6 +129,9 @@ Template Name: 预约报名
     </div>
   </div>
   <script>
+  $('.autoRandom').on('click',function(){
+      $(this).attr('src', '/wp-content/themes/mingtang/captcha.php?' + Math.random());
+  })
   $('.submit').on("click",function(){
     var isValided = valid();
     if(!isValided){
