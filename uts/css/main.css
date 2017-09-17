@@ -23,6 +23,8 @@
   }
   .fixed{position: fixed;}
   .marg25{margin:25px 0;}
+  .margincenter25{margin:25px auto; display: block;}
+  .paading20_0{padding:20px 0;}
   .center{text-align:center;}
   h1{font-size:28px;}
   h2{font-size:26px;}
@@ -40,13 +42,14 @@
 
   body{
     background-color: #fff;
+    position: relative;
   }
 
   .phonehidden{
     display: block;
   }
   .pidhidden{display: block;}
-  .phoneshow{
+  .phoneshow,.loading{
     display: none;
   }
   /*重写bootstrap3.css*/
@@ -58,7 +61,7 @@
   }
   .navbar-header {
     float: left;
-    height: 90px;
+    height:80px;
     overflow: hidden;
   }
   .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11 {
@@ -91,6 +94,7 @@
   .navbar-nav {
     /*float: left;*/
     margin: 0;
+    margin-right: 15px;
   }
   .navbar-right {
     float: right;
@@ -99,7 +103,7 @@
     float: left;
   }
   .navbar-collapse .navbar-nav.navbar-right:last-child {
-    margin-right: -15px;
+    margin-right: 15px;
   }
 
 
@@ -124,51 +128,46 @@
       }
 
       .navbg{
-      background: #475257;
-      width:100%;
+        background: #fff;
+        width:100%;
       }
       .navbar-youtong {
-      margin-bottom: 0;
+        margin-bottom: 0;
+        border: 0;
       }
       .navbar-youtong .navbar-brand{
-      padding-bottom: 0;
-      padding-left: 0;
-      height: 90px;
+        padding-bottom: 0;
+        padding-left: 0;
+        padding-top:22px;
       }
       .navbar-youtong .collapse{
-      margin-top: 15px;
+        margin-top: 15px;
       }
 
       .navbar-youtong .collapse .nav a{
-      font-size:20px;
-      border-bottom:2px solid #000;
-      padding: 15px 25px;
-      /*-webkit-text-shadow: 3px 2px 2px #363636;
-      -moz-text-shadow: 3px 2px 2px #363636;
-      -o-text-shadow: 3px 2px 2px #363636;
-      -ms-text-shadow: 3px 2px 2px #363636;*/
-      text-shadow: 3px 2px 2px #363636;
-      background-color: transparent;  
+        font-size:16px;
+        padding: 15px 20px 24px;
+        background-color: transparent;  
       }
       .navbar-youtong .collapse .nav a:link,.navbar-youtong .collapse .nav a:active,.navbar-youtong .collapse .nav a:visited{
-      color:#fff;
+       color:#475257;
       }
       .navbar-youtong .collapse .nav a:hover,.navbar-youtong .collapse .active a{
-      color:#f29b00;
-      border-bottom:2px solid #f29b00;
-      background-color: transparent;
+        color:#f29b00;
+        border-bottom:6px solid #f29b00;
+        background-color: transparent;
       }
       .nav .caret{
-      display: none;
+        display: none;
       }
       .dropdown:hover .dropdown-menu{
-      display: block;
+        display: block;
       }
       .navbar-youtong .nav .open>a,.navbar-youtong .nav .open>a:focus,
       .navbar-youtong .nav .open>a:link,.navbar-youtong .nav .open>a:visited,
-      .navbar-youtong .nav .open>a:hover,.navbar-youtong .nav .open>a:active,{
-      background-color: transparent;
-      border-color: #000;
+        .navbar-youtong .nav .open>a:hover,.navbar-youtong .nav .open>a:active,{
+        background-color: transparent;
+        border-color: #000;
       }
       .dropdown .dropdown-menu{
         border:0;
@@ -181,17 +180,17 @@
 
 
       .dropdown .dropdown-menu li{
-      float: left;
-      width: 100%;
-      background: #E49A09;
+        float: left;
+        /*width: 100%;*/
+        background: #E49A09;
       }
         
       .navbar-youtong .nav .dropdown .dropdown-menu a{
         color: #fff;
         font-size: 16px;
-        height:30px;
-        line-height: 30px;
-        padding:0 5px;
+        height:34px;
+        line-height: 34px;
+        padding:2px 8px;
         overflow: hidden;
         text-align: center;
         border-bottom: 0;
@@ -209,9 +208,32 @@
       background-color: #FDB712;
       border-bottom: 0;
       }
-    .navbar-toggle {
-      display: none;
-    }
+      .navbar-toggle {
+        display: none;
+      }
+      .navbar-login{
+        padding: 5px 15px;
+      }
+      .bgorgrad{
+        cursor: pointer;
+        color:#fff;
+        padding: 8px 20px;
+        background-color: #f29b00;
+        border-radius: 50px;
+      }
+      .bgorgrad:hover{
+        background-color: #ffc900;
+      }
+      .navbar-login span{
+        display: inline-block;
+        vertical-align: middle;
+        font-size:16px;
+      }
+      .search-btn img{
+        width: 20px;
+        margin-right: 8px;
+      }
+      
   
   /*幻灯片样式重写*/
   /*.sildebg{
@@ -256,70 +278,48 @@
 
     /*幻灯片下方 运单查询*/
     .taborgbg{
-      background-color: #f29b00;
+        background-color: #475257;
       }
-      .tabicon01,.tabicon02{
-        width:90px;
-        height:90px;
-        margin: 15px auto 10px;
+
+      .taborg-waybill{
+        width:240px;
+        margin: 15px auto;
+        text-align: center;
       }
-      .tabicon01{
-        background: url(../img/tab-icon01.png) no-repeat;
-        background-position: 0 0; 
-      }
-      .tabicon02{
-        background: url(../img/tab-icon02.png) no-repeat;
-        background-position: 0 0; 
-      }
-    
-    
-      .taborg{
-      padding:0;
-      cursor: pointer;
-      }
-      .taborg h6{
+      .taborg-waybill h3{
         color: #fff;
         text-align: center;
-        margin: 15px 0;
       }
-      .taborg p{
-      color:#fff;
-      margin: 10px auto 15px;
-      font-size: 16px;
-      text-align: center;
-      }
-      .taborg-waybill.active{
-      background-color: #fff;
-      }
-      .taborg-waybill.active h6{
-      color:#f29b00;
-      }
-      .taborg-waybill.active .tabicon01,.taborg-waybill.active .tabicon02{
-      background-position: 0 -90px; 
-      }
-      .taborg-waybill{
-      position: relative;
-      }
-      #waybill{
-        border-right: 1px solid #fff;
-      }
-      .taborg-waybill .waybillform{
-        display: none;
-      }
-      
-      .waybillform{
-        background: #fff;
-        padding: 20px;
-        position: absolute;
-        bottom: 154px;
-        width: 100%;
+
+          
+      .frombg{
+        display: none; 
+        position: fixed;
+        top: 0;
+        left: 0;
+        width:100%;
+        height:100%;
+        background: url(../img/listimgbg.png) repeat;
+        padding-top:15%;
         z-index: 99;
-        box-shadow: 0 5px 8px #c9c9c9;
+      }
+
+      .waybillform{
+        position: relative;
+        width: 380px;
+        max-width: 90%;
+        height: 420px;
+        margin:0 auto;
+        background: #fff;
+        padding: 40px 20px;
+        border:2px solid #f29b00;
+        border-radius: 8px;
+        background-color: #f0f0f0;
       }
       .waybillform textarea{
       width:100%;
       height:255px;
-      background: #eee;
+      background: #fff;
       resize:none;
       padding:15px;
       color: #666;
@@ -339,15 +339,18 @@
         width: 90%;
       }
       .placediv h5{
-      color:#666;
-      margin-bottom: 185px;
+        color:#b4b4b4;
+        margin-bottom: 185px;
+        font-size:16px;
       }
+      .waybillform h6{
+        color:#b4b4b4;
+        font-size:14px;
+        margin-top: 5px;
+      }
+
       .placediv h5.error{
-      color:#ff4200;
-      }
-      .placediv h6{
-        color:#999;
-        text-align: left;
+       color:#ff4200;
       }
       .subBtn{
       background-color: #f29b00;
@@ -364,25 +367,26 @@
       opacity: .85;
       filter: alpha(opacity=85);
       }
-      .taborg.active .waybillform{
-      display: block;
-      }
+     
       .waybillform label,.waybillformuser label{
         position: relative;
         margin:15px 0;
         background:#eee;
         border-radius: 5px;
         width: 100%;
-        padding: 6px 15px;
+        padding: 0 12px;
         cursor: pointer;
       }
+      .waybillformuser{
+        width:280px;
+        height:268px;
+        border: 0;
+        padding-top: 12px;
+        background-color: #fff;
+      }
       .user-icon,.password-icon{
-        /*width: 42px;
-        height: 52px;*/
-        width: 27px;
-        height: 33px;
-        /*transform: scale(0.65);
-        zoom:50%/0;*/
+        width: 20px;
+        height: 24px;
       }
       .taborgform2 span,.taborgform2 input{
         display: inline-block;
@@ -396,14 +400,13 @@
       }
       .taborgform2 .line-right{
         width: 1px;
-        height: 26px;
+        height: 19px;
         background-color: #999;
-        margin-top: 3px;
         margin-left: 8px;
         margin-right: 8px;
       }
       .taborgform2 input{
-        width: 445px;
+        width: 171px;
         height: 35px;
         background-color: transparent;
         font-size: 16px;
@@ -430,17 +433,65 @@
         border:0;
         outline: none;
       }
-      .taborg p.errorlog{
-        z-index:-1;
+      p.errorlog{
+        z-index: -1;
         display: none;
         position: absolute;
-        top: 4px;
+        bottom: -16px;
         color: #ff4200;
-        left: 66px;
-        background: #eee;
-        width: 445px;
+        left: 55px;
         text-align: left;
       }
+
+      .iconspng{
+        display: inline-block;
+        vertical-align: middle;
+        background: url("../img/nav-icons.png") no-repeat;
+      }
+      .icon-down,.icon-up{
+        width:22px;
+        height:14px;
+      }
+      .icon-down{
+        background-position: 0 -62px;
+      }
+      .icon-up{
+        background-position: 0 -80px;
+      }
+      .icon-close{
+        width:22px;
+        height:22px;
+        background-position: 0 -96px;
+        cursor: pointer;
+      }
+
+      .bgorgradfrom{
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        margin-left: -120px;
+        margin-top: 0;
+      }
+      .waybillbtn {
+        border-radius: 18px;
+        width: 40%;
+        margin:20px auto 0;
+        box-shadow: 5px 5px 5px #333; 
+      }
+      .waybillbtn img{
+        padding-top:5px;
+      }
+      .waybillformuser  h3{
+        color:#475257;
+        font-size:20px;
+        text-align: center;
+        margin-top: 15px;
+      }
+      .loginbtn{
+        border-radius: 50px;
+      }
+      
+      
 
     /**/
       
@@ -707,10 +758,10 @@
 
     /*底部联系方式*/
     .bgeee{
-      background: #eee;
+      background: #333;
       }
       .footer .h7,.footer .h7 a{
-        color:#333;
+        color:#fff;
         line-height:2.2;
       }
       .footer .row{
@@ -733,22 +784,43 @@
           bottom:5%;
         }
         .totop img{
-          width:50px;
+          width:40px;
         }
         #totop{
           display:none;
         }
+      .footer img{
+        width:105px;
+        height:105px;
+      }
+      .footer .copryright{
+        color:#969696;
+        font-size:14px;
+        line-height: 2.2;
+      }
+      
 
 
 
     /*新闻列表*/
-    .banner{width:100%;overflow:hidden;}
+    .banner{width:100%;min-height:150px;overflow:hidden;border-bottom:19px solid #e0cab2;position: relative;}
       .bannerimg{    
         width: 100%;
         margin-left: -50%;
         left: 50%;
-        position: relative;
+        position: absolute;
       }
+      .banner h3{
+        position: absolute;
+        z-index: 2;
+        width: 80%;
+        margin-left: -40%;
+        left: 50%;
+        text-align: center;
+        color: #fff;
+        bottom: 24%;
+      }
+
       .breadcrumbdiv{margin: 20px 0;padding-bottom: 20px; padding-left: 0;}
       .breadcrumb {
         padding: 0;
@@ -780,37 +852,37 @@
         content: ">";
         color: #333;
       }
-      .newslist-l{
+      .newslist{
+        padding-top: 60px;
         width: 815px;
         padding-left:0;
       }
-      .newslist-r{
+      ..newslist-b{
         width: 350px;
         padding-right: 0;
       }
-      .newslist-l li{
+      .newslist li{
         clear:both;
-        border-bottom: 1px solid #eee;
-        padding-bottom: 20px;
-        margin-bottom: 20px;
+        border-bottom: 2px solid #d2d2d2;
+        padding: 20px;
       }
-      .newslist-l li:last-child{
+      .newslist li:last-child{
         border:0;
       }
-      .newslist-l  img{
-        width:150px;
-        height:150px;
+      .newslist  img{
+        width:210px;
+        height:130px;
         margin-right:25px;
       }
 
       .list-r-text{
-        /*width: 580px;*/
-        height: 150px;
-        padding-top: 5%;
+        height: 130px;
+        overflow: hidden;
       }
       .list-r-text h4{
         text-align: justify;
-        color: #000;
+        color: #f29b00;
+        font-size:26px;
       }
       .ellipsis{
         display: block;
@@ -819,20 +891,45 @@
         overflow: hidden;
       }
       .list-text-b{
-        margin-top: 20px;
+        margin-top: 10px;
+        margin-bottom: 8px;
         overflow: hidden;
       } 
       .list-text-b span{
         font-size: 16px;
-        color: #999;
+        color: #969696;
       }
-      .hotnews{
-        border-top:5px solid #f29b00;
+      .list-text-b span.pulishtime{
+        margin-right:30px;
+      }
+      .list-text-con{
+        color: #475257;
+        line-height: 1.6;
+        font-size: 16px;
+        text-indent: 2em;
+      }
+      .getmore{
+        background-color: #f29b00;
+        width: 42px;
+        height: 42px;
+        text-align: center;
+        border-radius: 50%;
+        padding-top: 15px;
+        clear: both;
+        margin: 30px auto;
+        cursor: pointer;
+      }
+      .hotlist {
+        border-top:2px solid #d2d2d2;
         padding:20px;
-        background-color: #f2f2f2;
+      }
+
+      .hotnews{
+        width:650px;
+        margin:20px auto;
       }
       .hotnews h5{
-        color:#000;
+        color:#969696;
       }
       .hotnews a:link,.hotnews a:active,.hotnews a:visited,
       .newsdetails .preornext a:link,.newsdetails .preornext a:active,.newsdetails .preornext a:visited{
@@ -847,26 +944,30 @@
         clear: both;
         margin-top:15px;
         overflow: hidden;
+        border-bottom:2px solid #e0cab2;
+        padding-bottom: 10px;
       }
       .hotnews ol li:before {  
-        content:counter(sectioncounter) "";   
-        counter-increment:sectioncounter;  
-        width: 18px;
-        height: 18px;
-        background-color: #999;
-        color: #fff;
+        content: ""; 
+        width: 10px;
+        height: 10px;
+        background-color: #e0cab2;
         display: inline-block;
-        border-radius: 4px;
-        text-align: center;
-        line-height: 18px;
+        border-radius: 50%;
         float:left;
+        margin-right: 10px;
+        margin-top: 9px;
       } 
       .hotnews ol li a{
-        float:right;
-        width:260px;
-        font-size: 14px;
+        float: left;
+        width:610px;
+        font-size: 20px;
+        color:#475257;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
       }
-      .hotnews ol li:nth-child(1):before{
+     /* .hotnews ol li:nth-child(1):before{
         background-color: #ff5757;
       } 
       .hotnews ol li:nth-child(2):before{
@@ -874,7 +975,7 @@
       } 
       .hotnews ol li:nth-child(3):before{
         background-color: #ffb644;
-      } 
+      } */
       .pagefooter{padding-left: 0;padding-top:40px;}
       .pagination>li>a, .pagination>li>span,.pagination>li>a span{color: #333; font-size: 14px;    height: 34px;}
       .pagination>li>span.current{
@@ -887,21 +988,31 @@
       }
 
 
+
     /*新闻详情*/
-    .newsdetails{padding-bottom:5%;}
-      .newsdetails .news-title{color: #000;width: 85%; margin: 2% auto;text-align: center;line-height: 1.6;}
+    .newsdetails{padding-bottom:5%; display: none;min-height: 400px;}
+      .newsdetails.active{
+        display: block;
+      }
+      .newsdetails .news-title{color: #000;width: 85%; margin: 2% auto;text-align: center;line-height: 1.6; color: #475257;}
       .newsdetails .list-text-b{width:40%; margin: 3% auto; }
       .newsdetails .details{
         padding-bottom:8%;
-        border-bottom:1px solid #eee;
+        /*border-bottom:1px solid #eee;*/
         margin-bottom: 2%;
+        margin-top: 60px;
+      }
+      .newsdetails .details img{
+        margin:0 auto;
+        border-bottom:15px solid #e0cab2;
       }
       .newsdetails .details p{
-        font-size:16px;
-        color:#333;
+        font-size: 20px;
+        color: #475257;
         margin:2% 0;
         line-height: 1.8;
-        text-indent: 2em;
+        /*text-indent: 2em;*/
+        border-bottom:2px solid #e0cab2;
       }
       .newsdetails .details img{
         max-width:100%;
@@ -918,74 +1029,238 @@
     
 
     /*map*/
-    .contactrow{padding-top: 120px;margin-bottom: 50px;}
+    .contactrow{padding-top: 35px;margin-bottom: 50px;}
       .contactrow .col-md-4{padding: 0;}
-        .borderpart{border:1px solid #eee;position: relative;
-          padding:50px 20px 20px 20px;width:300px;height:250px;margin: 0 auto;text-align: center; }
+        .borderpart{border: 3px solid #e0cab2;position: relative;
+          padding:20px 15px 15px 15px;width:260px;height:145px;margin: 0 auto;text-align: center; }
           .borderpart h5,.borderpart h6{line-height: 1.6}
-          .borderpart h5{color: #3b3b3b;margin:15px auto;}
+          .borderpart h5{color: #475257;margin:15px auto;font-size:16px;font-weight: bold;}
           .borderpart h6{color: #333;}
-          .contactpart h6{width:80%;text-align: left;margin: 0 auto;}
+          .contactpart h6{text-align: center;margin: 0 auto;}
           .borderpart .icon-address,.borderpart .icon-phone,.borderpart .icon-weixin{
             position: absolute;
-            top: -60px;
+            top: -23px;
             left: 0;
             width: 100%;
           }
-          .borderpart img{width:110px;}
+          .borderpart span>img{width:42px;height:42px;}
           .mapdiv{width:100%;height:600px;margin:50px 0;border:1px solid #eee;}
+          .borderpart .weixinimg{width: 106px;height:106px;}
     
     /*业务介绍*/
-    .navbussies{background: #f1f1f1; height: 178px;margin-bottom:5%;}
-    .navbussies ul{}
-    .navbussies ul li{float:left;width: 25%;position: relative; text-align: center;}
-    .navbussies .icons{
-      width:88px;
-      height:88px;
-      display: inline-block;vertical-align: top;
-      background: url(../img/icons-introud.png) no-repeat;}
-      .navbussies .icon-buss01{background-position: -98px 0;}
-      .navbussies .icon-buss02{background-position: -98px -99px;}
-      .navbussies .icon-buss03{background-position: -98px -198px;}
-      .navbussies .icon-buss04{background-position: -98px -297px;}
-      .navbussies .icon-buss05{background-position: -98px -396px;}
-      .navbussies .icon-buss06{background-position: -98px -495px;}
-      .navbussies .active .icon-buss01,.navbussies li:hover  .icon-buss01{background-position: 0 0;}
-      .navbussies .active .icon-buss02,.navbussies li:hover  .icon-buss02{background-position: 0 -99px;}
-      .navbussies .active .icon-buss03,.navbussies li:hover  .icon-buss03{background-position: 0 -198px;}
-      .navbussies .active .icon-buss04,.navbussies li:hover  .icon-buss04{background-position: 0 -297px;}
-      .navbussies .active .icon-buss05,.navbussies li:hover  .icon-buss05{background-position: 0 -396px;}
-      .navbussies .active .icon-buss06,.navbussies li:hover  .icon-buss06{background-position: 0 -495px;}
-      .navbussies h4{margin-top:15px;}
-      .navbussies li:hover h4,.navbussies .active h4{color:#f29b00;}
-      .navbussies li:after{
-        content: "";
-        position: absolute;
-        bottom:-5px;
-        height:5px;
-        width:100%;
-        background-color: #666;
-        left:0;
+    .navbussies{ background: #fff;height: 210px;border-top: 3px solid #d2d2d2;border-bottom: 3px solid #d2d2d2;}
+      .bussiescont{}
+      .navbussies ul{overflow: hidden;}
+      .navbussies ul li{float:left;width: 25%;position: relative; text-align: center;}
+      .navbussies .icons{
+        width:88px;
+        height:88px;
+        display: inline-block;vertical-align: top;
+        background: url(../img/icons-introud.png) no-repeat;}
+        .navbussies .icon-buss01{background-position: -98px 0;}
+        .navbussies .icon-buss02{background-position: -98px -99px;}
+        .navbussies .icon-buss03{background-position: -98px -198px;}
+        .navbussies .icon-buss04{background-position: -98px -297px;}
+        .navbussies .icon-buss05{background-position: -98px -396px;}
+        .navbussies .icon-buss06{background-position: -98px -495px;}
+        .navbussies .active .icon-buss01,.navbussies li:hover  .icon-buss01{background-position: 0 0;}
+        .navbussies .active .icon-buss02,.navbussies li:hover  .icon-buss02{background-position: 0 -99px;}
+        .navbussies .active .icon-buss03,.navbussies li:hover  .icon-buss03{background-position: 0 -198px;}
+        .navbussies .active .icon-buss04,.navbussies li:hover  .icon-buss04{background-position: 0 -297px;}
+        .navbussies .active .icon-buss05,.navbussies li:hover  .icon-buss05{background-position: 0 -396px;}
+        .navbussies .active .icon-buss06,.navbussies li:hover  .icon-buss06{background-position: 0 -495px;}
+        .navbussies h4{margin-top:15px;}
+        .navbussies li:hover h4,.navbussies .active h4{color:#f29b00;}
+        
+        .navbussies a{display: block; padding: 40px 0;height:205px;}
+        .navbussies li.active a:after,.navbussies li:hover a:after{
+          content: "";
+          position: absolute;
+          bottom:0;
+          left:50%;
+          margin-left: -57px;
+          width:114px;
+          height:21px;
+         background: url("../img/bottom_active.png") no-repeat;
+        }
+        .f0bgtop{
+          position: relative;
+        }
+        .f0bgtop:before{
+          position: absolute;
+          top:0;
+          content: "";
+          width:100%;
+          height:65px;
+          background-color: #f0f0f0;
+        }
+
+
+    /*第二版*/
+    .indexlist .details p:before{
+      color:#e0cab2;
+      font-size:28px;
+      margin-right: 5px;
+      font-weight: bold;
       }
-      .navbussies li:hover:after,.navbussies li.active:after{
-        background-color: #f29b00;
+      .indexlist .details p:nth-child(1):before{
+        content:"1.";
       }
-      .navbussies a{display: block;padding:25px 0;}
-      .navbussies li.active a:after,.navbussies li:hover a:after{
-        content: "";
-        position: absolute;
-        bottom:0;
-        left:50%;
-        margin-left: -4px;
-        width:8px;
-        height:8px;
-        border-top:0;
-        border-left:8px solid transparent;
-        border-right:8px solid transparent;
-        border-bottom:8px solid #f29b00;
+      .indexlist .details p:nth-child(2):before{
+        content:"2.";
+      }
+      .indexlist .details p:nth-child(3):before{
+        content:"3.";
+      }
+      .indexlist .details p:nth-child(4):before{
+        content:"4.";
+      }
+      .indexlist .details p:nth-child(5):before{
+        content:"5.";
       }
 
-    
+    .navbussies-case{
+      height:119px;
+      }
+      .navbussies-case ul li{width:100%;}
+      .navbussies-case a{
+        height: 117px;
+      }
+      .bussiescont-case ,.bussiescont-toppart,.bussiescont{
+        position: relative;
+        width: 890px;
+        overflow: hidden;
+        margin: 0 auto;
+        
+        }
+        .bussiescont-case{
+          padding:50px 0;
+        }
+        .bussiescont-case  ul,.bussiescont-case  ul li{
+          float:left;
+        }
+        .bussiescont-case  ul li{
+          width:33.3333%;
+        }
+        .bussiescont-case  ul li .caselistdiv{
+          position: relative;
+          width:210px;
+          height:240px;
+          box-shadow: 8px 8px 20px #7c7c7c;
+          margin: 20px auto;
+          text-align: center;
+          border-radius: 10px;
+        }
+        .caselistdiv img{
+          width:100%;
+          height:100%;
+          border-radius: 10px;
+        }
+        .casetitle{
+          position: absolute;
+          bottom:0;
+          width:100%;
+          background-color: #333;
+          color:#fff;
+          height:60px;
+          font-size: 20px;
+          line-height: 60px;
+          border-radius:0 0 10px 10px;
+          cursor: pointer;
+        }
+        .casetitle:hover{
+          background-color: #f29b00;
+        }
+        .toppart{
+          border-bottom: 3px solid #d2d2d2;
+          width: 100%;
+          height: 90px;
+        }
+        .bussiescont-toppart h2{
+          text-align: center;
+          color: #f29b00;
+          line-height: 90px;
+        }
+        .bussiescont-toppart .topcrumb{
+          position: absolute;
+          left: 0;
+        }
+        .bussiescont-toppart .topcrumb{
+          background-color: #f29b00;
+          color: #fff;
+          font-size:16px;
+          width:118px;
+          height:38px;
+          text-align: center;
+          line-height: 38px;
+          border-radius: 20px;
+          margin-top: 28px;
+        }
+        .icon-return{
+          width:22px;
+          height:22px;
+          background-position: 0 -149px;
+          margin-right: 10px;
+        }
+        .topcrumb:hover{
+          background-color: #ffc900;
+        }
+        .topcrumb:hover .icon-return{
+          background-position: 0 -122px;
+        }
+        .bussiescont-details{
+          text-align: center;
+
+        }
+        .news-details img,.bussiescont-details img{
+          margin:20px auto;
+          display: block;
+        }
+        .bussiescont-details p,.news-details p{
+          color:#475257;
+          padding:10px 0;
+          line-height: 1.6;
+        }
+        .bussiescont-details p{
+          font-size:18px;
+        }
+        .bussiescont-details h3{
+          margin:10px 0;
+          font-size:20px;
+          color:#000;
+        }
+        .news-bottom-a{
+          overflow: hidden;
+          margin-bottom: 60px;
+        }
+        .news-bottom-a a{
+          font-size:16px;
+        }
+        .news-bottom-a a:link,.news-bottom-a a:active,.news-bottom-a a:hover,.news-bottom-a a:visited{
+          color: #c26a00;
+        }
+
+        .news-details p{
+          font-size:16px;
+          text-align: left;
+          text-indent: 2em;
+        }
+
+    .bgf8{
+      background-color: #f8f8f8;
+    }
+    .aboutpdiv p{
+      color:#475257;
+      font-size:16px;
+      line-height: 1.8;
+      margin:15px 0;
+      text-indent: 2em;
+    }
+    .loading img{
+      width: 160px;
+      height: 20px;
+    }
+        
 
     /*适配*/
 
@@ -1007,38 +1282,21 @@
       .hidetext h3 {
         margin: 5% auto;
       }
-      .user-icon, .password-icon{
-        max-width:15%;
-      }
-      .taborgform2 .line-right{
-        max-width: 2%;
-      }
-      .taborgform2 input{
-        max-width: 83%;
-      }
-      .waybillform label,.waybillformuser label{
-        overflow: hidden;
-      }
+
       /*news-list*/
       .banner{
         height: auto;
       }
-      .bannerimg {
-        width: 100%;
-        margin-left: -50%;
-      }
-      .newslist-l{
+
+      .newslist{
         width:73%;
       }
-      .newslist-r{
+      ..newslist-b{
         width:27%;
       }
       .hotnews ol li a{
         width: 83%;
       }
-      /*.list-r-text{
-        width: 55%;
-      }*/
       
     }
     @media screen and (max-width: 1140px) {
@@ -1063,14 +1321,14 @@
         width:250px;
         height: 250px;
       }
-      .newslist-l{
+      .newslist{
         width:100%;
         padding-right: 0;
       }
       /*.list-r-text {
         width: 65%;
       }*/
-      .newslist-r{
+      ..newslist-b{
         display: none;
       }
       .listimgdiv,.listimgdiv img{
@@ -1081,7 +1339,7 @@
     }
     @media screen and (max-width: 1010px) {
       .navbar-header {
-        height: 80px;
+        height: 70px;
       }
       .navbar-youtong .collapse .nav a {
         font-size: 18px;
@@ -1134,22 +1392,36 @@
       .hidetext .h7 {
         height: 126px;
       }
+      .footer .col-md-10,.footer .col-md-2{
+        width:100%;
+      }
+      .bussiescont-case, .bussiescont-toppart, .bussiescont{
+        width: 100%;
+      }
     }
     @media screen and (max-width: 800px) {
+      .bannerimg{
+        width: auto;
+      }
+          
       .pidhidden{display:none;}
       .navbar-youtong .collapse .nav a {
         font-size: 14px;
         padding: 15px;
         display: inline-block;
       }
+      .navbar-login {
+        padding: 8px 15px;
+      }
+      .navbar-login span{
+        font-size:14px;
+      }
       .navbar-youtong .nav .dropdown .dropdown-menu a {
         font-size: 12px;
         height: 24px;
         line-height: 24px;
       }
-      .waybillform label,.waybillformuser label{
-            padding: 2%;
-      }
+
       .taborg p.errorlog {
         left: 16%;
         width: 83%;
@@ -1166,10 +1438,11 @@
         width: 300px;
       }
       /*联系我们*/
-      .contactrow{padding-top: 80px;margin-bottom: 70px;}
-      .contactrow .col-md-4 {
+      .contactrow{padding-top: 80px;background-color: #f0f0f0;margin-bottom: 70px;}
+      .contactrow .col-md-4,.hotnews {
         width: 100%;
       }
+
       .borderpart{
         background-color: #fff;
         padding:20px;
@@ -1188,6 +1461,9 @@
       .borderpart span img{
         width:50px;
       }
+      .mapdiv{
+        display: none;
+      }
       .totop{
         bottom: 50.5%;
       }
@@ -1200,31 +1476,16 @@
       .breadcrumbdiv li{display: none;}
       .breadcrumbdiv li.active{display: block;color: #000;font-size: 24px;text-align: center;padding: 5% 0;}
       .breadcrumb>li+li:before{content: "";}
-
       
+
     }
 
 
     @media screen and (max-width: 737px) {
-      .navbar-youtong .collapse {
-        margin-top: 0;
-      }
-      .navbar-header {
-        height: 60px;
-      }
-      .waybillform textarea{
-        height: 200px;
-      }
-      .subBtn {
-        font-size: 18px;
-        height: 40px;
-        line-height: 40px;
-      }
-      .taborgform2 .line-right{
-        margin-left:2%;
-        margin-right:2%;
-      }
+
+      
       .phonefooter{
+
         background: #333;
         border-top:5px solid #f29b00;
       }
@@ -1283,9 +1544,24 @@
       .newsdetails .list-text-b{
         width: 85%;
       } 
+      .navbar-youtong .collapse{
+        padding-left:0;
+        padding-right:0;
+      }
+      .bussiescont-case, .bussiescont-toppart, .bussiescont {
+          width: 96%;
+          padding: 0 2%;
+      }
+      .news-details img, .bussiescont-details img {
+          max-width: 100%;
+      }
     }
 
     @media screen and (max-width: 668px) {
+      .container {
+          width: 100%;
+          padding: 0;
+      }
       .phonehidden{
         display: none;
       }
@@ -1376,11 +1652,9 @@
      
     }
     @media screen and (max-width: 641px) {
-      .navbar-youtong .collapse {
-        padding: 0;
-      }
+      
       .navbar-youtong .collapse .nav a {
-        padding: 13px 10px;
+        padding: 15px 10px;
       }
       .weixinfooter,.footernav .nav>li>a {
         padding: 15px 20px;
@@ -1405,9 +1679,7 @@
       h6,.h7 {
         font-size: 12.5px;
       }
-      .navbg {
-        background: #1e3a49;
-      }
+      
       .navbg .container {
         width: 100%;
         padding: 0;
@@ -1470,6 +1742,8 @@
         padding-left: 0;
         border-top: 4px solid #f29b00;
         max-height: 100%;
+        padding-right: 0;
+        width: 100%;
       }
       .navbar-nav>li {
         border-bottom: 1px solid #555;
@@ -1520,6 +1794,7 @@
       }
       .navbar-youtong .navbar-nav>li.dropdown.open a.dropdown-toggle:after{
         background-position: 0 -46px;
+        height: 17px;
       }
 
       .dropdown .dropdown-menu{
@@ -1529,6 +1804,7 @@
         background: transparent; 
         padding-left: 25px;
         border-bottom: 1px solid #555;
+        width: 100%;
       }
       .navbar-youtong .nav .dropdown .dropdown-menu a{
         text-align: left;
@@ -1542,7 +1818,7 @@
         .carousel-control .glyphicon-chevron-left,
           .carousel-control .icon-next,
             .carousel-control .glyphicon-chevron-right,
-            .tabicon01, .tabicon02,.user-icon, .password-icon{
+            .tabicon01, .tabicon02{
             -ms-transform: scale(.60);
             -moz-transform: scale(.60);
             -webkit-transform: scale(0.60);
@@ -1566,11 +1842,7 @@
         margin: 0;
       }
 
-      .waybillform{
-        bottom:90px;
-        padding: 10px;
-        z-index: 15;
-      }
+      
       .waybillform h5,.waybillform h6,
       .waybillformuser h5,.waybillformuser h6{
         font-size:12px;
@@ -1582,33 +1854,8 @@
       .placediv h5 {
           margin-bottom: 75px;
       }
-      .waybillform textarea{
-        padding: 10px;
-        font-size: 12px;
-        height: 140px;
-      }
-      .subBtn {
-        font-size: 14px;
-        height: 30px;
-        line-height: 30px;
-        margin-top: 10px;
-      }
-      .waybillform label,.waybillformuser label{
-          margin: 5px 0;
-          padding: 0 2%;
-      }
-      .taborgform2 input {
-          max-width: 75%;
-      }
-      .user-icon, .password-icon{
-        max-width: 16%;
-      }
-      .taborgform2 .line-right {
-        margin-left: 1%;
-        margin-right: 1%;
-        height: 17px;
-        margin-top: 1px;
-      }
+      
+    
 
       .taborg p.errorlog {
         width: 75%;
@@ -1643,9 +1890,7 @@
       .listdivlist ul, .listdivlist{
         width: 100%;
       }
-      .totop img {
-        width: 40px;
-      }
+
       .navbar-nav .open .dropdown-menu{
         position: static;
       }
@@ -1656,18 +1901,20 @@
         width:180px;
         height: 180px;
       }
-      .bannerimg {
-        width: 570px;
-        margin-left: -285px;
-      }
       /*详情*/
       .newsdetails .news-title,.newsdetails .list-text-b{
         width:100%;
-      }      
+      }
+      .navbar-collapse .navbar-nav.navbar-right:last-child {
+          margin-right: 0;
+          width: 100%;
+      }
+
+      
     }
 
     @media screen and (max-width: 481px) {
-      .newslist-l  img {
+      .newslist  img {
         width: 120px;
         height: 120px;
       }
@@ -1696,7 +1943,7 @@
         padding: 0 2%;
       }
 
-      .newslist-l  img {
+      .newslist  img {
         width: 100px;
         height: 100px;
       }
@@ -1710,6 +1957,30 @@
       .contactrow .col-md-4:last-child .borderpart{
         margin-bottom:40px;
       }
+      .navbussies .icons,
+      .navbussies li.active a:after, .navbussies li:hover a:after{
+        -ms-transform: scale(.70);
+        -moz-transform: scale(.70);
+        -webkit-transform: scale(0.70);
+        -o-transform: scale(.70);
+        transform: scale(.70);
+      }
+      .navbussies a, .navbussies {
+          height: 100px;
+      }
+      .icon-return{
+        margin-right:0;
+      }
+      .bussiescont-toppart .topcrumb{
+        line-height: 28px;
+        height: 30px;
+        font-size: 12px;
+        width: 87px;
+      }
+      .news-bottom-a a{
+        width: 100%;
+        margin-top: 10px;
+      }
 
     }
     @media screen and (max-width: 376px) {
@@ -1718,7 +1989,7 @@
        .carousel-control .glyphicon-chevron-left, 
        .carousel-control .icon-next,
         .carousel-control .glyphicon-chevron-right,
-        .tabicon01, .tabicon02,  .password-icon{
+        .tabicon01, .tabicon02{
         -ms-transform: scale(.50);
         -moz-transform: scale(.50);
         -webkit-transform: scale(0.50);
@@ -1735,33 +2006,7 @@
           right:-20px;
         }
 
-      .taborgform2 .line-right {
-        height: 15px;
-        margin-top: -1px;
-      }
-      
-      
-      
-      .waybillform {
-        top:90px;
-        background-color: #fff;
-        height: 200px;
-        box-shadow: 0 0 10px #c9c9c9;
-      }
-      .taborg-qiyeuser .waybillform,.taborg-qiyeuser .waybillformuser{
-        height: 155px;
-      }
-      .user-icon, .password-icon {
-        max-width: 20%;
-      }
-      /*.taborgform2 .line-right {
-        margin-left: -4%;
-        height: 14px;
-        margin-top: 1px;
-      }*/
-      .taborg-waybill p.errorlog {
-          left: 33px;
-      }
+     
       .weixinfooter .weixinicon{
         width:35px;
       }
@@ -1779,7 +2024,7 @@
           padding: 30px 0;
       }
 
-      .newslist-l  img {
+      .newslist  img {
         width: 80px;
         height: 80px;
       }
@@ -1795,6 +2040,10 @@
       .borderpart{
         width:100%;
       }
+      .contactrow{
+        margin-top:95px;
+      }
+
     }
     @media screen and (max-width: 321px) {
       .listimgdiv,.listimgdiv img{

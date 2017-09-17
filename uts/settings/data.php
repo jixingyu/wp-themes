@@ -28,6 +28,11 @@ $datas_2 = array(
 		'section_text' => '',
 		array( 'type' => 'text', 'name' => 'business-posts', 'label' => '文章集（4篇）')
 	),
+	'news' => array(
+		'section_title' => '新闻设置',
+		'section_text' => '',
+		array( 'type' => 'category', 'name' => 'news-hot', 'label' => '热门新闻', 'selected' => -1 ),
+	),
 );
 
 $settings = array( '图片设置' => $datas_1, '栏目' => $datas_2 );

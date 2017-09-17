@@ -1,16 +1,4 @@
 <?php get_header(); ?>
-  <style>
-    .newsdetails .border0{border-bottom:0;padding-bottom: 0;}
-    .newsdetails{display: none;}
-    .listdiv li:nth-child(6){
-      display: none;
-    }
-    @media screen and (max-width: 668px) {
-      .listdiv li:nth-child(6){
-          display: block;
-      }
-    }
-  </style>
   <!-- 幻灯切换 -->
   <?php
     $slider_num = ( isset( $th_options['head-slider-num'] ) && $th_options['head-slider-num'] ) ? (int) $th_options['head-slider-num'] : 0;
@@ -44,125 +32,124 @@
   <!--运单查询以及企业用户登录-->
   <div class="taborgbg">
     <div class="container">
-      <div class="row clearfix">
-        <div class="col-md-6 taborg taborg-waybill">
-          <div id="waybill">
-            <div class="tabicon01"></div>
-            <h6>运单查询</h6>
-          </div>
-          <div class="waybillform">
-            <form id="form-js">
-              <div id="placediv" class="placediv">
-                <h5>您可以输入运单号进行查询</h5>
-                <h6>最多可查询20条，以逗号，空格或回车建隔开</h6>
-              </div>
-              <textarea id="textareaway" class="textareaway"></textarea>
-            </form>
-            <div id="subBtn"  class="subBtn">马上查单</div>
-          </div>
-        </div>
-        <div class="col-md-6 taborg taborg-qiyeuser">
-          <a href="/uts-login">
-            <div id="qiyeuser">
-              <div class="tabicon02"></div>
-              <h6>企业用户登录</h6>
-            </div>
-          </a>
+      <div class="taborg-waybill" id="waybill">
+        <div class="bgorgrad">
+          <h3>运单查询</h3>
+          <span class="iconspng icon-down"></span>
         </div>
       </div>
     </div>
   </div>
   <!-- 业务介绍 -->
   <div class="navbussies">
-    <ul>
+    <div class="bussiescont">
+      <ul>
+        <?php
+          $business_ids = ( isset( $th_options['business-posts'] ) && $th_options['business-posts'] ) ? $th_options['business-posts'] : '';
+          $business_ids = trim($business_ids);
+          if ($business_ids) {
+            $business_ids = explode(',', $business_ids);
+          } else {
+            $business_ids = array();
+          }
+          $query = new WP_Query( array(
+            'post__in' => $business_ids,
+            'posts_per_page' => 4,
+            'ignore_sticky_posts' => true,
+            'orderby' => 'post__in',
+          ) );
+          $i = 0;
+          while( $query->have_posts() ):
+            $query->the_post();
+            $i++;
+            $query_title = get_the_title();
+            if (preg_match('/\[(.*?)\](.*)/', $query_title, $title_matches)) {
+              $title_icon = $title_matches[1];
+            } else {
+              $title_icon = $query_title;
+            }
+        ?>
+        <li<?php if ($i == 1) echo ' class="active"'; ?>>
+          <a href="Javascript: void(0)">
+            <span class="icons<?php switch ($i) {
+              case 1:
+                echo ' icon-buss02';
+                break;
+              case 2:
+                echo ' icon-buss03';
+                break;
+              case 3:
+                echo ' icon-buss05';
+                break;
+              case 4:
+              default:
+                echo ' icon-buss06';
+                break;
+            }?>"></span>
+            <h4><?php echo $title_icon;?></h4>
+          </a>
+        </li>
+        <?php endwhile;wp_reset_postdata(); ?>
+      </ul>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="f0bgtop">
+    <div class="bussiescont indexlist">
       <?php
-        $business_ids = ( isset( $th_options['business-posts'] ) && $th_options['business-posts'] ) ? $th_options['business-posts'] : '';
-        $business_ids = trim($business_ids);
-        if ($business_ids) {
-          $business_ids = explode(',', $business_ids);
-        } else {
-          $business_ids = array();
-        }
-        $query = new WP_Query( array(
-          'post__in' => $business_ids,
-          'posts_per_page' => 4,
-          'ignore_sticky_posts' => true,
-          'orderby' => 'post__in',
-        ) );
         $i = 0;
         while( $query->have_posts() ):
           $query->the_post();
           $i++;
+          $query_title = get_the_title();
+          if (preg_match('/\[(.*?)\](.*)/', $query_title, $title_matches)) {
+            $title_desc = $title_matches[2];
+          } else {
+            $title_desc = $query_title;
+          }
       ?>
-      <li<?php if ($i == 1) echo ' class="active"'; ?>>
-        <a href="Javascript: void(0)">
-          <span class="icons<?php switch ($i) {
-            case 1:
-              echo ' icon-buss02';
-              break;
-            case 2:
-              echo ' icon-buss03';
-              break;
-            case 3:
-              echo ' icon-buss05';
-              break;
-            case 4:
-            default:
-              echo ' icon-buss06';
-              break;
-          }?>"></span>
-          <h4><?php the_title();?></h4>
-        </a>
-      </li>
-      <?php endwhile;wp_reset_postdata(); ?>
-    </ul>
-  </div>
-  <div class="clear"></div>
-  <div class="container">
-    <?php
-      $i = 0;
-      while( $query->have_posts() ):
-        $query->the_post();
-        $i++;
-    ?>
-    <div class="row clearfix newsdetails">
-      <div class="col-md-12">
-        <div class="details border0">
-          <?php the_content();?>
+      <div class="row clearfix newsdetails">
+        <div class="col-md-12">
+          <h3 class="news-title">· <?php echo $title_desc;?> ·</h3>
+          <div class="details border0">
+            <?php the_content();?>
+          </div>
         </div>
       </div>
+      <?php endwhile;wp_reset_postdata(); ?>
     </div>
-    <?php endwhile;wp_reset_postdata(); ?>
+  </div>
+  <div class="frombg" id="frombg01">
+    <div class="waybillform">
+      <div class="taborg-waybill bgorgradfrom" id="closewaybill">
+        <div class="bgorgrad">
+          <h3>运单查询</h3>
+          <span class="iconspng icon-down"></span>
+        </div>
+      </div>
+      <form id="form-js">
+        <div id="placediv" class="placediv">
+          <h5>点击输入运单号</h5>
+        </div>
+        <textarea id="textareaway" class="textareaway"></textarea>
+        <h6>可同时查询20条，以逗号、空格、回车键隔开</h6>
+      </form>
+      <div id="subBtn"  class="subBtn waybillbtn"><img src="<?php bloginfo('template_url');?>/img/search.png" alt=""></div>
+    </div>
   </div>
 <script>
  (function(){
     // tab切换
-    $(".newsdetails").eq(0).show();
+    $(".newsdetails").eq(0).addClass('active');
     $(".navbussies").eq(0).addClass('active');
     $(".navbussies li").on("mouseover",function(){
       $(this).addClass('active').siblings().removeClass('active');
       var num =$(".navbussies li").index(this);
-      $(".newsdetails").hide();
-      $(".newsdetails").eq(num).show().siblings().hide();
+      $(".f0bgtop .newsdetails").removeClass('active');
+      $(".f0bgtop .newsdetails").eq(num).addClass('active').siblings().removeClass('active');
     });
 
-    // 企业新闻截取
-    // var thiswidth,maxlength=60;
-    // thiswidth = $(window).width();
-    // if(thiswidth<=568){
-    //    maxlength = 37;
-    // }
-    
-    // var $newstexts = $('.newsrow .hoverdiv').find('.h7');
-    // $.each($newstexts,function(){
-    //   var str = $(this).text();
-    //   if(str.length>maxlength){
-    //     str=str.substr(0,maxlength);
-    //     $(this).html(str+'...');
-    //   }
-    // });
-
-    // 订单号查询  以及 企业用户登录
+    // 订单号查询
 
     $('#form-js').on('click',function(){
       $('#placediv').hide();
@@ -170,27 +157,32 @@
     });
 
     function restwaybill(){
-      var html ='<h5>您可以输入运单号进行查询</h5><h6>最多可查询20条，以逗号，空格或回车建隔开</h6>';
+      var html ='<h5>点击输入运单号</h5>';
       $("#placediv").html(html).show();
       $('#textareaway').val('');
-      $('.taborg-waybill').removeClass('active');
     }
     function restuserlogin(){
       $('#form2-js input').val('').blur();;
-      $('.taborg-qiyeuser').removeClass('active');
-      $('.taborg-qiyeuser .errorlog').css({'z-index':'-1'}).text('');
+      $('.errorlog').css({'z-index':'-1'}).text('');
     }
 
-    var iswaybill=0,isqiyeuser=0,islogin = true,textareaway='';
+    var isqiyeuser=0,islogin = true,textareaway='';
 
+    // 运单查询
     $('#waybill').on('click',function(e){
-      iswaybill++;
-      if(iswaybill%2==1){
-        $('.taborg-waybill').addClass('active');
-      }else{
-        restwaybill();
-      }
-      e.stopPropagation();
+      $('#frombg01').show();
+      $('body').css({'overflow':'hidden'});
+    });
+    $('#waybilltop').on('click',function(e){
+      $('#frombg01').show();
+      $('body').css({'overflow':'hidden'});
+    });
+    
+
+    $('#closewaybill').on('click',function(e){
+      $('#frombg01').hide();
+      $('body').css({'overflow':'auto'});
+      restwaybill();
     });
 
     
@@ -201,15 +193,10 @@
     });
 
     $('#qiyeuser').on('click',function(e){
-      isqiyeuser++;
-      if(isqiyeuser%2==1){
-        $('.taborg-qiyeuser').addClass('active');
-      }else{
-        restuserlogin();
-      }
+      $('#frombg02').show();
+      $('body').css({'overflow':'hidden'});
     });
 
-    
 
     // 点击提交运单号
     $('#subBtn').on('click',function(){
@@ -238,41 +225,6 @@
       // });
     });
 
-    // 企业用户登录
-    var username='',password='';
-    $('#loginBtn').on('click',function(){
-      var data={};
-      // 首先判断用户名密码是否非空，如果非空，则去空格后提交
-      username = $.trim($('input[name="username"]').val());
-      password = $.trim($('input[name="password"]').val());
-      console.log(username);
-      console.log(password);
-
-      if(!username||!password){
-        !username && $('input[name="username"]').next().text('请输入用户名').show().css({'z-index':'2'});
-        !password && $('input[name="password"]').next().text('请输入密码').show().css({'z-index':'2'});
-        return false;
-      }
-      
-      data.username = username;
-      data.password = password;
-      // 提交到后台
-
-      // $.ajax({
-      //  type: "POST",
-      //  url: "#",
-      //  data: data,
-      //  dataType: "json",
-      //  success: function(data){
-      //     restwaybill();
-      // $('input[name="username"]').next().text('用户名不存在').show().css({'z-index':'2'});
-      // $('input[name="password"]').next().text('密码不正确').show().css({'z-index':'2'});
-          
-      //   }
-      // });
-
-    });
-    
   })();
 </script>
 <?php get_footer(); ?>

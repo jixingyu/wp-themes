@@ -118,9 +118,15 @@ class Uts_init {
 
 	function xy_more_posts() {
 		$response = array( 'code' => 1 );
+		$paged = (int) $_GET['p'];
+		$limit = (int) $_GET['l'];
+		if ($limit < 1) $limit = 5;
+		if ($limit > 20) $limit = 20;
+		if ($paged < 1) $paged = 1;
 
-		$args = array('cat' => (int)$_GET['cat'], 'posts_per_page' => 5);
+		$args = array('cat' => (int)$_GET['cat'], 'posts_per_page' => $limit, 'paged' => $paged);
 		query_posts($args);
+		$result = array();
 		while ( have_posts() ) {
 			the_post();
 			$jsonpost['id'] = get_the_ID();
@@ -133,6 +139,7 @@ class Uts_init {
 				$jsonpost["content"] = mb_strimwidth(strip_tags(get_the_content()), 0, 400,"...", 'utf-8');
 			}
 			$jsonpost["date"] = get_the_time('Y-m-d');
+			$jsonpost['views'] = xy_post_views('', '', 0);
 			$result[] = $jsonpost;
 		}
 		$response['data'] = $result;

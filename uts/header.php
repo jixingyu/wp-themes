@@ -80,6 +80,10 @@
               </div>
             
               <div class="collapse navbar-collapse" id="navbar-collapse">
+                <div class="navbar-login navbar-right">
+                  <span id="qiyeuser" class="bgorgrad">登录</span>
+                  <!-- <span id="waybilltop" class="search-btn bgorgrad"><img src="<?php bloginfo('template_url');?>/img/search.png" alt="运单查询">运单查询</span> -->
+                </div>
                 <?php
                     wp_nav_menu( array(
                         'theme_location' => 'navmain',
@@ -96,3 +100,4 @@
       </div>
     </div>
   </div>
+

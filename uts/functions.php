@@ -226,8 +226,8 @@ function xy_thumb( $args = array() ) {
 //文章页上一篇下一篇导航
 function xy_post_nav(){
 
-	$previous = get_previous_post_link( '<p>上一篇：%link</p>', '%title', true );
-	$next = get_next_post_link( '<p>下一篇：%link</p>', '%title', true );
+	$previous = get_previous_post_link( '<p class="float-l">%link</p>', '上一篇：%title', true );
+	$next = get_next_post_link( '<p class="float-r">%link</p>', '下一篇：%title', true );
 
 	if ( ( ! $next && ! $previous ) || is_attachment() ) {
 		return;
@@ -254,7 +254,7 @@ function xy_record_visitors()
 }
 add_action('wp_head', 'xy_record_visitors');
 /// 函数作用：取得文章的阅读次数
-function xy_post_views($before = '浏览：', $after = '次', $echo = 1)
+function xy_post_views($before = '', $after = '', $echo = 1)
 {
 	global $post;
 	$post_ID = $post->ID;
@@ -263,7 +263,7 @@ function xy_post_views($before = '浏览：', $after = '次', $echo = 1)
 	else return $views;
 }
 
-function xy_most_viewed_format($term_id = 0, $echo = true, $limit = 10, $mode = '') {
+function xy_most_viewed_format($term_id = 0, $echo = true, $limit = 5, $mode = '') {
 	global $wpdb, $post;
 	$output = '';
 	$mode = ($mode == '') ? 'post' : $mode;

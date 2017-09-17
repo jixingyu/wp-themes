@@ -1,30 +1,17 @@
   <!-- footer nav -->
-  <div class="bg33 phonehidden">
-    <div class="container footernav">
-       <div class="row clearfix">
-        <div class="col-md-1 column"> </div>
-        <div class="col-md-11 column"> 
-          <div class="collapse navbar-collapse">
-            <?php
-              wp_nav_menu( array(
-                'theme_location' => 'navfooter',
-                'walker' => new Uts_Navfooter_Walker(),
-                'container' => '',
-                'items_wrap' => '<ul class="nav navbar-nav">%3$s</ul>',
-                'depth' => 1,
-              ) );
-            ?>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div class="footer bgeee phonehidden">
     <div class="container">
       <div class="row clearfix">
-        <div class="col-md-12 column h7 center">
-           © 2017 上海优通供应链管理有限公司 (沪ICP备15020782号)
+         <div class="col-md-10 pull-left h7">
+          上海优通供应链管理有限公司<br>
+          电话：+86-21-51530018<br>
+          邮箱：<a href="mailto:Sale@utscchina.com">Sale@utscchina.com</a><br>
+          地址：上海市闵行区都会路2338弄15/16栋<br>
+          <p class="copryright">© 2017 上海优通供应链管理有限公司 (沪ICP备15020782号)</p>
+        </div>
+        <div class="col-md-2 pull-right h7">
+          <img src="<?php bloginfo('template_url');?>/img/weixin.jpg" alt=""><br>
+          优通微信公众号
         </div>
       </div>
     </div>
@@ -40,6 +27,27 @@
   </div>
   <div class="phoneshow totop" id="totop">
     <img src="<?php bloginfo('template_url');?>/img/totop.png" alt="到顶部" title="到顶部">
+  </div>
+  <div class="frombg" id="frombg02">
+    <div class="waybillform waybillformuser" >
+      <div class="iconspng icon-close pull-right" id="closefrom2"></div>
+      <h3>用户登录</h3>
+      <form id="form2-js" class="taborgform2">
+        <label for="username">
+          <span class="user-icon"></span>
+          <span class="line-right"></span>
+          <input type="username" name="username" placeholder="请输入用户名" onfocus="if(placeholder=='请输入用户名') {placeholder=''}" onblur="if (value=='') {placeholder='请输入用户名'}">
+          <p class="errorlog">请输入用户名</p>
+        </label>
+        <label for="password">
+          <span class="password-icon"></span>
+          <span class="line-right"></span>
+          <input type="password" name="password" placeholder="请输入密码" onfocus="if(placeholder=='请输入密码') {placeholder=''}" onblur="if (value=='') {placeholder='请输入密码'}">
+          <p class="errorlog">请输入密码</p>
+        </label>
+      </form>
+      <div id="loginBtn"  class="subBtn waybillbtn loginbtn">登录</div>
+    </div>
   </div>
 
   <?php wp_footer(); ?>

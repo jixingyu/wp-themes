@@ -19,19 +19,85 @@ function addFavorite() {
     }
 }
 
+// toggle and href
+$(document).on("click",".dropdown-toggle",function(){
+  if( $(window).width() > 767 ){
+    if($(this).attr('href')) window.location = $(this).attr('href');
+  }
+});
+
 (function(){
+
+  // 企业用户登录
+  $('#qiyeuser').on('click',function(e){
+    $('#frombg02').show();
+    $('body').css({'overflow':'hidden'});
+  });
+  $('#closefrom2').on('click',function(e){
+    $('#frombg02').hide();
+    $('body').css({'overflow':'auto'});
+    restuserlogin();
+  });
+  function restuserlogin(){
+    $('#form2-js input').val('').blur();;
+    $('.errorlog').css({'z-index':'-1'}).text('');
+  }
+
+  var isqiyeuser=0,islogin = true,textareaway='';
+
+  var $from2inputs = $('#form2-js').find('label');
+  $from2inputs.on('click',function(e){
+    $(this).find('.errorlog').hide().css({'z-index':'-1'});
+    $(this).find('input').focus();
+  });
+
+  // 企业用户登录
+  var username='',password='';
+  $('#loginBtn').on('click',function(){
+    var data={};
+    // 首先判断用户名密码是否非空，如果非空，则去空格后提交
+    username = $.trim($('input[name="username"]').val());
+    password = $.trim($('input[name="password"]').val());
+    console.log(username);
+    console.log(password);
+
+    if(!username||!password){
+      !username && $('input[name="username"]').next().text('请输入用户名').show().css({'z-index':'2'});
+      !password && $('input[name="password"]').next().text('请输入密码').show().css({'z-index':'2'});
+      return false;
+    }
+    
+    data.username = username;
+    data.password = password;
+    // 提交到后台
+
+    // $.ajax({
+    //  type: "POST",
+    //  url: "#",
+    //  data: data,
+    //  dataType: "json",
+    //  success: function(data){
+    //     restwaybill();
+    // $('input[name="username"]').next().text('用户名不存在').show().css({'z-index':'2'});
+    // $('input[name="password"]').next().text('密码不正确').show().css({'z-index':'2'});
+        
+    //   }
+    // });
+
+  });
     // totop
     $(window).scroll(function(){
         var sc=$(window).scrollTop();
         var rwidth=$(window).width();
+        if(rwidth>768) return false;
         if(sc>500){
             $("#totop").show();
         }else{
             $("#totop").hide();
         }
-    });
+    })
     $("#totop").click(function(){
-        var sc=$(window).scrollTop();console.log(sc);
+        var sc=$(window).scrollTop();
         $('body,html').animate({scrollTop:0},500);
     });
 })();

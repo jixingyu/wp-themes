@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
 <?php
+  $hot_cat_id = ( isset( $th_options['news-hot'] ) && $th_options['news-hot'] ) ? $th_options['news-hot'] : '';
   global $wp_query;
   $cat_option = get_option( THEME_PREFIX . '_cat_options_' . $wp_query->queried_object_id );
   $tmp = ( is_category() && isset( $cat_option['template'] ) ) ? $cat_option['template'] : 'default';
@@ -9,113 +10,121 @@
   if ( $tmp == 'picture' ) :
 ?>
   <style>
-    .listdiv li{
-      width:25%;
-      margin-bottom: 2%;
-    }
-   
-    .caserow h2{
-      display: none;
-      color: #fff;
-      font-size: 24px;
-      text-align: center;
-      padding: 5% 0;
-    }
-    @media screen and (max-width: 800px) {
-      .caserow h2{
-        display: block;
-      }
-    }
-    @media screen and (max-width: 737px) {
-      
-    }
     @media screen and (max-width: 450px) {
-      .listdiv li{
-        width:33.3333%;
-      }
       .pagination>li>a, .pagination>li>span{
         padding:6px 7px;
       }
     }
-   
-
   </style>
 <?php endif; ?>
 
 <!-- banner -->
 <div class="banner">
+  <h3>极速物流·完整供应链·助力智慧物流</h3>
   <img alt="" src="<?php echo empty($th_options['head-banner-img']) ? get_bloginfo('template_url') . '/img/long-banner.jpg' : $th_options['head-banner-img'];?>" class="bannerimg"/>
 </div>
-
-  <?php if ( $tmp == 'picture' ) : ?>
-  <div class="bg53">
-    <div class="container">
-      <div class="row clearfix padding60-0 caserow">
-        <h2><?php echo $cur_cat->name;?></h2>
-      	<?php if( have_posts() ): ?>
-        <div class="listdiv padding40-0 listdivlist">
-          <ul>
-          	<?php while( have_posts() ): the_post(); ?>
-            <li>
-              <a href="<?php the_permalink();?>">
-                <div class="listimgdiv">
-                  <img src="<?php echo xy_thumb();?>" alt="">
-                  <div class="listimgbg"></div>
-                  <h4><?php the_title(); ?></h4>
-                </div>
-              </a>
-            </li>
-          	<?php endwhile; ?>
+<div class="navbussies navbussies-case">
+  <div class="bussiescont ">
+    <ul>
+      <li class="active">
+        <a href="Javascript: void(0)">
+          <h4><?php echo $cur_cat->name;?></h4>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="clear"></div>
+<?php if ( $tmp == 'picture' ) : ?>
+  <?php if( have_posts() ): ?>
+    <div class="bussiescont-case">
+      <ul>
+        <?php while( have_posts() ): the_post(); ?>
+        <li>
+          <div class="caselistdiv">
+            <img src="<?php echo xy_thumb();?>" title="<?php the_title(); ?>">
+            <a href="<?php the_permalink();?>" target="_blank"><div class="casetitle"><?php the_title(); ?></div></a>
+          </div>
+        </li>
+        <?php endwhile; ?>
+      </ul>
+    </div>
+    <div class="col-md-12 center pagefooter">
+      <?php xy_paginate();?>
+    </div>
+  <?php endif;?>
+<?php else : ?>
+    <?php if( have_posts() ): ?>
+    <div class="bgf8"> 
+      <div class="bussiescont newslist">
+          <ul id="newslist">
           </ul>
-        </div>
-        <div class="col-md-12 center pagefooter">
-          <?php xy_paginate();?>
-        </div>
-      	<?php endif;?>
+          <div class="center loading" >
+            <img src="<?php bloginfo('template_url');?>/img/loading.gif" alt="" />
+          </div>
+          <div class="getmore" id="getmore">
+            <span class="iconspng icon-down"></span>
+          </div>
+      </div>
+    </div> 
+    <div class="hotlist">
+      <div class="hotnews">
+        <h5>热门新闻</h5>
+        <ol>
+          <?php xy_most_viewed_format($hot_cat_id);?>
+        </ol>
       </div>
     </div>
-  </div>
-	<?php else : ?>
-  <div class="container">
-    <div class="row clearfix">
-      <div class="col-md-12 breadcrumbdiv list-line-b">
-        <ol class="breadcrumb"><?php xy_breadcrumb(); ?></ol>
-      </div>
-    </div>
-    <div class="row clearfix newslist">
-      <div class="col-md-9 newslist-l">
-      	<?php if( have_posts() ): ?>
-        <ul>
-        	<?php while( have_posts() ): the_post(); ?>
-          <li>
-            <a href="<?php the_permalink();?>" target="_blank">
-	            <?php $xythumb = xy_thumb(); if (!empty($xythumb)) : ?>
-	            	<img src="<?php echo $xythumb;?>" alt=""  class="float-l">
-	            <?php endif; ?>
-	            <div class="list-r-text">
-	              <h4 class="ellipsis"><?php the_title(); ?></h4>
-	              <div class="list-text-b"><span class="float-l">发布时间：<?php the_time('Y-m-d'); ?></span></div>
-	            </div>
-	          </a>
-          </li>
-          <?php endwhile; ?>
-        </ul>
-        <div class="col-md-12 center pagefooter">
-          <?php xy_paginate();?>
-        </div>
-				<?php endif; ?>
-      </div>
-      <div class="col-md-3 newslist-r">
-        <div class="hotnews">
-          <h5>热门</h5>
-          <ol>
-            <?php xy_most_viewed_format($cur_cat->term_id);?>
-          </ol>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-	<?php endif; ?>
+    <?php endif; ?>
+<?php endif; ?>
+
+<script>
+(function(){
+  var p=1,pz=5;html="",data={},hasMore=true;
+  // 获取新闻列表
+  getNewslist(p);
+  $('#getmore').on('click',function(){
+    p++;
+    getNewslist(p);
+  });
+
+  function getNewslist(p){
+    if (!hasMore) {
+      return;
+    }
+    $.ajax({
+     type: "GET",
+     url: "http://local.uts.com/wp-admin/admin-ajax.php?action=xy_more_posts&cat=<?php echo $cat_ID;?>&l=" + pz + "&p="+p,
+     dataType: "json",
+     success: function(data){
+        if(data.data.length > 0){
+          $.each(data.data,function(i,item){
+            var url = item.url,
+                imgsrc = item.img,
+                title = item.title,
+                time = item.date, 
+                view = 2200,
+                content = item.content.substr(0,55)+"...";
+
+            html+='<li><a href="'+url+'" target="_blank"><img src="'+imgsrc+'" alt=""  class="float-l"><div class="list-r-text"><h4 class="ellipsis">'+title+'</h4><div class="list-text-b"><span class="float-l pulishtime">发布时间：'+time+'</span><span class="float-l">阅读量：'+view+'</span></div><div class="list-text-con">'+content+'</div></div></a></li>';
+          });
+          $('.loading').show();
+          if (data.data.length < pz) {
+            $('#getmore').hide();
+          }
+          setTimeout(function(){
+            $('.loading').hide();
+            $('#newslist').html(html);
+          },500)
+        } else {
+          $('#getmore').hide();
+        }
+      }
+    });
+  }
+})();
+</script>
 <?php get_footer(); ?>
+
+
 
