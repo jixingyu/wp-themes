@@ -71,6 +71,8 @@ Template Name: 关于我们
   </div>
 
   <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=9heVASdNFpkcDNyWj0pvOSBEaO6lryFh"></script>
+  <script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+  <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
   <script type="text/javascript">
     // 百度地图API功能
     var map = new BMap.Map("mapdiv");
@@ -78,14 +80,31 @@ Template Name: 关于我们
     var marker = new BMap.Marker(point);
     map.addOverlay(marker);
     map.centerAndZoom(point, 17);
-    var opts = {
-      width : 200,
-      height: 100,
-      title : "<?php bloginfo('name');?>"
-    }
-    var infoWindow = new BMap.InfoWindow("地址：上海闵行区都会路2338弄15/16栋", opts);
+    // var opts = {
+    //   width : 200,
+    //   height: 100,
+    //   title : "<?php bloginfo('name');?>"
+    // }
+    // var infoWindow = new BMap.InfoWindow("地址：上海闵行区都会路2338弄15/16栋", opts);
+    var content = '<div style="margin:0;line-height:20px;padding:2px;">'
+      + '<img src="<?php bloginfo('template_url');?>/img/zongbu.gif" alt="" style="float:right;zoom:1;overflow:hidden;width:100px;height:100px;margin-left:3px;"/>'
+      + '地址：上海市闵行区都会路2338弄15/16栋<br/>电话：+86-21-51530018'
+      + '</div>';
+    searchInfoWindow = new BMapLib.SearchInfoWindow(map, content, {
+      title  : "<?php bloginfo('name');?>",      //标题
+      width  : 290,             //宽度
+      height : 105,              //高度
+      panel  : "panel",         //检索结果面板
+      enableAutoPan : true,     //自动平移
+      searchTypes   :[
+        BMAPLIB_TAB_SEARCH,   //周边检索
+        BMAPLIB_TAB_TO_HERE,  //到这里去
+        BMAPLIB_TAB_FROM_HERE //从这里出发
+      ]
+    });
     marker.addEventListener("click", function(){
-      map.openInfoWindow(infoWindow,point);
+      // map.openInfoWindow(infoWindow,point);
+      searchInfoWindow.open(marker);
     });
     map.enableScrollWheelZoom(true);
   </script>
