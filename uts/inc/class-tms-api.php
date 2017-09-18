@@ -7,7 +7,6 @@ CREATE TABLE `wp_uts_user` (
   PRIMARY KEY (`id`)
 ) ENGINE=MYISAM DEFAULT CHARSET=utf8
 */
-if (!session_id()) session_start();
 class Tms_api
 {
     const LOGIN_URL = "http://app.360scm.com/SCM.TMS7.WebApi/Oauth/GetTokenByPassword?username=%s&password=%s";
@@ -25,7 +24,7 @@ class Tms_api
 	    		if ($apikey) {
 		    		$tokenData = $this->curl_get(sprintf(self::TOKEN_URL, urlencode($apikey)));
     				if (isset($tokenData['resultCode']) && $tokenData['resultCode'] == 0) {
-		    			$_SESSION['tms_token'] = $tokenData['token'];
+		    			Xysession::set('tms_token', $tokenData['token']);
 		    			return array('code' => 0);
 		    		}
 	    		}
@@ -36,18 +35,9 @@ class Tms_api
     	return array('code' => 9001, 'msg' => '登录失败');
     }
 
-    public function get_token()
-    {
-    	if (!empty($_SESSION['tms_token'])) {
-    		return $_SESSION['tms_token'];
-    	} else {
-    		return false;
-    	}
-    }
-
     public function order_tracking($search, $type = '2')
     {
-    	$token = $this->get_token();
+    	$token = Xysession::get('tms_token');
     	if (!$token) {
     		return array('code' => 9002, 'msg' => '未登录');
     	}

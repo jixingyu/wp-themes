@@ -42,6 +42,7 @@ remove_action( 'template_redirect', 'wp_shortlink_header', 11, 0 );
 remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
 remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
 
+require_once( 'inc/class-session.php' );
 require_once( 'inc/class-init.php' );
 require_once( 'inc/class-nav-walker.php' );
 require_once( 'settings/class-settings.php' );
