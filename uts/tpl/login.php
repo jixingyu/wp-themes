@@ -2,10 +2,11 @@
 /*
 Template Name: 企业用户登录
 */
-get_header();
 // require_once(ABSPATH . 'wp-content/themes/uts/inc/class-tms-api.php');
+get_header();
 // $tmsapi = new Tms_api();
-// $tmsapi->get_token('david-api', '123');
+// $loginResult = $tmsapi->login('13817576905', '123456');
+// var_dump($tmsapi->order_tracking('00H'));exit;
 ?>
 
 <style>
