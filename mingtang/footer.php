@@ -15,7 +15,7 @@
       </div>
       <div class="footerlogo">
         <img src="<?php echo $tplRootUrl;?>/img/logo.png" alt="" class="dis-mid">
-        <div class="h7 dis-mid">Copyright © 2017 吴门画派研究院<br>ICP备</div>
+        <div class="h7 dis-mid">Copyright © 2017 吴门画派研究院<br>苏ICP备17054760号-1</div>
       </div>
     </div>
   </div>
