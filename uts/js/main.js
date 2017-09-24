@@ -1,3 +1,16 @@
+
+if (navigator.userAgent.toLowerCase().indexOf("chrome") >= 0) {
+  $(window).load(function(){
+    $('input:-webkit-autofill').each(function(){
+      var text = $(this).val();
+      var name = $(this).attr('name');
+      $(this).after(this.outerHTML).remove();
+      $('input[name=' + name + ']').val(text);
+    });
+  });
+}
+
+
 function addFavorite() {
 	var url = window.location;
     var title = "优通供应链";
@@ -20,19 +33,20 @@ function addFavorite() {
 }
 
 // toggle and href
-$(document).on("click",".dropdown-toggle",function(){
-  if( $(window).width() > 767 ){
+$('.dropdown-toggle').on("click",".dropdown-toggle",function(){
+  // if( $(window).width() > 767 ){
+    console.log($(this));
     if($(this).attr('href')) window.location = $(this).attr('href');
-  }
+  // }
 });
 
-(function(){
 
+(function(){
   // 企业用户登录
-  $('#qiyeuser').on('click',function(e){
-    $('#frombg02').show();
-    $('body').css({'overflow':'hidden'});
-  });
+  // $('#qiyeuser').on('click',function(e){
+  //   $('#frombg02').show();
+  //   $('body').css({'overflow':'hidden'});
+  // });
   $('#closefrom2').on('click',function(e){
     $('#frombg02').hide();
     $('body').css({'overflow':'auto'});
@@ -83,21 +97,21 @@ $(document).on("click",".dropdown-toggle",function(){
         
     //   }
     // });
-
   });
-    // totop
-    $(window).scroll(function(){
-        var sc=$(window).scrollTop();
-        var rwidth=$(window).width();
-        if(rwidth>768) return false;
-        if(sc>500){
-            $("#totop").show();
-        }else{
-            $("#totop").hide();
-        }
-    })
-    $("#totop").click(function(){
-        var sc=$(window).scrollTop();
-        $('body,html').animate({scrollTop:0},500);
-    });
+
+  // totop
+  $(window).scroll(function(){
+      var sc=$(window).scrollTop();
+      var rheight=$(window).height();
+      // if(rheight<768) return false;
+      if(sc>500){
+          $("#totop").fadeIn();
+      }else{
+          $("#totop").fadeOut();
+      }
+  })
+  $("#totop").click(function(){
+      var sc=$(window).scrollTop();
+      $('body,html').animate({scrollTop:0},600);
+  });
 })();

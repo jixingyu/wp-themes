@@ -2,9 +2,10 @@
 
 <!-- banner -->
 <div class="banner">
-  <h3>极速物流·完整供应链·助力智慧物流</h3>
+  <!-- <h3>极速物流·完整供应链·助力智慧物流</h3> -->
   <img alt="" src="<?php echo empty($th_options['head-banner-img']) ? get_bloginfo('template_url') . '/img/long-banner.jpg' : $th_options['head-banner-img'];?>" class="bannerimg"/>
 </div>
+
 <?php
   $hot_cat_id = ( isset( $th_options['news-hot'] ) && $th_options['news-hot'] ) ? $th_options['news-hot'] : '';
   $cur_cat = get_the_category();

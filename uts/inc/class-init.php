@@ -119,11 +119,16 @@ class Uts_init {
 	function xy_more_posts() {
 		$response = array( 'code' => 1 );
 		$paged = (int) $_GET['p'];
-		$limit = (int) $_GET['l'];
-		if ($limit < 1) $limit = 5;
-		if ($limit > 20) $limit = 20;
+		$limit = (int) get_option('posts_per_page');
 		if ($paged < 1) $paged = 1;
 
+		$cat_option = get_option( THEME_PREFIX . '_cat_options_' .  (int)$_GET['cat'] );
+		$tmp = isset( $cat_option['template'] ) ? $cat_option['template'] : 'default';
+		if ( $tmp == 'picture' ) {
+			$picArgs = array('size' => 'medium');
+		} else {
+			$picArgs = array();
+		}
 		$args = array('cat' => (int)$_GET['cat'], 'posts_per_page' => $limit, 'paged' => $paged);
 		query_posts($args);
 		$result = array();
@@ -132,7 +137,7 @@ class Uts_init {
 			$jsonpost['id'] = get_the_ID();
 			$jsonpost['title'] = get_the_title();
 			$jsonpost['url'] = apply_filters('the_permalink', get_permalink());
-			$jsonpost['img'] = xy_thumb();
+			$jsonpost['img'] = xy_thumb($picArgs);
 			if (has_excerpt()) {
 				$jsonpost["content"] = mb_strimwidth(strip_tags(get_the_excerpt()), 0, 400,"...", 'utf-8');
 			} else{

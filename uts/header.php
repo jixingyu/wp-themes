@@ -67,8 +67,8 @@
     ?>
 </head>
 <body>
-  <!-- 导航 -->
-  <div class="navbg">
+  <!-- 导航 如果管理员登录了之后 navbg追加一个class=>  admin-login -->
+  <div class="navbg<?php if ( is_user_logged_in() ) echo ' admin-login'; ?>">   
     <div class="container">
       <div class="row clearfix">
         <div class="col-md-12 column">
@@ -81,8 +81,10 @@
             
               <div class="collapse navbar-collapse" id="navbar-collapse">
                 <div class="navbar-login navbar-right">
-                  <span id="qiyeuser" class="bgorgrad">登录</span>
-                  <!-- <span id="waybilltop" class="search-btn bgorgrad"><img src="<?php bloginfo('template_url');?>/img/search.png" alt="运单查询">运单查询</span> -->
+                  <!-- id="qiyeuser" -->
+                  <!-- <a href="#"><span class="bgorgrad">登录</span></a> -->
+                  <!-- 登录后显示下面运单查询代码 -->
+                  <span id="waybilltop" class="search-btn bgorgrad"><img src="<?php bloginfo('template_url');?>/img/search.png" alt="运单查询">运单查询</span>
                 </div>
                 <?php
                     wp_nav_menu( array(

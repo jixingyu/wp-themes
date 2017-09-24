@@ -43,6 +43,10 @@
   body{
     background-color: #fff;
     position: relative;
+    padding-top:80px;
+  }
+  .bgfff{
+    background-color: #fff;
   }
 
   .phonehidden{
@@ -52,6 +56,35 @@
   .phoneshow,.loading{
     display: none;
   }
+
+ input::-webkit-input-placeholder,
+  textarea::-webkit-textarea-placeholder{
+      color: #b4b4b4;opacity:.8;
+  }
+  input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+　　  color: #b4b4b4;opacity:.8;
+　　}
+　　input:-moz-placeholder, textarea:-moz-placeholder {
+　　  color: #b4b4b4;opacity:.8;
+　　}
+　　input::-moz-placeholder, textarea::-moz-placeholder {
+　　  color: #b4b4b4;opacity:.8;
+　　}
+　　input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+　　  color: #b4b4b4;opacity:.8;
+　　}
+  input:-webkit-autofill {
+    background:#eee !important;
+    background-color : #eee !important;
+    background-image : none ;
+    color : #000 ;
+    -webkit-box-shadow : 0 0 0px 1000px #eee inset ;
+    box-shadow : 0 0 0px 1000px #eee inset ;
+  }
+
+
+
+
   /*重写bootstrap3.css*/
   .container {
     width: 1170px;
@@ -108,6 +141,8 @@
 
 
 
+
+
   /*顶部导航*/
   .topbg{
       background: #000;
@@ -130,6 +165,13 @@
       .navbg{
         background: #fff;
         width:100%;
+        position: fixed;
+        top: 0;
+        z-index: 999;
+      }
+      /*登录后.navbg加islogin class*/
+      .navbg.admin-login{
+        top: 31px;
       }
       .navbar-youtong {
         margin-bottom: 0;
@@ -278,7 +320,7 @@
 
     /*幻灯片下方 运单查询*/
     .taborgbg{
-        background-color: #475257;
+      background-color: #475257;
       }
 
       .taborg-waybill{
@@ -350,22 +392,25 @@
       }
 
       .placediv h5.error{
-       color:#ff4200;
+        color:#ff4200;
       }
       .subBtn{
-      background-color: #f29b00;
-      color: #fff;
-      font-size: 22px;
-      width: 100%;
-      height: 50px;
-      line-height: 50px;
-      margin-top: 20px;
-      text-align: center;
-      cursor: pointer;
+        background-color: #f29b00;
+        color: #fff;
+        font-size: 22px;
+        width: 50%;
+        height: 50px;
+        line-height: 50px;
+        margin-top: 20px;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 50px;
+        margin: 20px auto;
       }
       .subBtn:hover{
-      opacity: .85;
-      filter: alpha(opacity=85);
+        background-color: #ffc900;
+        /*opacity: .85;
+        filter: alpha(opacity=85);*/
       }
      
       .waybillform label,.waybillformuser label{
@@ -405,30 +450,8 @@
         margin-left: 8px;
         margin-right: 8px;
       }
-      .taborgform2 input{
-        width: 171px;
-        height: 35px;
-        background-color: transparent;
-        font-size: 16px;
-        color:#333;
-        padding: 9.5px 0;
-      }
-      :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-          color: #bbb; opacity:1; 
-      }
-
-      ::-moz-placeholder { /* Mozilla Firefox 19+ */
-          color: #bbb;opacity:1;
-      }
-
-      input:-ms-input-placeholder{
-          color: #bbb;opacity:1;
-      }
-
-      input::-webkit-input-placeholder{
-          color: #bbb;opacity:1;
-      }
-
+      
+     
       .taborgform2 input:focus,.taborgform2 input:active{
         border:0;
         outline: none;
@@ -438,7 +461,7 @@
         display: none;
         position: absolute;
         bottom: -16px;
-        color: #ff4200;
+        color: #f29b00;
         left: 55px;
         text-align: left;
       }
@@ -458,6 +481,13 @@
       .icon-up{
         background-position: 0 -80px;
       }
+      .icon-right{
+        background-position: 0 -170px;
+        width: 20px;
+        height: 28px;
+      }
+
+
       .icon-close{
         width:22px;
         height:22px;
@@ -781,7 +811,8 @@
       .totop{
           position: fixed;
           right:2%;
-          bottom:5%;
+          bottom:20%;
+          cursor: pointer;
         }
         .totop img{
           width:40px;
@@ -909,6 +940,7 @@
         text-indent: 2em;
       }
       .getmore{
+        display: none;
         background-color: #f29b00;
         width: 42px;
         height: 42px;
@@ -1046,6 +1078,7 @@
           .borderpart span>img{width:42px;height:42px;}
           .mapdiv{width:100%;height:600px;margin:50px 0;border:1px solid #eee;}
           .borderpart .weixinimg{width: 106px;height:106px;}
+          #mapdiv tr,#mapdiv td{-webkit-box-sizing:content-box;    -moz-box-sizing: content-box; box-sizing: content-box;}
     
     /*业务介绍*/
     .navbussies{ background: #fff;height: 210px;border-top: 3px solid #d2d2d2;border-bottom: 3px solid #d2d2d2;}
@@ -1139,22 +1172,26 @@
         .bussiescont-case  ul,.bussiescont-case  ul li{
           float:left;
         }
+        .bussiescont-case  ul{
+          width: 100%;
+          padding-bottom: 30px;
+        }
         .bussiescont-case  ul li{
           width:33.3333%;
         }
         .bussiescont-case  ul li .caselistdiv{
           position: relative;
           width:210px;
-          height:240px;
+          height:265px;
           box-shadow: 8px 8px 20px #7c7c7c;
           margin: 20px auto;
           text-align: center;
           border-radius: 10px;
         }
         .caselistdiv img{
-          width:100%;
-          height:100%;
-          border-radius: 10px;
+          width:210px;
+          height:210px;
+          border-radius: 10px 10px 0 0;
         }
         .casetitle{
           position: absolute;
@@ -1162,9 +1199,9 @@
           width:100%;
           background-color: #333;
           color:#fff;
-          height:60px;
+          height:55px;
           font-size: 20px;
-          line-height: 60px;
+          line-height: 55px;
           border-radius:0 0 10px 10px;
           cursor: pointer;
         }
@@ -1248,19 +1285,144 @@
 
     .bgf8{
       background-color: #f8f8f8;
-    }
-    .aboutpdiv p{
-      color:#475257;
-      font-size:16px;
-      line-height: 1.8;
-      margin:15px 0;
-      text-indent: 2em;
-    }
-    .loading img{
-      width: 160px;
-      height: 20px;
-    }
-        
+      }
+      .aboutpdiv p{
+        color:#475257;
+        font-size:16px;
+        line-height: 1.8;
+        margin:15px 0;
+        text-indent: 2em;
+      }
+      .loading{
+        padding:30px 0;
+      }
+      .loading img{
+        width: 160px;
+        height: 20px;
+      }
+
+    /*运单查询部分*/
+    .search-textarea{
+      padding:30px 0;
+      text-align: center;
+      position: relative;
+      }
+      .search-textarea textarea{
+        width:640px;
+        height:105px;
+        padding: 5px 10px;
+        border:2px solid #e3e3e3;
+        resize:none;
+        font-size:16px;
+        color:#b4b4b4;
+        outline: none;
+      }
+      .search-textarea p{
+        color:#b4b4b4;
+        font-size:14px;
+      }
+      .search-textarea p.errorlog{
+        width: 640px;
+        text-align: left;
+        left: 50%;
+        margin-left: -320px;
+        bottom: 105px;  
+        color: #f29b00;
+      }
+
+    .userinfo{
+      width:640px;
+      margin:15px auto;
+      text-align: right;
+      }
+      .userinfo h5{
+        color:#969696;
+      }
+      .userinfo a.logoutbtn,.search-btn{
+        background-color: #f29b00;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .userinfo a.logoutbtn{
+        padding: 5px 25px;
+        border-radius: 8px;
+        margin-left: 15px;
+      }
+
+    .search-btn{
+      border-radius: 50px;
+      width: 140px;
+      /*height: 40px;
+      line-height: 40px;*/
+      /*margin: 20px auto;*/
+      }
+      .userinfo a.logoutbtn:hover,
+      .search-btn:hover{
+        background-color: #ffc900;
+      }
+
+      /*查询结果*/
+      .search-list{
+        border-top: 2px solid #d1d1d1;
+        padding:20px 60px;
+        }
+        .search-list-table{
+          width:640px;
+          border:1px solid #d1d1d1;
+          border-bottom:0;
+          margin: 30px auto;
+          }
+          .search-list-table table{
+            width:100%;
+          }
+          .search-list-table td{
+            border-right:1px solid #c8c8c8;
+            border-bottom:1px solid #d1d1d1;
+            vertical-align: middle;
+            padding:10px;
+          }
+          
+          .search-list-table #tableth td{
+            color:#fff;
+            font-size:14px;
+            text-shadow:1px 1px 1px #8c8c8c;
+            background-color: #c8c8c8;
+            text-align: center;
+            border-right: 1px solid #fff;
+          }
+          .search-list-table #tableth td:last-child{
+            border-right: 0;
+          }
+          
+          .search-list-table .first-td,
+          .search-list-table .second-td,
+          .search-list-table .third-td{
+            font-size:16px;
+            color:#000;
+            text-align: center;
+          }
+
+          .search-list-table .third-td.type01{
+            color:#f29b00;  /*配送中*/
+          }
+          .search-list-table .third-td.type02{
+            color:#339933;  /*已签收*/
+          }
+
+          .search-list-table .first-td{
+            width:25%;
+          }
+          .search-list-table .second-td,.search-list-table .third-td{
+            width:15%;
+          }
+          .search-list-table td.fourth-td{
+            width:45%;
+            font-size:12px;
+            color:#000;
+            border-right:0;
+          }
+      
 
     /*适配*/
 
@@ -1285,7 +1447,7 @@
 
       /*news-list*/
       .banner{
-        height: auto;
+        /*height: auto;*/
       }
 
       .newslist{
@@ -1400,8 +1562,12 @@
       }
     }
     @media screen and (max-width: 800px) {
+      .banner{
+        min-height:120px;
+      }
       .bannerimg{
-        width: auto;
+        /*width: auto;*/
+        bottom:0;
       }
           
       .pidhidden{display:none;}
@@ -1646,6 +1812,9 @@
       .borderpart{
         width: 80%;
       }
+      .bussiescont-case  ul li{
+        width:50%;
+      }
      
     }
     @media screen and (max-width: 641px) {
@@ -1660,11 +1829,17 @@
     }
 
     @media screen and (max-width: 569px) {
+      body{
+        padding-top:55px;
+      }
+      .navbg{
+        top:0;
+      }
       .container {
           width: 100%;
       }
       h2 {
-        font-size: 20px;
+        font-size: 18px;
       }
       h3 {
         font-size: 16px;
@@ -1909,18 +2084,78 @@
 
       
     }
+     
 
     @media screen and (max-width: 481px) {
+      .banner{
+        max-height: 110px;
+        min-height: 67px;
+      }
+      
+      html #wpadminbar{
+        position: fixed;
+        top:0;
+      }
+
+      .navbg.admin-login{
+        top:46px;
+      }
+      .navbussies .icons,
+      .navbussies li.active a:after, .navbussies li:hover a:after,
+      .icon-return{
+        -ms-transform: scale(.70);
+        -moz-transform: scale(.70);
+        -webkit-transform: scale(0.70);
+        -o-transform: scale(.70);
+        transform: scale(.70);
+      }
+      .navbussies .bussiescont-index  li.active a:after,
+      .navbussies .bussiescont-index  li:hover a:after{
+        bottom:0;
+      }
+      .f0bgtop:before{
+        height: 50px;
+      }
+      .newsdetails .details{
+        margin-top:30px;
+      }
+     
+
+      .navbussies li.active a:after, .navbussies li:hover a:after{
+        bottom:17px;
+      }
+      .navbussies h4 {
+        line-height: 60px;
+      }
+      .newslist li{
+        padding:20px 0;
+      }
       .newslist  img {
         width: 120px;
-        height: 120px;
+        height: 74px;
       }
       .list-r-text{
         height: 120px;
       }
+      .list-r-text h4{
+        font-size: 16px;
+      }
+      .list-text-con{
+        display: none;
+      }
       .list-text-b span,.breadcrumb a, .breadcrumb>.active, .breadcrumb li{
         font-size: 12px;
       }
+      .bussiescont-case  ul li{
+        width:100%;
+      }
+      .navbussies a{
+        padding:0;
+      }
+      .taborg-waybill{
+        display: none;
+      }
+
     }
     @media screen and (max-width: 415px) {
       .taborg-waybill p.errorlog{
@@ -1942,7 +2177,7 @@
 
       .newslist  img {
         width: 100px;
-        height: 100px;
+        height: 62px;
       }
       .list-r-text{
         height: 100px;
@@ -1954,25 +2189,19 @@
       .contactrow .col-md-4:last-child .borderpart{
         margin-bottom:40px;
       }
-      .navbussies .icons,
-      .navbussies li.active a:after, .navbussies li:hover a:after{
-        -ms-transform: scale(.70);
-        -moz-transform: scale(.70);
-        -webkit-transform: scale(0.70);
-        -o-transform: scale(.70);
-        transform: scale(.70);
-      }
+      
+      
       .navbussies a, .navbussies {
           height: 100px;
       }
       .icon-return{
-        margin-right:0;
+        margin-right:-5px;
       }
       .bussiescont-toppart .topcrumb{
         line-height: 28px;
         height: 30px;
         font-size: 12px;
-        width: 87px;
+        width: 70px;
       }
       .news-bottom-a a{
         width: 100%;
@@ -2023,7 +2252,7 @@
 
       .newslist  img {
         width: 80px;
-        height: 80px;
+        height: 50px;
       }
 
       .list-r-text {
@@ -2040,9 +2269,15 @@
       .contactrow{
         margin-top:95px;
       }
+      .banner {
+        min-height: 63px;
+      }
 
     }
     @media screen and (max-width: 321px) {
+      .banner {
+        min-height: 56px;
+      }
       .listimgdiv,.listimgdiv img{
         width: 95px;
         height:126px;

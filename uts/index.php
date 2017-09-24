@@ -32,6 +32,7 @@
   <!--运单查询以及企业用户登录-->
   <div class="taborgbg">
     <div class="container">
+      <!-- 登录后隐藏一下内容 -->
       <div class="taborg-waybill" id="waybill">
         <div class="bgorgrad">
           <h3>运单查询</h3>
@@ -42,7 +43,7 @@
   </div>
   <!-- 业务介绍 -->
   <div class="navbussies">
-    <div class="bussiescont">
+    <div class="bussiescont bussiescont-index">
       <ul>
         <?php
           $business_ids = ( isset( $th_options['business-posts'] ) && $th_options['business-posts'] ) ? $th_options['business-posts'] : '';
@@ -169,14 +170,14 @@
     var isqiyeuser=0,islogin = true,textareaway='';
 
     // 运单查询
-    $('#waybill').on('click',function(e){
-      $('#frombg01').show();
-      $('body').css({'overflow':'hidden'});
-    });
-    $('#waybilltop').on('click',function(e){
-      $('#frombg01').show();
-      $('body').css({'overflow':'hidden'});
-    });
+    // $('#waybill').on('click',function(e){
+    //   $('#frombg01').show();
+    //   $('body').css({'overflow':'hidden'});
+    // });
+    // $('#waybilltop').on('click',function(e){
+    //   $('#frombg01').show();
+    //   $('body').css({'overflow':'hidden'});
+    // });
     
 
     $('#closewaybill').on('click',function(e){
@@ -191,12 +192,6 @@
       $(this).find('.errorlog').hide().css({'z-index':'-1'});
       $(this).find('input').focus();
     });
-
-    $('#qiyeuser').on('click',function(e){
-      $('#frombg02').show();
-      $('body').css({'overflow':'hidden'});
-    });
-
 
     // 点击提交运单号
     $('#subBtn').on('click',function(){

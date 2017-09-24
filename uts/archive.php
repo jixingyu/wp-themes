@@ -20,7 +20,6 @@
 
 <!-- banner -->
 <div class="banner">
-  <h3>极速物流·完整供应链·助力智慧物流</h3>
   <img alt="" src="<?php echo empty($th_options['head-banner-img']) ? get_bloginfo('template_url') . '/img/long-banner.jpg' : $th_options['head-banner-img'];?>" class="bannerimg"/>
 </div>
 <div class="navbussies navbussies-case">
@@ -38,19 +37,14 @@
 <?php if ( $tmp == 'picture' ) : ?>
   <?php if( have_posts() ): ?>
     <div class="bussiescont-case">
-      <ul>
-        <?php while( have_posts() ): the_post(); ?>
-        <li>
-          <div class="caselistdiv">
-            <img src="<?php echo xy_thumb();?>" title="<?php the_title(); ?>">
-            <a href="<?php the_permalink();?>" target="_blank"><div class="casetitle"><?php the_title(); ?></div></a>
-          </div>
-        </li>
-        <?php endwhile; ?>
+      <ul id="caselist">
       </ul>
-    </div>
-    <div class="col-md-12 center pagefooter">
-      <?php xy_paginate();?>
+      <div class="center loading" >
+        <img src="<?php bloginfo('template_url');?>/img/loading.gif" alt="" />
+      </div>
+      <div class="getmore" id="getmore2">
+        <span class="iconspng icon-down"></span>
+      </div>
     </div>
   <?php endif;?>
 <?php else : ?>
@@ -62,7 +56,7 @@
           <div class="center loading" >
             <img src="<?php bloginfo('template_url');?>/img/loading.gif" alt="" />
           </div>
-          <div class="getmore" id="getmore">
+          <div class="getmore" id="getmore1">
             <span class="iconspng icon-down"></span>
           </div>
       </div>
@@ -80,48 +74,119 @@
 
 <script>
 (function(){
-  var p=1,pz=5;html="",data={},hasMore=true;
-  // 获取新闻列表
-  getNewslist(p);
-  $('#getmore').on('click',function(){
-    p++;
-    getNewslist(p);
-  });
+  var p=1,htmlNews="",htmlCase="",data={},hasMore=true;
 
-  function getNewslist(p){
-    if (!hasMore) {
-      return;
-    }
-    $.ajax({
-     type: "GET",
-     url: "http://local.uts.com/wp-admin/admin-ajax.php?action=xy_more_posts&cat=<?php echo $cat_ID;?>&l=" + pz + "&p="+p,
-     dataType: "json",
-     success: function(data){
-        if(data.data.length > 0){
-          $.each(data.data,function(i,item){
-            var url = item.url,
-                imgsrc = item.img,
-                title = item.title,
-                time = item.date, 
-                view = 2200,
-                content = item.content.substr(0,55)+"...";
-
-            html+='<li><a href="'+url+'" target="_blank"><img src="'+imgsrc+'" alt=""  class="float-l"><div class="list-r-text"><h4 class="ellipsis">'+title+'</h4><div class="list-text-b"><span class="float-l pulishtime">发布时间：'+time+'</span><span class="float-l">阅读量：'+view+'</span></div><div class="list-text-con">'+content+'</div></div></a></li>';
-          });
-          $('.loading').show();
-          if (data.data.length < pz) {
-            $('#getmore').hide();
-          }
-          setTimeout(function(){
-            $('.loading').hide();
-            $('#newslist').html(html);
-          },500)
-        } else {
-          $('#getmore').hide();
-        }
-      }
+  <?php if ( $tmp == 'picture' ) : ?>
+    getCaselist(p);
+    $('#getmore2').on('click',function(){
+      p++;
+      getCaselist(p);
     });
-  }
+    // 案例列表
+    function getCaselist(p){
+      if (!hasMore) {
+        return;
+      }
+      $.ajax({
+       type: "GET",
+       url: "http://local.uts.com/wp-admin/admin-ajax.php?action=xy_more_posts&cat=<?php echo $cat_ID;?>&p="+p,
+       dataType: "json",
+       success: function(data){
+          if(data.data.length > 0){
+            console.log(data);
+            $.each(data.data,function(i,item){
+
+              var url = item.url,
+                  imgsrc = item.img,
+                  title = item.title,
+                  time = item.date; 
+                  // view = item.views
+                  // content = item.content;
+                  // if(content.length>55){
+                  //   content = item.content.substr(0,55)+"...";
+                  // }
+
+              htmlCase+='<li><div class="caselistdiv"><img src="'+imgsrc+'" title="'+title+'"><a href="'+url+'" target="_blank"><div class="casetitle">'+title+'</div></a></div></li>';
+            });
+            $('.loading').fadeIn();
+            
+            setTimeout(function(){
+              if (data.data.length < <?php echo get_option('posts_per_page');?>) {
+              console.log("小于所有内容条数~");
+              $('#getmore2').fadeOut();
+              $('#totop').fadeIn();
+              }else{
+                $('#getmore2').fadeIn();
+              }
+
+              $('.loading').fadeOut();
+              $('#caselist').html(htmlCase);
+            },500)
+          } else {
+            hasMore = false;
+            console.log("没有更多了~");
+            $('#getmore2').fadeOut();
+            $('#totop').fadeIn();
+          }
+        }
+      });
+    }
+  <?php else : ?>
+    // 获取新闻列表
+    getNewslist(p);
+    $('#getmore1').on('click',function(){
+      p++;
+      getNewslist(p);
+    });
+    // 新闻列表
+    function getNewslist(p){
+
+      if (!hasMore) {
+        return;
+      }
+      $.ajax({
+       type: "GET",
+       url: "http://local.uts.com/wp-admin/admin-ajax.php?action=xy_more_posts&cat=<?php echo $cat_ID;?>&p="+p,
+       dataType: "json",
+       success: function(data){
+          if(data.data.length > 0){
+            $.each(data.data,function(i,item){
+              var url = item.url,
+                  imgsrc = item.img,
+                  title = item.title,
+                  time = item.date, 
+                  view = item.views,
+                  content = item.content;
+                  if(content.length>55){
+                    content = item.content.substr(0,55)+"...";
+                  }
+
+              htmlNews+='<li><a href="'+url+'" target="_blank"><img src="'+imgsrc+'" alt=""  class="float-l"><div class="list-r-text"><h4 class="ellipsis">'+title+'</h4><div class="list-text-b"><span class="float-l pulishtime">发布时间：'+time+'</span><span class="float-l">阅读量：'+view+'</span></div><div class="list-text-con">'+content+'</div></div></a></li>';
+            });
+            $('.loading').fadeIn();
+            
+            setTimeout(function(){
+              if (data.data.length < <?php echo get_option('posts_per_page');?>) {
+              console.log("小于所有内容条数~");
+              $('#getmore1').fadeOut();
+              $('#totop').fadeIn();
+              }else{
+                $('#getmore1').fadeIn();
+              }
+
+              $('.loading').fadeOut();
+              $('#newslist').html(htmlNews);
+            },500)
+          } else {
+            hasMore = false;
+            console.log("没有更多了~");
+            $('#getmore1').fadeOut();
+            $('#totop').fadeIn();
+          }
+        }
+      });
+    }
+  <?php endif; ?>
 })();
 </script>
 <?php get_footer(); ?>
