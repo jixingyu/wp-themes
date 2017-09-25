@@ -125,6 +125,7 @@
 .topbg{
   background: url(../img/top-bg.png) center 0 no-repeat;
   width:100%;
+  min-width: 1030px;
   height:198px;
   }
   .navber-top li{
@@ -270,6 +271,7 @@
 
 
 /*幻灯片样式重写*/
+.sildebg{min-width: 1030px;}
 .carousel-indicators li,.carousel-indicators li.active{
     width:13px;
     height:13px;
@@ -312,6 +314,7 @@
   position: relative;
   background: url(../img/footer-bg.png) center 0 no-repeat;
   width:100%;
+  min-width: 1030px;
   height:475px;
   }  
   .footer-mingtang .footercol4{padding-top:25px;}
@@ -331,7 +334,7 @@
     .footercol4 ul li h6{float:right;}
     .footercol4 .col-md-4{width:33.3%;border-right:3px solid #b2bbc6;height: 227px;padding-left:20px;padding-right:20px;}
     .footercol4 .col-md-4:last-child{border:0;}
-  .footer-bg{background: url(../img/black-bg.png) repeat; width:100%;height:180px;position: absolute;bottom:0;}
+  .footer-bg{background: url(../img/black-bg.png) repeat; width:100%;min-width: 1030px;height:180px;position: absolute;bottom:0;}
     .footernav{
       width: 895px;
       margin: 20px auto;
@@ -407,7 +410,7 @@
     .content h5 img{margin-right:20px;}
     .content-b-img{margin:30px auto;}
 /*资讯*/
-.newsbg{text-align: center;width:100%;overflow: hidden;}
+.newsbg{text-align: center;width:100%;min-width:1030px;overflow: hidden;}
   .newsbg img{width:100%;}
   .newslist  li{color:#000;font-size:24px; position: relative;padding-left:35px;height: 50px;
     line-height: 50px;} 
@@ -469,7 +472,6 @@
     line-height: 30px;
     border: 1px solid #5e5e5e;
     float: left;
-    cursor: pointer;
   }
   .fromdiv input.randominput{width:140px;margin-left:20px; float: left;}
   .submit{border:1px solid #5e6c86; border-radius: 8px;width:128px;height:34px;
@@ -547,7 +549,7 @@
     top:80%;
   }
 
-@media screen and (max-width: 1180px) {
+/*@media screen and (max-width: 1180px) {
   .container {
     width: 100%;
   }
@@ -619,8 +621,6 @@
   
 }
 
-
-
 @media screen and (max-width: 415px) {
   .container-img .col-md-4,.footercol4 .col-md-4{
     width:100%;
@@ -674,4 +674,4 @@
 @media screen and (max-width: 321px) {
  
   
-}
+}*/

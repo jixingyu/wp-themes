@@ -1557,8 +1557,9 @@
       .footer .col-md-10,.footer .col-md-2{
         width:100%;
       }
-      .bussiescont-case, .bussiescont-toppart, .bussiescont{
-        width: 100%;
+      .bussiescont-case, .bussiescont-toppart, .bussiescont {
+          width: 96%;
+          padding: 0 2%;
       }
     }
     @media screen and (max-width: 800px) {
@@ -1711,10 +1712,7 @@
         padding-left:0;
         padding-right:0;
       }
-      .bussiescont-case, .bussiescont-toppart, .bussiescont {
-          width: 96%;
-          padding: 0 2%;
-      }
+      
       .news-details img, .bussiescont-details img {
           max-width: 100%;
       }
@@ -2109,10 +2107,12 @@
         -o-transform: scale(.70);
         transform: scale(.70);
       }
-      .navbussies .bussiescont-index  li.active a:after,
-      .navbussies .bussiescont-index  li:hover a:after{
+      .navbussies.bussiescont-index  li.active a:after,
+      .navbussies.bussiescont-index  li:hover a:after{
         bottom:0;
       }
+
+
       .f0bgtop:before{
         height: 50px;
       }
@@ -2194,6 +2194,15 @@
       .navbussies a, .navbussies {
           height: 100px;
       }
+      .navbussies.bussiescont-index,.navbussies.bussiescont-index a{
+        height:115px;
+      }
+      .navbussies.bussiescont-index h4{
+        line-height: 0;
+        height: 10px;
+        margin-top: 0;
+      }
+
       .icon-return{
         margin-right:-5px;
       }
@@ -2210,7 +2219,7 @@
 
     }
     @media screen and (max-width: 376px) {
-      /*.user-icon,*/
+      .navbussies .icons,
       .carousel-control .icon-prev,
        .carousel-control .glyphicon-chevron-left, 
        .carousel-control .icon-next,
@@ -2223,6 +2232,10 @@
         transform: scale(.50);
             top: 25%;
       }
+      .navbussies .icons{
+        margin-left: -4px;
+      }
+      
 
       .carousel-control .icon-prev, .carousel-control .glyphicon-chevron-left{
         left:-20px;
@@ -2271,6 +2284,13 @@
       }
       .banner {
         min-height: 63px;
+      }
+      .navbussies h4{
+        font-size:12px;
+      }
+      .bussiescont-index .bussiescont{
+        width:100%;
+        padding:0;
       }
 
     }
