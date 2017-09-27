@@ -6,11 +6,13 @@
   ?>
   <div class="sildebg">
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <?php if ($slider_num > 1) : ?>
       <ol class="carousel-indicators">
         <?php for ( $i = 1; $i <= $slider_num; $i++ ) { ?>
           <li data-target="#carousel-example-generic" data-slide-to="<?php echo $i - 1;?>" <?php if ($i == 1) echo 'class="active"';?>></li>
         <?php } ?>
       </ol>
+      <?php endif; ?>
 
       <div class="carousel-inner">
         <?php
@@ -29,21 +31,22 @@
   </div>
   <?php endif; ?>
 
-  <!--运单查询以及企业用户登录-->
-  <div class="taborgbg">
-    <div class="container">
-      <!-- 登录后隐藏一下内容 -->
-      <div class="taborg-waybill" id="waybill">
-        <div class="bgorgrad">
-          <h3>运单查询</h3>
-          <span class="iconspng icon-down"></span>
+    <!--运单查询以及企业用户登录-->
+    <!--  
+    <div class="taborgbg">
+      <div class="container">
+        <div class="taborg-waybill" id="waybill">
+          <div class="bgorgrad">
+            <h3>运单查询</h3>
+            <span class="iconspng icon-down"></span>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+    </div> -->
+
   <!-- 业务介绍 -->
-  <div class="navbussies">
-    <div class="bussiescont bussiescont-index">
+  <div class="navbussies bussiescont-index">
+    <div class="bussiescont">
       <ul>
         <?php
           $business_ids = ( isset( $th_options['business-posts'] ) && $th_options['business-posts'] ) ? $th_options['business-posts'] : '';
@@ -139,7 +142,13 @@
     </div>
   </div>
 <script>
- (function(){
+$('.dropdown-toggle').on("click",function(){
+// if( $(window).width() > 767 ){
+  console.log($(this));
+  if($(this).attr('href')) window.location = $(this).attr('href');
+// }
+});
+(function(){
     // tab切换
     $(".newsdetails").eq(0).addClass('active');
     $(".navbussies").eq(0).addClass('active');
@@ -219,7 +228,6 @@
       //   }
       // });
     });
-
-  })();
+})();
 </script>
 <?php get_footer(); ?>

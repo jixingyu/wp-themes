@@ -177,7 +177,7 @@ Template Name: 查询结果
       }
       $.ajax({
        type: "GET",
-       url: "http://local.uts.com/wp-admin/admin-ajax.php?action=xy_more_posts&cat=<?php echo $cat_ID;?>&l=" + pz + "&p="+p,
+       url: "/wp-admin/admin-ajax.php?action=xy_more_posts&cat=<?php echo $cat_ID;?>&l=" + pz + "&p="+p,
        dataType: "json",
        success: function(data){
           if(data.data.length > 0){

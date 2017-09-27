@@ -259,7 +259,7 @@
       .bgorgrad{
         cursor: pointer;
         color:#fff;
-        padding: 8px 20px;
+        padding: 8px 10px;
         background-color: #f29b00;
         border-radius: 50px;
       }
@@ -834,12 +834,14 @@
 
 
     /*新闻列表*/
-    .banner{width:100%;min-height:150px;overflow:hidden;border-bottom:19px solid #e0cab2;position: relative;}
+    .banner{width:100%;text-align:center;/*min-height:150px;overflow:hidden;*/position: relative;}
       .bannerimg{    
         width: 100%;
-        margin-left: -50%;
+        max-width:1140px;
+        border-bottom:19px solid #e0cab2;
+        /*margin-left: -50%;
         left: 50%;
-        position: absolute;
+        position: absolute;*/
       }
       .banner h3{
         position: absolute;
@@ -1076,12 +1078,12 @@
             width: 100%;
           }
           .borderpart span>img{width:42px;height:42px;}
-          .mapdiv{width:100%;height:600px;margin:50px 0;border:1px solid #eee;}
+          .mapdiv{width:100%;height:600px;margin:50px 0;border:1px solid #eee; border-bottom: 19px solid #e0cab2;}
           .borderpart .weixinimg{width: 106px;height:106px;}
           #mapdiv tr,#mapdiv td{-webkit-box-sizing:content-box;    -moz-box-sizing: content-box; box-sizing: content-box;}
     
     /*业务介绍*/
-    .navbussies{ background: #fff;height: 210px;border-top: 3px solid #d2d2d2;border-bottom: 3px solid #d2d2d2;}
+    .navbussies{ background: #fff;height: 205px;/*border-top: 3px solid #d2d2d2;*/border-bottom: 3px solid #d2d2d2;}
       .bussiescont{}
       .navbussies ul{overflow: hidden;}
       .navbussies ul li{float:left;width: 25%;position: relative; text-align: center;}
@@ -1192,6 +1194,7 @@
           width:210px;
           height:210px;
           border-radius: 10px 10px 0 0;
+          border-bottom: 2px solid #d2d2d2;
         }
         .casetitle{
           position: absolute;
@@ -1207,6 +1210,9 @@
         }
         .casetitle:hover{
           background-color: #f29b00;
+        }
+        .casetitle:active{
+          background-color: #cf8100;
         }
         .toppart{
           border-bottom: 3px solid #d2d2d2;
@@ -1352,7 +1358,7 @@
 
     .search-btn{
       border-radius: 50px;
-      width: 140px;
+      /*width: 140px;*/
       /*height: 40px;
       line-height: 40px;*/
       /*margin: 20px auto;*/
@@ -1503,9 +1509,17 @@
       .navbar-header {
         height: 70px;
       }
-      .navbar-youtong .collapse .nav a {
-        font-size: 18px;
-        padding: 15px 20px;
+
+    }
+    @media screen and (max-width: 965px) {
+      body{
+        padding-top: 70px;
+      }
+      .navbar-youtong .collapse .nav a{
+        padding: 15px 13px;
+      }
+      .navbar-header {
+          width: 19%;
       }
     }
     @media screen and (max-width: 910px) {
@@ -1562,7 +1576,8 @@
           padding: 0 2%;
       }
     }
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 810px) {
+     
       .banner{
         min-height:120px;
       }
@@ -1570,11 +1585,13 @@
         /*width: auto;*/
         bottom:0;
       }
-          
+      .navbar-header{
+         width: 16%;
+      }
+   
       .pidhidden{display:none;}
       .navbar-youtong .collapse .nav a {
         font-size: 14px;
-        padding: 15px;
         display: inline-block;
       }
       .navbar-login {
@@ -1646,7 +1663,12 @@
 
 
     @media screen and (max-width: 737px) {
-
+      .navbg .container,.navbg .row{
+        padding:0;
+      }
+      .navbar-login {
+          padding: 8px;
+      }
       
       .phonefooter{
 
@@ -1825,31 +1847,10 @@
       }
       
     }
-
-    @media screen and (max-width: 569px) {
+    @media screen and (max-width: 607px) {
       body{
         padding-top:55px;
       }
-      .navbg{
-        top:0;
-      }
-      .container {
-          width: 100%;
-      }
-      h2 {
-        font-size: 18px;
-      }
-      h3 {
-        font-size: 16px;
-      }
-      h4,h5,.list-text-b span,.breadcrumb a, .breadcrumb>.active, .breadcrumb li{
-        font-size: 14px;
-      }
-
-      h6,.h7 {
-        font-size: 12.5px;
-      }
-      
       .navbg .container {
         width: 100%;
         padding: 0;
@@ -1997,6 +1998,32 @@
             top:30%;
       }
 
+
+    }
+
+    @media screen and (max-width: 569px) {
+     
+      .navbg{
+        top:0;
+      }
+      .container {
+          width: 100%;
+      }
+      h2 {
+        font-size: 18px;
+      }
+      h3 {
+        font-size: 16px;
+      }
+      h4,h5,.list-text-b span,.breadcrumb a, .breadcrumb>.active, .breadcrumb li{
+        font-size: 14px;
+      }
+
+      h6,.h7 {
+        font-size: 12.5px;
+      }
+      
+      
       .carousel-indicators li, .carousel-indicators li.active {
           width: 60px;
           height:6px;
@@ -2107,10 +2134,7 @@
         -o-transform: scale(.70);
         transform: scale(.70);
       }
-      .navbussies.bussiescont-index  li.active a:after,
-      .navbussies.bussiescont-index  li:hover a:after{
-        bottom:0;
-      }
+      
 
 
       .f0bgtop:before{
@@ -2122,8 +2146,13 @@
      
 
       .navbussies li.active a:after, .navbussies li:hover a:after{
-        bottom:17px;
+        bottom: 12px;
       }
+      .navbussies.bussiescont-index  li.active a:after,
+      .navbussies.bussiescont-index  li:hover a:after{
+        bottom:-3px;
+      }
+
       .navbussies h4 {
         line-height: 60px;
       }
@@ -2185,6 +2214,7 @@
       .mapdiv{
         height: 400px;
         margin-top:0;
+
       }
       .contactrow .col-md-4:last-child .borderpart{
         margin-bottom:40px;

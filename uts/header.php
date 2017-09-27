@@ -59,8 +59,8 @@
     <link rel="shortcut icon" href="/wp-content/themes/uts/img/favicon.ico" />
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
-
+    <link rel="stylesheet" href="<?php bloginfo('stylesheet_url');?>" type="text/css" media="screen" />
+    
     <?php
         global $th_options;
         wp_head();

@@ -89,13 +89,11 @@
       }
       $.ajax({
        type: "GET",
-       url: "http://local.uts.com/wp-admin/admin-ajax.php?action=xy_more_posts&cat=<?php echo $cat_ID;?>&p="+p,
+       url: "/wp-admin/admin-ajax.php?action=xy_more_posts&cat=<?php echo $cat_ID;?>&p="+p,
        dataType: "json",
        success: function(data){
           if(data.data.length > 0){
-            console.log(data);
             $.each(data.data,function(i,item){
-
               var url = item.url,
                   imgsrc = item.img,
                   title = item.title,
@@ -106,7 +104,7 @@
                   //   content = item.content.substr(0,55)+"...";
                   // }
 
-              htmlCase+='<li><div class="caselistdiv"><img src="'+imgsrc+'" title="'+title+'"><a href="'+url+'" target="_blank"><div class="casetitle">'+title+'</div></a></div></li>';
+              htmlCase+='<li><div class="caselistdiv"><img src="'+imgsrc+'" title="'+title+'"><a href="'+url+'"><div class="casetitle">'+title+'</div></a></div></li>';
             });
             $('.loading').fadeIn();
             
@@ -146,7 +144,7 @@
       }
       $.ajax({
        type: "GET",
-       url: "http://local.uts.com/wp-admin/admin-ajax.php?action=xy_more_posts&cat=<?php echo $cat_ID;?>&p="+p,
+       url: "/wp-admin/admin-ajax.php?action=xy_more_posts&cat=<?php echo $cat_ID;?>&p="+p,
        dataType: "json",
        success: function(data){
           if(data.data.length > 0){
@@ -158,10 +156,10 @@
                   view = item.views,
                   content = item.content;
                   if(content.length>55){
-                    content = item.content.substr(0,55)+"...";
+                    content = content.substr(0,55)+"...";
                   }
 
-              htmlNews+='<li><a href="'+url+'" target="_blank"><img src="'+imgsrc+'" alt=""  class="float-l"><div class="list-r-text"><h4 class="ellipsis">'+title+'</h4><div class="list-text-b"><span class="float-l pulishtime">发布时间：'+time+'</span><span class="float-l">阅读量：'+view+'</span></div><div class="list-text-con">'+content+'</div></div></a></li>';
+              htmlNews+='<li><a href="'+url+'"><img src="'+imgsrc+'" alt=""  class="float-l"><div class="list-r-text"><h4 class="ellipsis">'+title+'</h4><div class="list-text-b"><span class="float-l pulishtime">发布时间：'+time+'</span><span class="float-l">阅读量：'+view+'</span></div><div class="list-text-con">'+content+'</div></div></a></li>';
             });
             $('.loading').fadeIn();
             
