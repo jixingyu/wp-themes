@@ -3,9 +3,6 @@
 Template Name: 企业用户登录
 */
 get_header();
-// require_once(ABSPATH . 'wp-content/themes/uts/inc/class-tms-api.php');
-// $tmsapi = new Tms_api();
-// $tmsapi->get_token('david-api', '123');
 ?>
 
 <style>

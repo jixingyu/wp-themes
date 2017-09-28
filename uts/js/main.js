@@ -68,12 +68,10 @@ $('.dropdown-toggle').on("click",".dropdown-toggle",function(){
   // 企业用户登录
   var username='',password='';
   $('#loginBtn').on('click',function(){
-    var data={};
+    var data={t:'login'};
     // 首先判断用户名密码是否非空，如果非空，则去空格后提交
     username = $.trim($('input[name="username"]').val());
     password = $.trim($('input[name="password"]').val());
-    console.log(username);
-    console.log(password);
 
     if(!username||!password){
       !username && $('input[name="username"]').next().text('请输入用户名').show().css({'z-index':'2'});
@@ -85,18 +83,19 @@ $('.dropdown-toggle').on("click",".dropdown-toggle",function(){
     data.password = password;
     // 提交到后台
 
-    // $.ajax({
-    //  type: "POST",
-    //  url: "#",
-    //  data: data,
-    //  dataType: "json",
-    //  success: function(data){
-    //     restwaybill();
-    // $('input[name="username"]').next().text('用户名不存在').show().css({'z-index':'2'});
-    // $('input[name="password"]').next().text('密码不正确').show().css({'z-index':'2'});
-        
-    //   }
-    // });
+    $.ajax({
+      type: "POST",
+      url: "/wp-admin/admin-ajax.php?action=xy_tms",
+      data: data,
+      dataType: "json",
+      success: function(data){
+        if (data.code == 0) {
+          window.location.href="/";
+        } else {
+          alert(data.msg);
+        }
+      }
+    });
   });
 
   // totop

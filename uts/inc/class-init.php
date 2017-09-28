@@ -9,6 +9,8 @@ class Uts_init {
 		add_filter( 'excerpt_length', array( $this, 'excerpt_length' ) );
 		add_action( 'wp_ajax_nopriv_xy_more_posts', array($this, 'xy_more_posts') );
 		add_action( 'wp_ajax_xy_more_posts', array($this, 'xy_more_posts') );
+		add_action( 'wp_ajax_nopriv_xy_tms', array($this, 'xy_tms') );
+		add_action( 'wp_ajax_xy_tms', array($this, 'xy_tms') );
 		if (is_admin()){
 			// add_action('init', array( $this, 'myprefix_unregister_tags'));
 			// add_action('wp_dashboard_setup', array( $this, 'remove_dashboard_widgets' ));
@@ -150,6 +152,26 @@ class Uts_init {
 		$response['data'] = $result;
 		header( 'Content-Type: application/json' );
 		echo json_encode($response);
+		exit;
+	}
+
+	function xy_tms() {
+		require_once(ABSPATH . 'wp-content/themes/uts/inc/class-tms-api.php');
+		$tmsapi = new Tms_api();
+		$type = $_POST['t'];
+		$username = $_POST['username'];
+		$password = $_POST['password'];
+		//13817576905
+		$result = array();
+		switch ($type) {
+			case 'login':
+				$result = $tmsapi->login($username, $password);
+				break;
+			
+			default:
+				break;
+		}
+		echo json_encode($result);
 		exit;
 	}
 }
