@@ -155,9 +155,9 @@
                   time = item.date, 
                   view = item.views,
                   content = item.content;
-                  if(content.length>55){
-                    content = content.substr(0,55)+"...";
-                  }
+                  // if(content.length>55){
+                  //   content = content.substr(0,55)+"...";
+                  // }
 
               htmlNews+='<li><a href="'+url+'"><img src="'+imgsrc+'" alt=""  class="float-l"><div class="list-r-text"><h4 class="ellipsis">'+title+'</h4><div class="list-text-b"><span class="float-l pulishtime">发布时间：'+time+'</span><span class="float-l">阅读量：'+view+'</span></div><div class="list-text-con">'+content+'</div></div></a></li>';
             });

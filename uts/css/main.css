@@ -940,6 +940,8 @@
         line-height: 1.6;
         font-size: 16px;
         text-indent: 2em;
+        height: 52px;
+        overflow: hidden;
       }
       .getmore{
         display: none;
@@ -1302,7 +1304,7 @@
       .loading{
         padding:30px 0;
       }
-      .loading img{
+      .newslist .loading img{
         width: 160px;
         height: 20px;
       }
@@ -2209,7 +2211,8 @@
         height: 62px;
       }
       .list-r-text{
-        height: 100px;
+        /*height: 100px;*/
+        height: 70px;
       }
       .mapdiv{
         height: 400px;
