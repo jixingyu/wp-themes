@@ -10,6 +10,8 @@
   $hot_cat_id = ( isset( $th_options['news-hot'] ) && $th_options['news-hot'] ) ? $th_options['news-hot'] : '';
   $cur_cat = get_the_category();
   $cur_cat = $cur_cat[0];
+  $cat_option = get_option( THEME_PREFIX . '_cat_options_' . $cur_cat->term_id );
+  $catType = isset( $cat_option['template'] ) ? $cat_option['template'] : 'default';
 ?>
 <!-- 新闻详情页 -->
 <div class="navbussies navbussies-case">
@@ -28,15 +30,19 @@
 <?php while( have_posts() ): the_post(); ?>
 <div class="toppart">
   <div class="bussiescont bussiescont-toppart clearfix">
+    <?php if ($catType != 'picture') : ?>
     <a href="<?php echo get_category_link($cur_cat->term_id);?>">
       <div class="topcrumb"><span class="iconspng icon-return"></span>返回目录</div>
     </a>
+    <?php endif; ?>
     <h2><?php the_title();?></h2>
   </div>
 </div>
 <div class="bgf8 ">
   <div class="bussiescont news-details paading20_0 ">
+    <?php if ($catType != 'picture') : ?>
     <div class="center list-text-b"><span class="pulishtime">发布时间：<?php the_time('Y-m-d');?></span><span>阅读量：<?php xy_post_views();?></span></div>
+    <?php endif; ?>
     <?php the_content(); ?>
   </div>
 </div>
