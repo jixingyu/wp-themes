@@ -171,7 +171,7 @@
       }
       /*登录后.navbg加islogin class*/
       .navbg.admin-login{
-        top: 31px;
+        top: 32px;
       }
       .navbar-youtong {
         margin-bottom: 0;
@@ -1431,6 +1431,67 @@
             border-right:0;
           }
       
+
+
+    /*第三版首页业务介绍部分*/
+    .newsdetails{
+      width:100%;
+      overflow: hidden;
+      padding:0;
+      margin:auto;
+      }
+      .fcbg{
+        background-color: #fcfcfc;
+        border:1px solid #f2f2f2;
+      }
+      .index-detail{
+        padding:50px 0;
+      }
+      .index-detail .bussiesnew{
+        overflow: hidden;
+        width:90%;
+        max-width: 1788px;
+        margin: 0 auto;
+      }
+      .index-detail .bussiesnew img{
+        max-width: 100%;
+        height: auto;
+      }
+      .index-detail .bussiesnew .short-text{
+        max-width: 40%;
+      }
+      .index-detail .bussiesnew .short-text h3{
+        font-weight: bold;
+        color:#475257;
+        position: relative;
+        padding-bottom:20px;
+        margin-bottom:20px;
+        text-align: center;
+      }
+      .index-detail .bussiesnew .short-text h3:after{
+        position: absolute;
+        content: "";
+        width:50px;
+        background-color: #d2d2d2;
+        height:2px;
+        bottom:0;
+        left:50%;
+        margin-left:-25px;
+      }
+      .index-detail .bussiesnew .short-text h5{
+        line-height: 1.8;
+      }
+      .index-detail .bussiesnew .long-img{
+        max-width: 55%;
+      }
+      .orangetext{
+        font-size:18px;
+        color:#f29b00;
+      }
+
+
+
+
 
     /*适配*/
 

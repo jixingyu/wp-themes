@@ -98,8 +98,9 @@
     </div>
   </div>
   <div class="clear"></div>
-  <div class="f0bgtop">
-    <div class="bussiescont indexlist">
+
+  <div class="indexnewlist" id="newlist">
+    <div class="indexlist">
       <?php
         $i = 0;
         while( $query->have_posts() ):
@@ -112,13 +113,8 @@
             $title_desc = $query_title;
           }
       ?>
-      <div class="row clearfix newsdetails">
-        <div class="col-md-12">
-          <h3 class="news-title">· <?php echo $title_desc;?> ·</h3>
-          <div class="details border0">
-            <?php the_content();?>
-          </div>
-        </div>
+      <div class="clearfix newsdetails">
+        <?php the_content();?>
       </div>
       <?php endwhile;wp_reset_postdata(); ?>
     </div>
@@ -155,8 +151,8 @@ $('.dropdown-toggle').on("click",function(){
     $(".navbussies li").on("mouseover",function(){
       $(this).addClass('active').siblings().removeClass('active');
       var num =$(".navbussies li").index(this);
-      $(".f0bgtop .newsdetails").removeClass('active');
-      $(".f0bgtop .newsdetails").eq(num).addClass('active').siblings().removeClass('active');
+      $("#newlist .newsdetails").removeClass('active');
+      $("#newlist .newsdetails").eq(num).addClass('active').siblings().removeClass('active');
     });
 
     // 订单号查询
