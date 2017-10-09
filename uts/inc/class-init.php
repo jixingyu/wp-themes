@@ -12,13 +12,13 @@ class Uts_init {
 		add_action( 'wp_ajax_nopriv_xy_tms', array($this, 'xy_tms') );
 		add_action( 'wp_ajax_xy_tms', array($this, 'xy_tms') );
 		if (is_admin()){
-			// add_action('init', array( $this, 'myprefix_unregister_tags'));
-			// add_action('wp_dashboard_setup', array( $this, 'remove_dashboard_widgets' ));
-			// add_action('admin_menu', array( $this, 'remove_menus'));
-			// add_action('admin_init', array( $this, 'remove_submenu'));
-		 //    add_filter('screen_options_show_screen', array( $this, 'remove_screen_options'));
-		 //    add_filter('contextual_help', array( $this, 'remove_help'), 999, 3 );
-		 //    add_filter("mce_buttons_3", array( $this, 'enable_more_buttons'));
+			add_action('init', array( $this, 'myprefix_unregister_tags'));
+			add_action('wp_dashboard_setup', array( $this, 'remove_dashboard_widgets' ));
+			add_action('admin_menu', array( $this, 'remove_menus'));
+			add_action('admin_init', array( $this, 'remove_submenu'));
+		    add_filter('screen_options_show_screen', array( $this, 'remove_screen_options'));
+		    add_filter('contextual_help', array( $this, 'remove_help'), 999, 3 );
+		    add_filter("mce_buttons_3", array( $this, 'enable_more_buttons'));
 		} else {
 			add_action('init', array( $this, 'my_init_method'));
 		}
