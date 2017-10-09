@@ -2,22 +2,24 @@
 define( 'THEME_PREFIX', 'uts' );
 $th_options = get_option( THEME_PREFIX.'_theme_settings' );
 
-// add_action('admin_init', 'xy_author_upload_image_limit');
-// function xy_author_upload_image_limit(){
-// 	//除管理员以外，其他用户都限制
-// 	// if( !current_user_can( 'manage_options') )
-// 		add_filter( 'wp_handle_upload_prefilter', 'xy_upload_image_limit' );
-// }
-// function xy_upload_image_limit( $file ){
-// 	// 检测文件的类型是否是图片
-// 	$mimes = array( 'image/jpeg', 'image/png', 'image/gif' );
-// 	// 如果不是图片，直接返回文件
-// 	if( !in_array( $file['type'], $mimes ) )
-// 		return $file;
-// 	if ( $file['size'] > 2097152 )
-// 		$file['error'] = '图片太大了，请不要超过2M';
-// 	return $file;
-// }
+add_action('admin_init', 'xy_author_upload_image_limit');
+function xy_author_upload_image_limit(){
+	//除管理员以外，其他用户都限制
+	// if( !current_user_can( 'manage_options') )
+		add_filter( 'wp_handle_upload_prefilter', 'xy_upload_image_limit' );
+}
+function xy_upload_image_limit( $file ){
+	// 检测文件的类型是否是图片
+	$mimes = array( 'image/jpeg', 'image/png', 'image/gif' );
+	// 如果不是图片，直接返回文件
+	if( !in_array( $file['type'], $mimes ) )
+		return $file;
+	// if ( $file['size'] > 2097152 )
+	// 	$file['error'] = '图片太大了，请不要超过2M';
+	if (preg_match('/[\x{4e00}-\x{9fa5}]/u', $file['name']))
+		$file['error'] = '图片名请不要使用中文';
+	return $file;
+}
 
 add_filter('pre_site_transient_update_core',    create_function('$a', "return null;"));
 add_filter('pre_site_transient_update_plugins', create_function('$a', "return null;"));
