@@ -1065,13 +1065,13 @@
     
 
     /*map*/
-    .contactrow{padding-top: 35px;margin-bottom: 50px;}
+    .contactrow{padding-top: 20px;margin-bottom: 20px;}
       .contactrow .col-md-4{padding: 0;}
         .borderpart{border: 3px solid #e0cab2;position: relative;
           padding:20px 15px 15px 15px;width:260px;height:145px;margin: 0 auto;text-align: center; }
           .borderpart h5,.borderpart h6{line-height: 1.6}
-          .borderpart h5{color: #475257;margin:15px auto;font-size:16px;font-weight: bold;}
-          .borderpart h6{color: #333;}
+          .borderpart h5{color: #524757;margin:15px auto 10px;font-size:16px;font-weight: bold;}
+          .borderpart h6{color: #524757;}
           .contactpart h6{text-align: center;margin: 0 auto;}
           .borderpart .icon-address,.borderpart .icon-phone,.borderpart .icon-weixin{
             position: absolute;
@@ -1080,8 +1080,8 @@
             width: 100%;
           }
           .borderpart span>img{width:42px;height:42px;}
-          .mapdiv{width:100%;height:600px;margin:50px 0;border:1px solid #eee; border-bottom: 19px solid #e0cab2;}
-          .borderpart .weixinimg{width: 106px;height:106px;}
+          .mapdiv{width:100%;height:600px;margin-bottom:50px;border:1px solid #eee; border-bottom: 7px solid #e0cab2;}
+          .borderpart .weixinimg{width: 100px;height:100px;margin-top:7px;}
           #mapdiv tr,#mapdiv td{-webkit-box-sizing:content-box;    -moz-box-sizing: content-box; box-sizing: content-box;}
     
     /*业务介绍*/
@@ -1118,7 +1118,7 @@
           margin-left: -57px;
           width:114px;
           height:21px;
-         background: url("../img/bottom_active.png") no-repeat;
+          background: url("../img/bottom_active.png") no-repeat;
         }
         .f0bgtop{
           position: relative;
@@ -1222,6 +1222,7 @@
           height: 90px;
         }
         .bussiescont-toppart h2{
+          font-size:18px;
           text-align: center;
           color: #f29b00;
           line-height: 90px;
@@ -1295,11 +1296,12 @@
       background-color: #f8f8f8;
       }
       .aboutpdiv p{
-        color:#475257;
-        font-size:16px;
-        line-height: 1.8;
+        color:#fff;
+        font-size: 14px;
+        line-height: 1.4;
         margin:15px 0;
         text-indent: 2em;
+        text-shadow: 0px 0.5px 0 #6f6969;
       }
       .loading{
         padding:30px 0;
@@ -1489,7 +1491,90 @@
         color:#f29b00;
       }
 
-
+    /*第4次修改*/
+    .about-banner{
+      position: relative;
+      }
+      .about-banner img{
+        width:100%;
+      }
+      .about-banner .aboutpdiv{
+        position: absolute;
+        top:0;
+        left:50%;
+        width: 50%;
+        margin-left: -25%;
+        background: url("../img/about-bg01.png") repeat-y;
+        padding:3% 2%;
+        border-radius: 0 0 8px 8px;
+      }
+      .aboutpdiv span.maxtext{
+        color:#fff;
+        font-size: 15px;
+        font-weight: bold;
+      }
+    .bgorange{
+      background:#de5502;
+      width:100%;
+      }
+      .bgorange img{
+        width:100%;
+      }
+      .bgf5{
+        background: #f5f5f5;
+        padding:40px 0;
+      }
+      .bgf5 p.zerentitle{
+        position: relative;
+        color: #475257;
+        font-size:22px;
+        font-weight:bold;
+        padding-bottom: 20px;
+        text-align: center;
+        margin-bottom: 16px;
+      }
+      .bgf5 p.zerentitle:after{
+        position: absolute;
+        bottom:0;
+        left:50%;
+        margin-left: -22.5px;
+        content: '';
+        width:45px;
+        height:2px;
+        background-color: #d2d2d2;
+      }
+      .bgf5 p{
+        width:85%;
+        font-size: 16px;
+        color: #646464;
+        line-height: 1.6;
+      }
+      .bgf5 .col-md-6{
+        display: table-cell;
+        vertical-align: middle;
+        float: none;
+      }
+      .bgf5 .col-md-6 img{
+        max-width: 100%;
+      }
+      .bgf5 .contactrow{
+        background: transparent;
+      }
+      .zerencon p{
+        font-size: 18px;
+        color: #646464;
+        line-height: 1.6;
+      }
+      .zerencon p.zerencontitle{
+        font-size: 20px;
+        font-weight: bold;
+        color:#f29b00;
+        margin-bottom: 8px;
+        margin-top:20px;
+      }
+    .bgff{
+      background: #fff;
+    }
 
 
 
@@ -1707,6 +1792,7 @@
       }
       .borderpart span img{
         width:50px;
+        height:50px;
       }
       .totop{
         bottom: 50.5%;
@@ -1720,7 +1806,10 @@
       .breadcrumbdiv li{display: none;}
       .breadcrumbdiv li.active{display: block;color: #000;font-size: 24px;text-align: center;padding: 5% 0;}
       .breadcrumb>li+li:before{content: "";}
-      
+      .about-banner .aboutpdiv{
+        width: 80%;
+        margin-left: -40%;
+      }
 
     }
 
@@ -1799,8 +1888,9 @@
       }
       
       .news-details img, .bussiescont-details img {
-          max-width: 100%;
+        max-width: 100%;
       }
+      
     }
 
     @media screen and (max-width: 668px) {
@@ -1897,6 +1987,18 @@
       }
       .bussiescont-case  ul li{
         width:50%;
+      }
+      .bgf5 .col-md-6{
+        width:100%;
+        display: block;
+        margin-bottom: 20px;
+      }
+      .bgf5 p{
+        width:100%;
+      }
+      .zerencon p{
+        width: 90%;
+        margin: 0 auto;    
       }
      
     }
@@ -2247,6 +2349,12 @@
       .taborg-waybill{
         display: none;
       }
+      .about-banner .aboutpdiv{
+        position: static;
+        margin-left: 0;
+        width:100%;
+      }
+
 
     }
     @media screen and (max-width: 415px) {
@@ -2374,7 +2482,8 @@
         width:100%;
       }
       .contactrow{
-        margin-top:95px;
+        /*margin-top:95px;*/
+        margin-bottom:30px;
       }
       .banner {
         min-height: 63px;
