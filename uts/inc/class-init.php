@@ -158,14 +158,22 @@ class Uts_init {
 	function xy_tms() {
 		require_once(ABSPATH . 'wp-content/themes/uts/inc/class-tms-api.php');
 		$tmsapi = new Tms_api();
-		$type = $_POST['t'];
-		$username = $_POST['username'];
-		$password = $_POST['password'];
+		$type = $_REQUEST['t'];
 		//13817576905
 		$result = array();
 		switch ($type) {
 			case 'login':
+				$username = $_REQUEST['username'];
+				$password = $_REQUEST['password'];
 				$result = $tmsapi->login($username, $password);
+				break;
+			case 'order_no':
+				$order_search = $_REQUEST['os'];
+				$order_type = (int) $_REQUEST['ot'];
+				if ($order_type != 2) {
+					$order_type = 3;
+				}
+				$result = $tmsapi->order_list_by_admin($order_search, $order_type);
 				break;
 			
 			default:

@@ -6,12 +6,36 @@ CREATE TABLE `wp_uts_user` (
   `apikey` VARCHAR(1000) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=MYISAM DEFAULT CHARSET=utf8
+
+47 已回单
+46 已签收
+45 已到货
+43 已提货
+42 在途
+40 已计划
+20 审核
+10 开放
 */
 class Tms_api
 {
     const LOGIN_URL = "http://app.360scm.com/SCM.TMS7.WebApi/Oauth/GetTokenByPassword?username=%s&password=%s";
     const TOKEN_URL = "http://app.360scm.com/SCM.TMS7.WebApi/Oauth/GetTokenByCustomer?apikey=%s";
     const TRACKING_URL = "http://app.360scm.com/SCM.TMS7.WebApi/Customer/GetOrderTracking?token=%s&gid=%s&typeCode=%s";
+    const ORDER_LIST_URL = 'http://app.360scm.com/SCM.TMS7.WebApi/Customer/GetOrderListByPage';
+    const ADMIN_TRACKING_URL = "http://app.360scm.com/SCM.TMS7.WebApi/Order/GetOrderTracking?token=%s&gid=%s&typeCode=%s";
+    const ADMIN_ORDER_LIST_URL = 'http://app.360scm.com/SCM.TMS7.WebApi/Order/GetOrderListByPage';
+    const ADMIN_TOKEN_URL = 'http://app.360scm.com/SCM.TMS7.WebApi/Oauth/GetToken?apikey=%s';
+    const ADMIN_API = 'NHE51ewL3esR/wYvriV3vQSLctm7LtbW3A0FHiVXg1l8GJ8zJLs3fLWU7GErquH9kwdgn8pCNjXzvnJU9l4hRbercB9YWnHuF2/VYZCmQdJ+L5Q1yxAZZOqJC31XbRQnYVipN3/HLXS8boE2GrxtbKqzGT9uJWvscumo3lXTVsXAoejymkSS1ZOzeDUCwxmXLv83Io7fmuEQYNo8+QR/+g==';
+    private $status_list = array(
+        47 => '已回单',
+        46 => '已签收',
+        45 => '已到货',
+        43 => '已提货',
+        42 => '在途',
+        40 => '已计划',
+        20 => '审核',
+        10 => '开放 ',
+    );
 
     public function login($username, $password)
     {
@@ -35,7 +59,69 @@ class Tms_api
     	return array('code' => 9001, 'msg' => '登录失败');
     }
 
-    public function order_tracking($search, $type = '2')
+    public function order_list_by_admin($order_search, $type = 3)
+    {
+        $token = Xysession::get('tms_admin_token');
+        if (!$token) {
+            $tokenData = $this->curl_get(sprintf(self::ADMIN_TOKEN_URL, urlencode(self::ADMIN_API)));
+            if (isset($tokenData['resultCode']) && $tokenData['resultCode'] == 0) {
+                Xysession::set('tms_admin_token', $tokenData['token']);
+            }
+            $token = $tokenData['token'];
+        }
+        if (!empty($token)) {
+            $data = $this->curl_post(self::ADMIN_ORDER_LIST_URL, array(
+                'Search' => array(
+                    'QueryModel' => array(
+                        'Items' => array(
+                            array(
+                                'Field' => $type == 2 ? 'ORDER_ID' : 'C_ORDER_NO',
+                                'Method' => 'Equal',
+                                'Value' => $order_search,
+                            ),
+                        ),
+                    ),
+                    'PageInfo' => array(
+                        'CurrentPage' => 1,
+                        'PageSize' => 1,
+                        'SortField' => 'CREATED_DATE',
+                        'SortDirection' => 'DESC',
+                    ),
+                ),
+                'token' => $token,
+            ));
+            if (isset($data['data']['list'][0])) {
+                $order = $data['data']['list'][0];
+                $order_info = array(
+                    'ORDER_ID' => $order['ORDER_ID'],
+                    'C_ORDER_NO' => $order['C_ORDER_NO'],
+                    'CREATED_DATE' => $order['CREATED_DATE'],
+                    'STATUS' => $order['STATUS'],
+                    'CUSTOMER_NAME' => $order['CUSTOMER_NAME'],
+                    'SRC_ADDRESS' => $order['SRC_ADDRESS'],
+                    'DEST_ADDRESS' => $order['DEST_ADDRESS'],
+                    'STATUS' => $order['STATUS'],
+                );
+                foreach ($this->status_list as $one_status => $status_desc) {
+                    $order_info['tracking'][$one_status] = array('status_desc' => $status_desc);
+                }
+                $tracking = $this->curl_get(sprintf(self::ADMIN_TRACKING_URL, urlencode($token), urlencode($order_search), $type));
+                if (isset($tracking['data'][0]['order_tracking'])) {
+                    foreach ($this->status_list as $one_status => $status_desc) {
+                        foreach ($tracking['data'][0]['order_tracking'] as $tracking_row) {
+                            if ($one_status == $tracking_row['STATUS'] && empty($order_info['tracking'][$one_status])) {
+                                $order_info['tracking'][$one_status]['time'] = str_replace('T', ' ', $tracking_row['CREATED_DATE']);
+                            }
+                        }
+                    }
+                }
+                return array('code' => 0, 'data' => $order_info);
+            }
+        }
+        return array('code' => 7001, 'msg' => '订单查询失败');
+    }
+
+    public function order_tracking($search, $type = '3')
     {
     	$token = Xysession::get('tms_token');
     	if (!$token) {

@@ -48,6 +48,9 @@
   .bgfff{
     background-color: #fff;
   }
+  .bgf5{
+    background-color: #f5f5f5;
+  }
 
   .phonehidden{
     display: block;
@@ -267,8 +270,8 @@
         background-color: #ffc900;
       }
       .navbar-login span{
-        display: inline-block;
-        vertical-align: middle;
+       /* display: inline-block;
+        vertical-align: middle;*/
         font-size:16px;
       }
       .search-btn img{
@@ -1317,21 +1320,23 @@
       text-align: center;
       position: relative;
       }
-      .search-textarea textarea{
-        width:640px;
-        height:105px;
+      .search-textarea #order_no{
+        width: 640px;
+        height: 47px;
         padding: 5px 10px;
-        border:2px solid #e3e3e3;
-        resize:none;
-        font-size:16px;
-        color:#b4b4b4;
+        border: 2px solid #e3e3e3;
+        resize: none;
+        font-size: 16px;
+        color: #000;
         outline: none;
+        line-height: 32px;
       }
       .search-textarea p{
         color:#b4b4b4;
         font-size:14px;
       }
       .search-textarea p.errorlog{
+        z-index: 2;
         width: 640px;
         text-align: left;
         left: 50%;
@@ -1346,31 +1351,190 @@
       text-align: right;
       }
       .userinfo h5{
+        font-size:16px;
         color:#969696;
+        float: left;
       }
-      .userinfo a.logoutbtn,.search-btn{
+      .search-btn{
         background-color: #f29b00;
         color: #fff;
         font-size: 16px;
         cursor: pointer;
       }
-      .userinfo a.logoutbtn{
-        padding: 5px 25px;
-        border-radius: 8px;
-        margin-left: 15px;
-      }
+      
 
     .search-btn{
       border-radius: 50px;
-      /*width: 140px;*/
-      /*height: 40px;
-      line-height: 40px;*/
-      /*margin: 20px auto;*/
+      width: 140px;
+      height: 40px;
+      line-height: 40px;
+      margin: 20px auto;
+      }
+      .userinfo a.logoutbtn,.orderAll{
+        font-size: 16px;
+        padding: 2px 17px;
+        text-align: center;
+        color: #fff;
+        text-shadow: 0 1px 0 #333;
+        border-radius: 8px;   
+        cursor: pointer;     
+      }
+      .userinfo a.logoutbtn{
+        background-color: #d2d2d2;
+      }
+      .orderAll{
+        margin-left: 20px;
+        background-color: #f29b00;
       }
       .userinfo a.logoutbtn:hover,
-      .search-btn:hover{
+      .search-btn:hover,.orderAll:hover{
         background-color: #ffc900;
+        text-shadow:none;
       }
+
+      /*运单查询之运单详情3*/
+      .billdetail{
+        width:950px;
+        margin:20px auto;
+      }
+      .billdetail p{
+        font-size:18px;
+        color:#000;
+        margin-bottom:24px;
+      }
+      .orderstyle{
+        margin-left:175px;
+      }
+
+      .icons-bill{
+        background: url('../img/icons-billway.png') no-repeat;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .icon-order,.icon-from,.icon-to,.icon-contact{
+        width:40px;
+        height:40px;
+        margin-right:5px;
+      }
+      .icon-order{
+        background-position: -17px 3px;
+      }
+      .icon-from{
+        background-position: -17px -46px;
+      }
+      .icon-to{
+        background-position: -17px -97px;
+      }
+      .icon-contact{
+        background-position: -17px -147px;
+      }
+      .icon-style-normal{
+        background-position: -2px -200px;
+      }
+      .active .icon-style-normal{
+        background-position: -2px -272px;
+      }
+      
+      .havetwop,.havethree{
+        overflow: hidden;
+      }
+      .havetwop p{
+        float:left;
+      }
+      .billdetail .billtime{
+        color:#969696;
+        font-size:14px;
+        display: block;
+        padding-left: 43px;
+      }
+      .line-dashad{
+        height: 5px;
+        margin: 10px 0;
+        width: 100%;
+        border-bottom: 1px dashed #d2d2d2;
+      }
+      .havethree{
+        width:75%;
+        overflow: hidden;
+      }
+      .havethree p{
+        float: left;
+        width:30%;
+      }
+      .orderstyle span,.havethree p span{
+        font-size: 18px;
+        color:#fa6a4a;
+      }
+      .stylebar,.stylebar ul{
+        /*float:left;*/
+        height:125px;
+        width:100%;
+        margin-top: 20px;
+        margin-left: -15px;
+      }
+      .stylebar ul li{
+        position: relative;
+        float:left;
+        width:12.95%;
+        height: 100%;
+      }
+      .stylebar ul li:last-child{
+        width:7%;
+      }
+      .stylebar p,.stylebar .styleline, .stylebar .icons-bill{
+        position: absolute;
+      }
+      .stylebar .icons-bill{
+        left:-2px;
+        top:0;
+        width:64px;
+        height:64px;
+        z-index: 3;
+      }
+      .stylebar .styleline{
+        left: 0;
+        top:32px;
+        width:100%;
+        height:2px;
+        background-color: #d2d2d2;
+      }
+      .stylebar .active .styleline{
+        background-color: #f29b00;
+      }
+      .stylebar p{
+        width:90px;
+        top:70px;
+        left:-16px;
+        text-align: center;
+        color:#d2d2d2;
+      }
+      .stylebar p span{
+        display: block;
+        color:#969696;
+      }
+      .stylebar .active p {
+        color:#000;
+      }
+      .newsearchdiv{
+        position: relative;
+        width:900px;
+        margin:0 auto;
+      }
+      .newsearchdiv #selectorder{
+        position: absolute;
+        left:0;
+        top:0;
+        border: 2px solid #e3e3e3;
+        height:47px;
+        font-size: 16px;
+        color:#969696;
+        background-color: #fff;
+      }
+      
+
+
+
+
 
       /*查询结果*/
       .search-list{
@@ -1524,7 +1688,7 @@
         background: #f5f5f5;
         padding:40px 0;
       }
-      .bgf5 p.zerentitle{
+      .response p.zerentitle{
         position: relative;
         color: #475257;
         font-size:22px;
@@ -1533,7 +1697,7 @@
         text-align: center;
         margin-bottom: 16px;
       }
-      .bgf5 p.zerentitle:after{
+      .response p.zerentitle:after{
         position: absolute;
         bottom:0;
         left:50%;
@@ -1543,21 +1707,21 @@
         height:2px;
         background-color: #d2d2d2;
       }
-      .bgf5 p{
+      .response p{
         width:85%;
         font-size: 16px;
         color: #646464;
         line-height: 1.6;
       }
-      .bgf5 .col-md-6{
+      .response .col-md-6{
         display: table-cell;
         vertical-align: middle;
         float: none;
       }
-      .bgf5 .col-md-6 img{
+      .response .col-md-6 img{
         max-width: 100%;
       }
-      .bgf5 .contactrow{
+      .response .contactrow{
         background: transparent;
       }
       .zerencon p{
@@ -1651,6 +1815,10 @@
         width: 190px;
         height:252px;
       }
+
+      .stylebar, .stylebar ul{
+        margin-left:0;
+      }
       
     }
     @media screen and (max-width: 1010px) {
@@ -1669,6 +1837,30 @@
       .navbar-header {
           width: 19%;
       }
+      .billdetail,.newsearchdiv{
+        width:100%;
+        padding:0 1%;
+      }
+      .newsearchdiv #selectorder{
+        position: static;
+      }
+      .search-textarea #order_no{
+        width:70%;
+      }
+      .stylebar, .stylebar ul{
+        height:270px;
+        width: 95%;
+        margin: 20px auto;
+      }
+      .stylebar ul li{
+        width:30%;
+        height:125px;
+        margin-bottom: 20px
+      }
+      .stylebar ul li:nth-child(4){
+        width:8%;
+      }
+
     }
     @media screen and (max-width: 910px) {
       h2 {
@@ -1890,6 +2082,9 @@
       .news-details img, .bussiescont-details img {
         max-width: 100%;
       }
+      .userinfo{
+        width:96%;
+      }
       
     }
 
@@ -2000,6 +2195,11 @@
         width: 90%;
         margin: 0 auto;    
       }
+      .stylebar p{
+        width:100px;
+      }
+
+
      
     }
     @media screen and (max-width: 641px) {
@@ -2271,6 +2471,30 @@
           margin-right: 0;
           width: 100%;
       }
+      .newsearchdiv #selectorder,.search-textarea #order_no{
+        font-size:14px;
+        height:38px;
+        line-height: 25px;
+        padding-top:3px;
+        padding-bottom: 3px;
+      }
+      .userinfo a.logoutbtn, .orderAll{
+        font-size:12px;
+      }
+      .billdetail, .newsearchdiv{
+        padding:0 3%;
+      }
+      .havetwop p{
+        float: none;
+        margin-left: 0;
+      }
+      html #wpadminbar{
+        position: fixed;
+        top:0;
+      }
+      .navbg.admin-login{
+        top:46px;
+      }
 
       
     }
@@ -2282,10 +2506,7 @@
         min-height: 67px;
       }
       
-      html #wpadminbar{
-        position: fixed;
-        top:0;
-      }
+      
 
       .navbg.admin-login{
         top:46px;
@@ -2353,6 +2574,15 @@
         position: static;
         margin-left: 0;
         width:100%;
+      }
+      .stylebar ul li{
+        width: 50%;
+      }
+      .stylebar ul li:nth-child(even){
+        width:60px;
+      }
+      .stylebar ul li:nth-child(odd){
+        width:220px;
       }
 
 
@@ -2489,11 +2719,14 @@
         min-height: 63px;
       }
       .navbussies h4{
-        font-size:12px;
+        /*font-size:12px;*/
       }
       .bussiescont-index .bussiescont{
         width:100%;
         padding:0;
+      }
+      .search-textarea #order_no{
+        width:60%;
       }
 
     }
@@ -2515,6 +2748,15 @@
 
       .padding40-0 {
           padding: 20px 0;
+      }
+      .userinfo a.logoutbtn, .orderAll{
+        padding:2px 9px;
+      }
+      .orderAll{
+        margin-left: 10px;
+      }
+      .stylebar ul li:nth-child(odd){
+        width:200px;
       }
       
     }

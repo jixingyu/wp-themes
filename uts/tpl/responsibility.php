@@ -26,7 +26,7 @@ Template Name: 社会责任
     </div>
   </div>
   <div class="bgf5">
-    <div class="container paading20_0">
+    <div class="container paading20_0 response">
       <div class="row clearfix  ">
         <div class="col-md-6">
           <p class="zerentitle">社会责任保障体系</p>
@@ -90,7 +90,7 @@ Template Name: 社会责任
     </div>
   </div>
   <div class="bgf5">
-    <div class="container paading20_0">
+    <div class="container paading20_0 response">
       <div class="row clearfix  ">
         <div class="col-md-6">
           <img src="<?php bloginfo('template_url');?>/img/zerenimg03.jpg" alt="">
@@ -103,7 +103,7 @@ Template Name: 社会责任
     </div>
   </div>
   <div class="bgf5 bgff">
-    <div class="container paading20_0">
+    <div class="container paading20_0 response">
       <div class="row clearfix  ">
         <div class="col-md-6">
           <p class="zerentitle">社会责任实质性议题</p>
@@ -117,7 +117,7 @@ Template Name: 社会责任
     </div>
   </div>
   <div class="bgf5">
-    <div class="container paading20_0">
+    <div class="container paading20_0 response">
       <div class="row clearfix  ">
         <div class="col-md-6">
           <img src="<?php bloginfo('template_url');?>/img/zerenimg05.jpg" alt="">
