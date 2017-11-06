@@ -42,62 +42,6 @@ $('.dropdown-toggle').on("click",".dropdown-toggle",function(){
 
 
 (function(){
-  // 企业用户登录
-  // $('#qiyeuser').on('click',function(e){
-  //   $('#frombg02').show();
-  //   $('body').css({'overflow':'hidden'});
-  // });
-  $('#closefrom2').on('click',function(e){
-    $('#frombg02').hide();
-    $('body').css({'overflow':'auto'});
-    restuserlogin();
-  });
-  function restuserlogin(){
-    $('#form2-js input').val('').blur();;
-    $('.errorlog').css({'z-index':'-1'}).text('');
-  }
-
-  var isqiyeuser=0,islogin = true,textareaway='';
-
-  var $from2inputs = $('#form2-js').find('label');
-  $from2inputs.on('click',function(e){
-    $(this).find('.errorlog').hide().css({'z-index':'-1'});
-    $(this).find('input').focus();
-  });
-
-  // 企业用户登录
-  var username='',password='';
-  $('#loginBtn').on('click',function(){
-    var data={t:'login'};
-    // 首先判断用户名密码是否非空，如果非空，则去空格后提交
-    username = $.trim($('input[name="username"]').val());
-    password = $.trim($('input[name="password"]').val());
-
-    if(!username||!password){
-      !username && $('input[name="username"]').next().text('请输入用户名').show().css({'z-index':'2'});
-      !password && $('input[name="password"]').next().text('请输入密码').show().css({'z-index':'2'});
-      return false;
-    }
-    
-    data.username = username;
-    data.password = password;
-    // 提交到后台
-
-    $.ajax({
-      type: "POST",
-      url: "/wp-admin/admin-ajax.php?action=xy_tms",
-      data: data,
-      dataType: "json",
-      success: function(data){
-        if (data.code == 0) {
-          window.location.href="/";
-        } else {
-          alert(data.msg);
-        }
-      }
-    });
-  });
-
   // totop
   $(window).scroll(function(){
       var sc=$(window).scrollTop();

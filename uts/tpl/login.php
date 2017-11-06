@@ -1,110 +1,90 @@
 <?php
 /*
-Template Name: 企业用户登录
+Template Name: 优通登录
 */
-get_header();
-?>
-
-<style>
-  .navbg{
-    border-bottom:5px solid #ff9800;
+  $utsUser = Xysession::get('uts-login');
+  if (!empty($utsUser)) {
+    header('Location: /order-search');
+    exit;
   }
-    .taborg-qiyeuser{
-      width:50%;
-      min-width: 365px;
-      margin: 0 auto;
-      padding-bottom:12%;
-      padding-top: 10%;
-    }
-    .waybillformuser{
-      background: #fff;
-      padding: 20px;
-      width: 100%;
-    }
-    .taborg-qiyeuser h4{
-      text-align: center;
-    }
-    .taborgform2{
-      border-bottom: 3px solid #d2d2d2;
-      padding-bottom: 30px;
-    }
-    
-    .taborgform2 input:focus,.taborgform2 input:active{
-      background-color: #eee;
-    }
 
-    .taborgform2 input{
-      background-color: #eee;
-      width:90%;
-      height: 35px;
-      font-size: 16px;
-      color:#333;
-      padding: 9.5px 0;
-    }
-    p.errorlog{
-      bottom: -20px;
-    }
-    @media screen and (max-width: 768px) {
-      .taborgform2 input {
-        width:85%;
-      }
-    }
+  get_header();
+?>
+  <!-- banner -->
+  <div class="banner">
+    <img alt="" src="<?php echo empty($th_options['head-banner-img']) ? get_bloginfo('template_url') . '/img/long-banner.jpg' : $th_options['head-banner-img'];?>" class="bannerimg"/>
+  </div>
 
-    @media screen and (max-width: 416px) {
-      .taborg-qiyeuser{
-        width: 365px;
-        min-width: 365px;
-      }
-      .taborg-qiyeuser .waybillformuser{
-        height:auto;
-      }
-    }
-    @media screen and (max-width: 375px) {
-     .taborg-qiyeuser {
-        width: 320px;
-        min-width: 320px;
-      }
-    }
-     @media screen and (max-width: 320px) {
-      .taborg-qiyeuser{
-        width: 300px;
-        min-width: 300px;
-      }
-    }
-    
-</style>
-
-  <!--运单查询以及企业用户登录-->
-  <div class="bgfff">
-    <div class="container">
-      <div class="row clearfix">
-        <div class="col-md-12">
-          <div class="taborg taborg-qiyeuser">
-            <div id="qiyeuser">
-              <div class="tabicon02"></div>
-              <h4>企业用户登录</h4>
-            </div>
-            <div class="waybillformuser" >
-              <form id="form2-js" class="taborgform2">
-                <label for="username">
-                  <span class="user-icon"></span>
-                  <span class="line-right"></span>
-                  <input type="username" value="" name="username" placeholder="请输入用户名" onfocus="if(placeholder=='请输入用户名') {placeholder=''}" onblur="if (value=='') {placeholder='请输入用户名'}">
-                  <p class="errorlog">请输入用户名</p>
-                </label>
-                <label for="password">
-                  <span class="password-icon"></span>
-                  <span class="line-right"></span>
-                  <input type="password" value="" name="password" placeholder="请输入密码" onfocus="if(placeholder=='请输入密码') {placeholder=''}" onblur="if (value=='') {placeholder='请输入密码'}">
-                  <p class="errorlog">请输入密码</p>
-                </label>
-              </form>
-              <div id="loginBtn"  class="subBtn">登录 <span class="dis-mid iconspng icon-right"></span></div>
-            </div>
-          </div>
+  <!-- 运单查询 -->
+  <div class="navbussies navbussies-case">
+    <div class="bussiescont ">
+      <ul>
+        <li class="active">
+          <a href="Javascript: void(0)">
+            <h4>运单查询</h4>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="search-bill">
+    <!-- 企业用户登录 2-->
+    <div class="bgf5" id="logindiv">
+      <div class="billLogin">
+        <div class="waybillformuser" >
+          <form id="form3-js" class="taborgform3">
+            <label for="username">
+              <span class="user-icon"></span>
+              <input type="username" value="" name="username" placeholder="点击输入用户名" onfocus="if(placeholder=='点击输入用户名') {placeholder=''}" onblur="if (value=='') {placeholder='点击输入用户名'}">
+              <p class="errorlog">点击输入用户名</p>
+            </label>
+            <label for="password">
+              <span class="password-icon"></span>
+              <input type="password" value="" name="password" placeholder="点击输入密码" onfocus="if(placeholder=='点击输入密码') {placeholder=''}" onblur="if (value=='') {placeholder='点击输入密码'}">
+              <p class="errorlog">点击输入密码</p>
+            </label>
+          </form>
+          <div id="loginCancel" class="cancel-btn">取消</div>
+          <div id="loginBtn" class="subBtn">登录</div>
         </div>
       </div>
     </div>
-  </div>
 
-<?php get_footer(); ?>
+  </div>
+  <script>
+  $('#loginCancel').on('click',function(){
+    location.href='/uts-search';
+  });
+  $('#loginBtn').on('click',function(){
+    // 首先判断用户名密码是否非空，如果非空，则去空格后提交
+    var username = $.trim($('input[name="username"]').val());
+    var password = $.trim($('input[name="password"]').val());
+    var hasError = false;
+    if (username == '') {
+      hasError = true;
+      $('input[name="username"]').next().text('请输入用户名').show().css({'z-index':'2'});
+    }
+    if (password == '') {
+      hasError = true;
+      $('input[name="password"]').next().text('请输入密码').show().css({'z-index':'2'});
+    }
+    if (hasError) {
+      return false;
+    }
+
+    $.ajax({
+      type: "POST",
+      url: "/wp-admin/admin-ajax.php?action=xy_tms",
+      data: {t:'login',username:username,password:password},
+      dataType: "json",
+      success: function(data){
+        if (data.code == 0) {
+          window.location.href='/order-search';
+        } else {
+          alert(data.msg);
+        }
+      }
+    });
+  });
+  </script>
+  <?php get_footer(); ?>

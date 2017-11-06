@@ -167,14 +167,37 @@ class Uts_init {
 				$password = $_REQUEST['password'];
 				$result = $tmsapi->login($username, $password);
 				break;
-			case 'order_no':
+			case 'logout':
+				$tmsapi->logout();
+				$result = array('code' => 0);
+				break;
+			case 'order_list':
+				$order_search = $_REQUEST['os'];
+				$order_type = (int) $_REQUEST['ot'];
+				$order_status = $_REQUEST['ost'];
+				if ($order_type != 2) {
+					$order_type = 3;
+				}
+				$curPage = (int) $_REQUEST['p'];
+				if ($curPage < 1) $curPage = 1;
+				$result = $tmsapi->order_list($curPage, $order_search, $order_type, $order_status);
+				break;
+			case 'track':
 				$order_search = $_REQUEST['os'];
 				$order_type = (int) $_REQUEST['ot'];
 				if ($order_type != 2) {
 					$order_type = 3;
 				}
-				$result = $tmsapi->order_list_by_admin($order_search, $order_type);
+				$result = $tmsapi->order_tracking($order_search, $order_type);
 				break;
+			// case 'order_no':
+			// 	$order_search = $_REQUEST['os'];
+			// 	$order_type = (int) $_REQUEST['ot'];
+			// 	if ($order_type != 2) {
+			// 		$order_type = 3;
+			// 	}
+			// 	$result = $tmsapi->order_list_by_admin($order_search, $order_type);
+			// 	break;
 			
 			default:
 				break;

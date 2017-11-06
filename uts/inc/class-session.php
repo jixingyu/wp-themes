@@ -21,7 +21,7 @@ class Xysession
         return false;
     }
 
-    private static function clear($name){
+    public static function clear($name){
         unset($_SESSION[$name]);
     }
 }

@@ -84,6 +84,15 @@
     -webkit-box-shadow : 0 0 0px 1000px #eee inset ;
     box-shadow : 0 0 0px 1000px #eee inset ;
   }
+  .billLogin .taborgform3  input:-webkit-autofill {
+    background:#fff !important;
+    background-color : #fff !important;
+    background-image : none ;
+    color : #000 ;
+    -webkit-box-shadow : 0 0 0px 1000px #fff inset ;
+    box-shadow : 0 0 0px 1000px #fff inset ;
+  }
+
 
 
 
@@ -172,6 +181,7 @@
         top: 0;
         z-index: 999;
       }
+      
       /*登录后.navbg加islogin class*/
       .navbg.admin-login{
         top: 32px;
@@ -422,7 +432,7 @@
         background:#eee;
         border-radius: 5px;
         width: 100%;
-        padding: 0 12px;
+        padding-left: 12px;
         cursor: pointer;
       }
       .waybillformuser{
@@ -436,7 +446,9 @@
         width: 20px;
         height: 24px;
       }
-      .taborgform2 span,.taborgform2 input{
+      .taborgform2 span,.taborgform2 input,
+      .taborgform3 span,.taborgform3 input
+      {
         display: inline-block;
         vertical-align: middle;
       }
@@ -446,7 +458,8 @@
       .password-icon{
         background: url(../img/password-icon.png) no-repeat;
       }
-      .taborgform2 .line-right{
+      .taborgform2 .line-right,.taborgform3 .line-right
+      {
         width: 1px;
         height: 19px;
         background-color: #999;
@@ -455,7 +468,9 @@
       }
       
      
-      .taborgform2 input:focus,.taborgform2 input:active{
+      .taborgform2 input:focus,.taborgform2 input:active,
+      .taborgform3 input:focus,.taborgform3 input:active
+      {
         border:0;
         outline: none;
       }
@@ -816,6 +831,7 @@
           right:2%;
           bottom:20%;
           cursor: pointer;
+          z-index: 3;
         }
         .totop img{
           width:40px;
@@ -1320,7 +1336,7 @@
       text-align: center;
       position: relative;
       }
-      .search-textarea #order_no{
+      .search-textarea textarea{
         width: 640px;
         height: 47px;
         padding: 5px 10px;
@@ -1355,22 +1371,21 @@
         color:#969696;
         float: left;
       }
-      .search-btn{
+      
+      
+
+    .search-btn{
         background-color: #f29b00;
         color: #fff;
         font-size: 16px;
         cursor: pointer;
+        border-radius: 50px;
+        width: 140px;
+        height: 40px;
+        line-height: 40px;
+        margin: 20px auto;
       }
-      
-
-    .search-btn{
-      border-radius: 50px;
-      width: 140px;
-      height: 40px;
-      line-height: 40px;
-      margin: 20px auto;
-      }
-      .userinfo a.logoutbtn,.orderAll{
+      .userinfo a.logoutbtn,.orderAll,.userinfo a.loginbtn,.billLogin .cancel-btn{
         font-size: 16px;
         padding: 2px 17px;
         text-align: center;
@@ -1379,25 +1394,28 @@
         border-radius: 8px;   
         cursor: pointer;     
       }
-      .userinfo a.logoutbtn{
+      .userinfo a.logoutbtn,.billLogin .cancel-btn{
         background-color: #d2d2d2;
+      }
+      .userinfo a.loginbtn{
+        background-color: #f29b00;
       }
       .orderAll{
         margin-left: 20px;
         background-color: #f29b00;
       }
       .userinfo a.logoutbtn:hover,
-      .search-btn:hover,.orderAll:hover{
+      .search-btn:hover,.orderAll:hover,.userinfo a.loginbtn:hover{
         background-color: #ffc900;
         text-shadow:none;
       }
 
       /*运单查询之运单详情3*/
-      .billdetail{
+      .billdetails{
         width:950px;
         margin:20px auto;
       }
-      .billdetail p{
+      .billdetails p{
         font-size:18px;
         color:#000;
         margin-bottom:24px;
@@ -1441,7 +1459,7 @@
       .havetwop p{
         float:left;
       }
-      .billdetail .billtime{
+      .billdetails .billtime{
         color:#969696;
         font-size:14px;
         display: block;
@@ -1449,7 +1467,7 @@
       }
       .line-dashad{
         height: 5px;
-        margin: 10px 0;
+        margin-bottom: 10px;
         width: 100%;
         border-bottom: 1px dashed #d2d2d2;
       }
@@ -1528,7 +1546,6 @@
         height:47px;
         font-size: 16px;
         color:#969696;
-        background-color: #fff;
       }
       
 
@@ -1740,6 +1757,174 @@
       background: #fff;
     }
 
+    .navbg{
+          border-bottom:5px solid #ff9800;
+        }
+        .taborg-qiyeuser{
+          width:50%;
+          min-width: 365px;
+          margin: 0 auto;
+          padding-bottom:12%;
+          padding-top: 10%;
+        }
+        .waybillformuser{
+          background: #fff;
+          padding: 20px;
+          width: 100%;
+        }
+        .taborg-qiyeuser h4{
+          text-align: center;
+        }
+        .taborgform2{
+          border-bottom: 3px solid #d2d2d2;
+          padding-bottom: 30px;
+        }
+        
+        .taborgform2 input:focus,.taborgform2 input:active,
+        .taborgform3 input:focus,.taborgform3 input:active{
+          background-color: #eee;
+        }
+
+        .taborgform2 input,.taborgform3 input{
+          background-color: #eee;
+          width:90%;
+          height: 35px;
+          font-size: 16px;
+          color:#333;
+          padding: 9.5px 0;
+        }
+        p.errorlog{
+          bottom: -20px;
+        }
+        .billLogin{
+          width:400px;
+          margin:0 auto;
+        }
+        .billLogin .waybillformuser{
+          background-color: #f5f5f5;
+        }
+        .billLogin .waybillform label, .billLogin .waybillformuser label{
+          background-color: #fff;
+          width:400px;
+          height:50px;
+          border:1px solid #d2d2d2;
+          border-radius: 0;
+        }
+        .billLogin .taborgform3 input{
+          background-color: #fff;
+          height: 48px;
+          width:350px;
+        }
+        .billLogin .user-icon, .billLogin .password-icon{
+          margin-right: 11px;
+        }
+        .billLogin .cancel-btn,.billLogin .subBtn{
+          width:108px;
+          height:40px;
+          text-align: center;
+          line-height: 35px;
+          border-radius:50px;
+          display: inline-block;
+          vertical-align: top;
+          margin-top:0;
+          margin-bottom: 0;
+          font-size: 16px;
+          text-shadow: 0 1px 0 #333;
+          padding:0;
+        }
+        .billLogin .cancel-btn:hover,.billLogin .subBtn:hover{
+          background-color: #ffc900;
+          text-shadow:none;
+        }
+        .billLogin .cancel-btn{
+          margin-left: 40px;
+          margin-right: 20px;
+        }
+
+        /*所有订单*/
+        .bussiescont-toppart p{
+          color:#b4b4b4;
+          text-align: center;
+          font-size:12px;
+          }
+          .selectdiv{
+            width: 90%;
+            margin: 20px auto 40px;
+            text-align: center;
+          }
+              
+          .selectdiv span{
+            display: inline-block;
+            vertical-align: middle;
+            width:80px;
+            height:25px;
+            color:#fff;
+            font-size:16px;
+            line-height: 25px;
+            background-color: #d2d2d2;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+          }
+          .selectdiv span.current,.selectdiv span:hover{
+            background-color: #f29b00;
+          }
+          .havetwop p.detailsbtn{
+            float: right;
+            color:#fff;
+            background-color: #f29b00;
+            font-size: 16px;
+            border-radius: 50px;
+            width:120px;
+            height:38px;
+            text-align: center;
+            line-height: 38px;
+            cursor: pointer;
+          }
+          .showdetails{
+            background-color: #f5f5f5;
+            padding:25px 0;
+          }
+          .havetwop p.detailsbtn:hover{
+            background-color: #ffc900;
+          }
+          .bill-bottom,.showdetails  .detailsbtn{
+            display: none;
+          }
+          .showdetails .bill-bottom{
+            display: block;
+          }
+
+
+
+        @media screen and (max-width: 768px) {
+          .taborgform2 input {
+            width:85%;
+          }
+        }
+
+        @media screen and (max-width: 416px) {
+          .taborg-qiyeuser{
+            width: 365px;
+            min-width: 365px;
+          }
+          .taborg-qiyeuser .waybillformuser{
+            height:auto;
+          }
+        }
+        @media screen and (max-width: 375px) {
+         .taborg-qiyeuser {
+            width: 320px;
+            min-width: 320px;
+          }
+        }
+         @media screen and (max-width: 320px) {
+          .taborg-qiyeuser{
+            width: 300px;
+            min-width: 300px;
+          }
+        }
+
 
 
     /*适配*/
@@ -1837,14 +2022,14 @@
       .navbar-header {
           width: 19%;
       }
-      .billdetail,.newsearchdiv{
+      .billdetails,.newsearchdiv{
         width:100%;
         padding:0 1%;
       }
       .newsearchdiv #selectorder{
         position: static;
       }
-      .search-textarea #order_no{
+      .search-textarea textarea{
         width:70%;
       }
       .stylebar, .stylebar ul{
@@ -1912,7 +2097,7 @@
         width:100%;
       }
       .bussiescont-case, .bussiescont-toppart, .bussiescont {
-          width: 96%;
+          width: 100%;
           padding: 0 2%;
       }
     }
@@ -2002,6 +2187,9 @@
         width: 80%;
         margin-left: -40%;
       }
+      .selectdiv{
+        width:100%;
+      }
 
     }
 
@@ -2084,6 +2272,9 @@
       }
       .userinfo{
         width:96%;
+      }
+      .selectdiv span{
+        margin-bottom: 10px;
       }
       
     }
@@ -2440,7 +2631,7 @@
         .hidetext a:link, .hidetext a:active,
          .hidetext a:hover, .hidetext a:visited,
          .weixinfooter span, .phonefooterli,.hideweixin p,
-         .listimgdiv h4,.taborgform2 input,.taborg p{
+         .listimgdiv h4,.taborgform2 input,.taborgform3 input,.taborg p{
           font-size: 12px;
       }
       
@@ -2471,17 +2662,17 @@
           margin-right: 0;
           width: 100%;
       }
-      .newsearchdiv #selectorder,.search-textarea #order_no{
+      .newsearchdiv #selectorder,.search-textarea textarea{
         font-size:14px;
         height:38px;
         line-height: 25px;
         padding-top:3px;
         padding-bottom: 3px;
       }
-      .userinfo a.logoutbtn, .orderAll{
+      .userinfo a.logoutbtn, .orderAll,.userinfo a.loginbtn{
         font-size:12px;
       }
-      .billdetail, .newsearchdiv{
+      .billdetails, .newsearchdiv{
         padding:0 3%;
       }
       .havetwop p{
@@ -2584,6 +2775,28 @@
       .stylebar ul li:nth-child(odd){
         width:220px;
       }
+      .billLogin{
+        width:100%;
+      }
+
+      .billLogin .waybillform label, .billLogin .waybillformuser label{
+        width:98%;
+        padding-left: 2%;
+      }
+      .billLogin .taborgform3 input{
+        width: 89.8%;
+      }
+      .billLogin .user-icon, .billLogin .password-icon{
+        width:8%;
+        margin-right: 1%;
+      }
+      .bgf5{
+        padding: 20px 0;
+      }
+      .billdetails p,.orderstyle span, .havethree p span{
+        font-size: 14px;
+      }
+      
 
 
     }
@@ -2725,7 +2938,7 @@
         width:100%;
         padding:0;
       }
-      .search-textarea #order_no{
+      .search-textarea textarea{
         width:60%;
       }
 
@@ -2757,6 +2970,9 @@
       }
       .stylebar ul li:nth-child(odd){
         width:200px;
+      }
+      .billLogin .taborgform3 input {
+          width: 89%;
       }
       
     }
