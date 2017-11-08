@@ -371,7 +371,7 @@
         border-radius: 8px;
         background-color: #f0f0f0;
       }
-      .waybillform textarea{
+      .waybillform textarea,.waybillform input{
       width:100%;
       height:255px;
       background: #fff;
@@ -380,12 +380,13 @@
       color: #666;
       font-size: 16px;
       }
-      .waybillform textarea:focus{
+      .waybillform textarea:focus,.waybillform input:focus{
       border:0;
       outline:0;
       }
       .waybillform form,.waybillformuser form{
       position: relative;
+      margin-bottom: 25px;
       }
       .placediv{
         position: absolute;
@@ -478,9 +479,9 @@
         z-index: -1;
         display: none;
         position: absolute;
-        bottom: -16px;
+        /*bottom: -16px;*/
         color: #f29b00;
-        left: 55px;
+        left: 47px;
         text-align: left;
       }
 
@@ -1336,7 +1337,7 @@
       text-align: center;
       position: relative;
       }
-      .search-textarea textarea{
+      .search-textarea textarea,.search-textarea input{
         width: 640px;
         height: 47px;
         padding: 5px 10px;
@@ -1362,7 +1363,7 @@
       }
 
     .userinfo{
-      width:640px;
+      width:760px;
       margin:15px auto;
       text-align: right;
       }
@@ -1467,7 +1468,7 @@
       }
       .line-dashad{
         height: 5px;
-        margin-bottom: 10px;
+        /*margin-bottom: 10px;*/
         width: 100%;
         border-bottom: 1px dashed #d2d2d2;
       }
@@ -1493,11 +1494,11 @@
       .stylebar ul li{
         position: relative;
         float:left;
-        width:12.95%;
+        width:13.2%;
         height: 100%;
       }
       .stylebar ul li:last-child{
-        width:7%;
+        width:5%;
       }
       .stylebar p,.stylebar .styleline, .stylebar .icons-bill{
         position: absolute;
@@ -1509,6 +1510,7 @@
         height:64px;
         z-index: 3;
       }
+
       .stylebar .styleline{
         left: 0;
         top:32px;
@@ -1539,9 +1541,9 @@
         margin:0 auto;
       }
       .newsearchdiv #selectorder{
-        position: absolute;
+        /*position: absolute;
         left:0;
-        top:0;
+        top:0;*/
         border: 2px solid #e3e3e3;
         height:47px;
         font-size: 16px;
@@ -1794,7 +1796,7 @@
           padding: 9.5px 0;
         }
         p.errorlog{
-          bottom: -20px;
+          bottom: -25px;
         }
         .billLogin{
           width:400px;
@@ -1865,6 +1867,7 @@
             border-radius: 5px;
             text-align: center;
             cursor: pointer;
+            margin:0 5px;
           }
           .selectdiv span.current,.selectdiv span:hover{
             background-color: #f29b00;
@@ -2029,13 +2032,14 @@
       .newsearchdiv #selectorder{
         position: static;
       }
-      .search-textarea textarea{
+      .search-textarea textarea,.search-textarea input{
         width:70%;
       }
       .stylebar, .stylebar ul{
-        height:270px;
+        height:auto;
         width: 95%;
         margin: 20px auto;
+        overflow: hidden;
       }
       .stylebar ul li{
         width:30%;
@@ -2189,6 +2193,9 @@
       }
       .selectdiv{
         width:100%;
+      }
+      .selectdiv span{
+        width:79px;
       }
 
     }
@@ -2662,7 +2669,7 @@
           margin-right: 0;
           width: 100%;
       }
-      .newsearchdiv #selectorder,.search-textarea textarea{
+      .newsearchdiv #selectorder,.search-textarea textarea,.search-textarea input{
         font-size:14px;
         height:38px;
         line-height: 25px;
@@ -2784,7 +2791,7 @@
         padding-left: 2%;
       }
       .billLogin .taborgform3 input{
-        width: 89.8%;
+        width: 89.7%;
       }
       .billLogin .user-icon, .billLogin .password-icon{
         width:8%;
@@ -2795,6 +2802,13 @@
       }
       .billdetails p,.orderstyle span, .havethree p span{
         font-size: 14px;
+      }
+      .stylebar ul{
+        width:100%;
+        margin:0;
+      }
+      .stylebar .icons-bill{
+        left:0;
       }
       
 
@@ -2938,7 +2952,7 @@
         width:100%;
         padding:0;
       }
-      .search-textarea textarea{
+      .search-textarea textarea,.search-textarea input{
         width:60%;
       }
 

@@ -81,7 +81,8 @@ Template Name: 优通登录
         if (data.code == 0) {
           window.location.href='/order-search';
         } else {
-          alert(data.msg);
+          // alert(data.msg);
+          $('input[name="password"]').next().text(data.msg).show().css({'z-index':'2'});
         }
       }
     });

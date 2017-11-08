@@ -84,7 +84,9 @@
                   <!-- id="qiyeuser" -->
                   <!-- <a href="#"><span class="bgorgrad">登录</span></a> -->
                   <!-- 登录后显示下面运单查询代码 -->
-                  <span id="waybilltop" class="search-btn bgorgrad"><img src="<?php bloginfo('template_url');?>/img/search.png" alt="运单查询">运单查询</span>
+                  <a href="/order-search">
+                    <span id="waybilltop" class="search-btn bgorgrad"><img src="<?php bloginfo('template_url');?>/img/search.png" alt="运单查询">运单查询</span>
+                  </a>
                 </div>
                 <?php
                     wp_nav_menu( array(
