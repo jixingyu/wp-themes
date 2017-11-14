@@ -223,7 +223,7 @@ Template Name: 查询结果
         // return false ;
         $.ajax({
          type: "GET",
-         url: "http://local.uts.com/wp-admin/admin-ajax.php?action=xy_tms&t=order_list",
+         url: "/wp-admin/admin-ajax.php?action=xy_tms&t=order_list",
          dataType: "json",
          async: false,
          data:data,
@@ -328,7 +328,7 @@ Template Name: 查询结果
           var thishtml = '';
           $.ajax({
            type: "GET",
-           url: "http://local.uts.com/wp-admin/admin-ajax.php?action=xy_tms&t=track",
+           url: "/wp-admin/admin-ajax.php?action=xy_tms&t=track",
            dataType: "json",
            async: false,
            data:data,
