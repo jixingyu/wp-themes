@@ -30,11 +30,9 @@
 <?php while( have_posts() ): the_post(); ?>
 <div class="toppart">
   <div class="bussiescont bussiescont-toppart clearfix">
-    <?php if ($catType != 'picture') : ?>
     <a href="<?php echo get_category_link($cur_cat->term_id);?>">
       <div class="topcrumb"><span class="iconspng icon-return"></span>返回目录</div>
     </a>
-    <?php endif; ?>
     <h2><?php the_title();?></h2>
   </div>
 </div>
@@ -51,11 +49,10 @@
 <div class="hotlist">
   <div class="hotnews">
     <!-- <div class="news-bottom-a">
-      <?php xy_post_nav();?>
+      <?php //xy_post_nav();?>
     </div> -->
     <h5>热门新闻</h5>
     <ol>
-      <!-- <span class="newstime">20170401</span> 此处是新加的时间的部分样式写在css里了-->
       <?php xy_most_viewed_format($hot_cat_id);?>
     </ol>
   </div>

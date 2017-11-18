@@ -1071,6 +1071,7 @@
         color: #f29b00;
         font-size: 18px;
         margin-right: 10px;
+        float: left;
       }
      /* .hotnews ol li:nth-child(1):before{
         background-color: #ff5757;

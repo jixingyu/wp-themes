@@ -282,7 +282,7 @@ function xy_most_viewed_format($term_id = 0, $echo = true, $limit = 5, $mode = '
 			$post_ID    = $viewed->ID;
 			$post_title = esc_attr($viewed->post_title);
 			$post_permalink = esc_attr(get_permalink($post_ID));
-            $output .= sprintf('<li><a href="%s" target="_blank" class="ellipsis">%s</a></li>', $post_permalink, $post_title);
+            $output .= sprintf('<li><span class="newstime">%s</span><a href="%s" target="_blank" class="ellipsis">%s</a></li>', date('Ymd', strtotime($viewed->post_date)), $post_permalink, $post_title);
 		}
 	}
 	if ($echo) {
