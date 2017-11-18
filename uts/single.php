@@ -38,23 +38,24 @@
     <h2><?php the_title();?></h2>
   </div>
 </div>
-<div class="bgf8 ">
+<!-- <div class="bgf8 "> -->
   <div class="bussiescont news-details paading20_0 ">
     <?php if ($catType != 'picture') : ?>
     <div class="center list-text-b"><span class="pulishtime">发布时间：<?php the_time('Y-m-d');?></span><span>阅读量：<?php xy_post_views();?></span></div>
     <?php endif; ?>
     <?php the_content(); ?>
   </div>
-</div>
+<!-- </div> -->
 
 <?php if ($cur_cat->term_id == $hot_cat_id) : ?>
 <div class="hotlist">
   <div class="hotnews">
-    <div class="news-bottom-a">
+    <!-- <div class="news-bottom-a">
       <?php xy_post_nav();?>
-    </div>
+    </div> -->
     <h5>热门新闻</h5>
     <ol>
+      <!-- <span class="newstime">20170401</span> 此处是新加的时间的部分样式写在css里了-->
       <?php xy_most_viewed_format($hot_cat_id);?>
     </ol>
   </div>

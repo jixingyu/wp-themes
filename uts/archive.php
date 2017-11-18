@@ -36,6 +36,7 @@
 <div class="clear"></div>
 <?php if ( $tmp == 'picture' ) : ?>
   <?php if( have_posts() ): ?>
+  <div class="bgf5"> 
     <div class="bussiescont-case">
       <ul id="caselist">
       </ul>
@@ -46,29 +47,32 @@
         <span class="iconspng icon-down"></span>
       </div>
     </div>
+  </div>
   <?php endif;?>
 <?php else : ?>
     <?php if( have_posts() ): ?>
-    <div class="bgf8"> 
-      <div class="bussiescont newslist">
-          <ul id="newslist">
-          </ul>
-          <div class="center loading" >
-            <img src="<?php bloginfo('template_url');?>/img/loading.gif" alt="" />
-          </div>
-          <div class="getmore" id="getmore1">
-            <span class="iconspng icon-down"></span>
-          </div>
-      </div>
-    </div> 
+    
+    <div class="bussiescont newslist">
+        <ul id="newslist">
+        </ul>
+        <div class="center loading" >
+          <img src="<?php bloginfo('template_url');?>/img/loading.gif" alt="" />
+        </div>
+        <div class="getmore" id="getmore1">
+          <span class="iconspng icon-down"></span>
+        </div>
+    </div>
+    
     <div class="hotlist">
       <div class="hotnews">
         <h5>热门新闻</h5>
         <ol>
+          <!-- <span class="newstime">20170401</span> -->
           <?php xy_most_viewed_format($hot_cat_id);?>
         </ol>
       </div>
     </div>
+    
     <?php endif; ?>
 <?php endif; ?>
 

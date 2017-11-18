@@ -24,10 +24,29 @@ Template Name: 关于我们
     <div class="about-banner">
       <img class="" src="<?php bloginfo('template_url');?>/img/zongbu.jpg"  title="优通总部大楼" alt="优通总部大楼">
       <div class="aboutpdiv">
-        
         <p>优通成立于1997年，是一家专业从事第三方物流的大型物流企业。优通总部位于上海，服务网络覆盖全国，并在主要城市设立了<span class="maxtext">五家分公司、三十二个办事处</span>。</p>
         <p>优通是集<span class="maxtext">干线运输、仓储管理、城市配送、流通加工、信息处理、物流金融、国际货代、进出口报关</span>及其他增值业务于一体的第三方物流服务商。并专注于为客户提供专业化、定制化、最优化供应链管理解决方案。</p>
         <p>我们为客户的每个项目配备专门的管理团队进行信息化管理和调度跟踪监控。</p>
+      </div>
+      <div class="threepart">
+        <div class="aboutbgfff">
+          <h4>1.基本理念</h4>
+          <p class="desc">企业不仅仅是为了追求自身的利益而存在，同时是为了适应社会的发展并回馈于社会文明进步而存在。</p>
+        </div>
+        <div class="aboutbgfff">
+          <h4>2.优通愿景</h4>
+          <p class="desc">以智慧物流为核心，成为中国领先的供应链集成商。</p>
+        </div>
+        <div class="aboutbgfff">
+          <h4>3.优通使命</h4>
+          <p class="desc">为客户提供创新方案，以智慧物流为客户创造更大的价值；为优通的员工提供完备的事业发展平台。</p>
+        </div>
+      </div>
+      <div class="aboutnewbg">
+        <p class="text-left"><span class="iconsabout iconsabout01"></span><span class="aboutnewbigtext">信赖</span>——使客户对我们信赖，使员工对我们信赖，使社会对我们信赖</p>
+        <p class="text-right"><span class="iconsabout iconsabout02"></span><span class="aboutnewbigtext">创新/智慧</span>——不断创新提升服务能力，打造优通智慧物流</p>
+        <p class="text-left"><span class="iconsabout iconsabout03"></span><span class="aboutnewbigtext">效率</span>——高效的解决方案，为客户创利取胜</p>
+        <p class="text-right"><span class="iconsabout iconsabout04"></span><span class="aboutnewbigtext">绿色</span>——优化供应链环节，遏止污染和能源浪费</p>
       </div>
     </div>
     <div class="col-md-12">
