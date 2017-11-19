@@ -53,8 +53,8 @@ Template Name: 查询结果
             <option value="2"<?php if (isset($_REQUEST['ot']) && $_REQUEST['ot'] == 2) echo ' selected="selected"';?>>发货订单ID</option>
             <option value="3"<?php if (isset($_REQUEST['ot']) && $_REQUEST['ot'] == 3) echo ' selected="selected"';?>>客户订单编号</option>
           </select>
-          <input type="text" name="on" id="order_no" placeholder="点击输入运单号" onfocus="if(placeholder=='点击输入运单号') {placeholder=''}" onblur="if (value=='') {placeholder='点击输入运单号'}" value="<?php if (isset($_REQUEST['on'])) echo htmlspecialchars($_REQUEST['on']); ?>" />
-          <p class="errorlog">点击输入运单号</p>
+          <input type="text" name="on" id="order_no" placeholder="点击输入订单号" onfocus="if(placeholder=='点击输入订单号') {placeholder=''}" onblur="if (value=='') {placeholder='点击输入订单号'}" value="<?php if (isset($_REQUEST['on'])) echo htmlspecialchars($_REQUEST['on']); ?>" />
+          <p class="errorlog">点击输入订单号</p>
           <div class="search-btn" id="searchBtn">开始查询</div>
         </div>
       </form>
@@ -131,8 +131,8 @@ Template Name: 查询结果
           <option value="2"<?php if (isset($_REQUEST['ot']) && $_REQUEST['ot'] == 2) echo ' selected="selected"';?>>发货订单ID</option>
           <option value="3"<?php if (isset($_REQUEST['ot']) && $_REQUEST['ot'] == 3) echo ' selected="selected"';?>>客户订单编号</option>
         </select>
-        <input type="text" name="on" id="order_no" placeholder="点击输入运单号" onfocus="if(placeholder=='点击输入运单号') {placeholder=''}" onblur="if (value=='') {placeholder='点击输入运单号'}" value="<?php if (isset($_REQUEST['on'])) echo htmlspecialchars($_REQUEST['on']); ?>" />
-        <p class="errorlog">点击输入运单号</p>
+        <input type="text" name="on" id="order_no" placeholder="点击输入订单号" onfocus="if(placeholder=='点击输入订单号') {placeholder=''}" onblur="if (value=='') {placeholder='点击输入订单号'}" value="<?php if (isset($_REQUEST['on'])) echo htmlspecialchars($_REQUEST['on']); ?>" />
+        <p class="errorlog">点击输入订单号</p>
         <div class="search-btn" id="searchBtn2">开始查询</div>
       </div>
       <!-- <p>可同时查询10条，以逗号、空格、回车键隔开</p> -->
@@ -255,7 +255,7 @@ Template Name: 查询结果
                       
 
                       if(orderId){
-                        orderhtml = '<p>运单号：'+ orderId+'</p>';
+                        orderhtml = '<p>发货订单ID：'+ orderId+'</p>';
                       }
                       if(status){
                         statushtml = '<p class="orderstyle">订单状态：<span>'+status+'</span></p>';
