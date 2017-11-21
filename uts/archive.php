@@ -108,7 +108,7 @@
                   //   content = item.content.substr(0,55)+"...";
                   // }
 
-              htmlCase+='<li><div class="caselistdiv"><img src="'+imgsrc+'" title="'+title+'"><a href="'+url+'"><div class="casetitle">'+title+'</div></a></div></li>';
+              htmlCase+='<li><div class="caselistdiv"><a href="'+url+'"><img src="'+imgsrc+'" title="'+title+'"><div class="casetitle">'+title+'</div></a></div></li>';
             });
             $('.loading').fadeIn();
             

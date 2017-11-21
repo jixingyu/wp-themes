@@ -118,7 +118,7 @@ class Tms_api
                 $retult[] = array(
                     'ORDER_ID' => $order['ORDER_ID'],
                     'C_ORDER_NO' => $order['C_ORDER_NO'],
-                    'CREATED_DATE' => $order['CREATED_DATE'],
+                    'CREATED_DATE' => str_replace('T', ' ', $order['CREATED_DATE']),
                     'STATUS' => $order['STATUS'],
                     'CUSTOMER_NAME' => $order['CUSTOMER_NAME'],
                     'SRC_ADDRESS' => $order['SRC_ADDRESS'],
@@ -175,7 +175,7 @@ class Tms_api
                 $order_info = array(
                     'ORDER_ID' => $order['ORDER_ID'],
                     'C_ORDER_NO' => $order['C_ORDER_NO'],
-                    'CREATED_DATE' => $order['CREATED_DATE'],
+                    'CREATED_DATE' => str_replace('T', ' ', $order['CREATED_DATE']),
                     'STATUS' => $order['STATUS'],
                     'CUSTOMER_NAME' => $order['CUSTOMER_NAME'],
                     'SRC_ADDRESS' => $order['SRC_ADDRESS'],
