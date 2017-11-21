@@ -45,7 +45,7 @@ Template Name: 查询结果
     <!-- 默认进入界面 1 -->
     <div class="search-textarea bgf5" id="searchdiv">
       <div class="userinfo">
-        <a href="/uts-login" class="loginbtn dis-min">企业登录</a>
+        <!-- <a href="/uts-login" class="loginbtn dis-min">企业登录</a> -->
       </div>
       <form method="POST" id="searchForm">
         <div class="newsearchdiv">
