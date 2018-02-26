@@ -50,12 +50,12 @@ Template Name: 查询结果
       <form method="POST" id="searchForm">
         <div class="newsearchdiv">
           <select name="ot" id="selectorder">
-            <option value="2"<?php if (isset($_REQUEST['ot']) && $_REQUEST['ot'] == 2) echo ' selected="selected"';?>>发货订单ID</option>
             <option value="3"<?php if (isset($_REQUEST['ot']) && $_REQUEST['ot'] == 3) echo ' selected="selected"';?>>客户订单编号</option>
           </select>
           <input type="text" name="on" id="order_no" placeholder="点击输入订单号" onfocus="if(placeholder=='点击输入订单号') {placeholder=''}" onblur="if (value=='') {placeholder='点击输入订单号'}" value="<?php if (isset($_REQUEST['on'])) echo htmlspecialchars($_REQUEST['on']); ?>" />
           <p class="errorlog">点击输入订单号</p>
           <div class="search-btn" id="searchBtn">开始查询</div>
+          <a class="search-btn" target="_blank" href="http://116.228.237.198:8880/customer/index.htm">多选查询</a>
         </div>
       </form>
     </div>
@@ -80,8 +80,8 @@ Template Name: 查询结果
           <p class="orderstyle">订单状态：<span><?php echo $sResult['STATUS'];?></span></p>
         </div>  
         <p><span class="icons-bill icon-order"></span>订单：<?php echo $sResult['C_ORDER_NO'];?></p>
-        <p><span class="icons-bill icon-from"></span><?php echo $sResult['SRC_ADDRESS'];?><span class="billtime"><?php echo $sResult['CREATED_DATE'];?></span></p>
-        <p><span class="icons-bill icon-to"></span><?php echo $sResult['DEST_ADDRESS'];?></p>
+        <p><span class="icons-bill icon-from"></span>(<?php echo $sResult['SRC_LOCATION_ID'];?>) <?php echo $sResult['SRC_ADDRESS'];?><span class="billtime"><?php echo $sResult['CREATED_DATE'];?></span></p>
+        <p><span class="icons-bill icon-to"></span>(<?php echo $sResult['DEST_LOCATION_ID'];?>) <?php echo $sResult['DEST_ADDRESS'];?></p>
         <div class="havetwop">
           <!-- <p><span class="icons-bill icon-contact"></span>张三&nbsp; 18526155155</p> -->
           <p class="detailsbtn">订单详情</p>
@@ -102,7 +102,7 @@ Template Name: 查询结果
           <ul>
             <?php foreach ($sResult['tracking'] as $tracking_row) :?>
             <li<?php if (isset($tracking_row['time'])) echo ' class="active"';?>>
-              <span class="icons-bill icon-style-normal"></span><span class="styleline"></span>
+              <span class="icons-bill icon-style-normal"></span><?php if ($tracking_row['status_desc'] != '已回单') : ?><span class="styleline"></span><?php endif; ?>
               <p><?php echo $tracking_row['status_desc'];?><span><?php if (isset($tracking_row['time'])) echo $tracking_row['time']; ?></span></p>
             </li>
             <?php endforeach; ?>

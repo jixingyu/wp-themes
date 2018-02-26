@@ -1484,6 +1484,10 @@
         height: 40px;
         line-height: 40px;
         margin: 20px auto;
+        display: inline-block;
+      }
+      a.search-btn:link, a.search-btn:active, a.search-btn:hover, a.search-btn:visited{
+        color: #fff;
       }
       .userinfo a.logoutbtn,.orderAll,.userinfo a.loginbtn,.billLogin .cancel-btn{
         font-size: 16px;

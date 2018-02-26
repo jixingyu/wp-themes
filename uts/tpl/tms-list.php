@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: 查询结果
+Template Name: 查询列表
 */
   get_header();
 ?>

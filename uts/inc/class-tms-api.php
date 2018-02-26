@@ -30,7 +30,7 @@ class Tms_api
         10 => '开放 ',
         20 => '审核',
         40 => '已计划',
-        42 => '在途',
+        // 42 => '在途',
         43 => '已提货',
         45 => '已到货',
         46 => '已签收',
@@ -178,7 +178,9 @@ class Tms_api
                     'CREATED_DATE' => str_replace('T', ' ', $order['CREATED_DATE']),
                     'STATUS' => $order['STATUS'],
                     'CUSTOMER_NAME' => $order['CUSTOMER_NAME'],
+                    'SRC_LOCATION_ID' => $order['SRC_LOCATION_ID'],
                     'SRC_ADDRESS' => $order['SRC_ADDRESS'],
+                    'DEST_LOCATION_ID' => $order['DEST_LOCATION_ID'],
                     'DEST_ADDRESS' => $order['DEST_ADDRESS'],
                     'STATUS' => $order['STATUS'],
                 );
