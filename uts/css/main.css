@@ -1474,7 +1474,7 @@
       
       
 
-    .search-btn{
+      .search-btn{
         background-color: #f29b00;
         color: #fff;
         font-size: 16px;
@@ -1484,6 +1484,8 @@
         height: 40px;
         line-height: 40px;
         margin: 20px auto;
+      }
+      .begin-search{
         display: inline-block;
       }
       a.search-btn:link, a.search-btn:active, a.search-btn:hover, a.search-btn:visited{

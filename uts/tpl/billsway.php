@@ -54,8 +54,8 @@ Template Name: 查询结果
           </select>
           <input type="text" name="on" id="order_no" placeholder="点击输入订单号" onfocus="if(placeholder=='点击输入订单号') {placeholder=''}" onblur="if (value=='') {placeholder='点击输入订单号'}" value="<?php if (isset($_REQUEST['on'])) echo htmlspecialchars($_REQUEST['on']); ?>" />
           <p class="errorlog">点击输入订单号</p>
-          <div class="search-btn" id="searchBtn">开始查询</div>
-          <a class="search-btn" target="_blank" href="http://116.228.237.198:8880/customer/index.htm">多选查询</a>
+          <div class="search-btn begin-search" id="searchBtn">开始查询</div>
+          <a class="search-btn begin-search" target="_blank" href="http://116.228.237.198:8880/customer/index.htm">企业客户由此进入</a>
         </div>
       </form>
     </div>
@@ -76,10 +76,10 @@ Template Name: 查询结果
     <div class="bgfff showdetails">
       <div class="billdetails">
         <div class="havetwop">
-          <p>发货订单ID：<?php echo $sResult['ORDER_ID'];?></p>
+          <p>客户订单编号：<?php echo $sResult['C_ORDER_NO'];?></p>
           <p class="orderstyle">订单状态：<span><?php echo $sResult['STATUS'];?></span></p>
         </div>  
-        <p><span class="icons-bill icon-order"></span>订单：<?php echo $sResult['C_ORDER_NO'];?></p>
+        <p><span class="icons-bill icon-order"></span>发货订单ID：<?php echo $sResult['ORDER_ID'];?></p>
         <p><span class="icons-bill icon-from"></span>(<?php echo $sResult['SRC_LOCATION_ID'];?>) <?php echo $sResult['SRC_ADDRESS'];?><span class="billtime"><?php echo $sResult['CREATED_DATE'];?></span></p>
         <p><span class="icons-bill icon-to"></span>(<?php echo $sResult['DEST_LOCATION_ID'];?>) <?php echo $sResult['DEST_ADDRESS'];?></p>
         <div class="havetwop">

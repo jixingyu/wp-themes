@@ -107,7 +107,7 @@ class Uts_init {
 	function enqueue_scripts() {
 		if ( ! is_admin() ) {
 			wp_enqueue_style( THEME_PREFIX . '-bootstrap-css', get_template_directory_uri() . '/css/bootstrap.min.css' );
-			wp_enqueue_style( THEME_PREFIX . '-main-css', get_template_directory_uri() . '/css/main.css', array(), '0226' );
+			wp_enqueue_style( THEME_PREFIX . '-main-css', get_template_directory_uri() . '/css/main.css', array(), '02261' );
 			wp_enqueue_script( THEME_PREFIX . '-js-jquery', get_template_directory_uri() . '/js/jquery-1.10.2.min.js' );
 			wp_enqueue_script( THEME_PREFIX . '-js-bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js' );
 			wp_enqueue_script( THEME_PREFIX . '-js-main', get_template_directory_uri() . '/js/main.js', array(), false, true);
