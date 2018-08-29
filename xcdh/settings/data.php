@@ -1,11 +1,6 @@
 <?php
 
 $datas_1 = array(
-	'banner' => array(
-		'section_title' => '头部图像',
-		'section_text' => '',
-		array( 'type' => 'upload', 'name' => 'head-banner-img', 'label' => '头部图像', 'tips' => '建议图片尺寸：1920*508' ),
-	),
 	'slider' => array(
 		'section_title' => '首页轮播图',
 		'section_text' => '',
@@ -23,15 +18,11 @@ if( 0 < $slider_num ) {
 }
 
 $datas_2 = array(
-	'business' => array(
-		'section_title' => '业务介绍',
+	'home' => array(
+		'section_title' => '首页展示',
 		'section_text' => '',
-		array( 'type' => 'text', 'name' => 'business-posts', 'label' => '文章集（4篇）')
-	),
-	'news' => array(
-		'section_title' => '新闻设置',
-		'section_text' => '',
-		array( 'type' => 'category', 'name' => 'news-hot', 'label' => '热门新闻', 'selected' => -1 ),
+		array( 'type' => 'category', 'name' => 'home-news', 'label' => '最新动态', 'selected' => -1 ),
+		array( 'type' => 'category', 'name' => 'home-tech', 'label' => '技术文档', 'selected' => -1 ),
 	),
 );
 

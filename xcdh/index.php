@@ -1,4 +1,8 @@
 <?php get_header(); ?>
+<?php
+  $home_news_id = ( isset( $th_options['home-news'] ) && $th_options['home-news'] ) ? $th_options['home-news'] : '';
+  $home_tech_id = ( isset( $th_options['home-tech'] ) && $th_options['home-tech'] ) ? $th_options['home-tech'] : '';
+?>
 <div class="c_itbox">
   <div class="menu1 wrap"><h3><span class="s1">全国</span>&nbsp;&nbsp;<span>六大核心业务</span></h3></div>
   <div class="server wrap">
@@ -214,127 +218,71 @@
         </div>
     </div>
 </div>
-<!--case-->
-<div class="index-case ">
-    <div class="pageW">
-        <div class="indexcase-con clearfix">
-            <div class="fl">
-                <p class="case-down"><img src="<?=$tplRootUrl ?>/img/client.png" />客户APP下载</p>
-                <p class="case-down"><img src="<?=$tplRootUrl ?>/img/engineer.png" />工程师APP下载</p>
-            </div>
-            <div class="repare-intro fl">
-                <h2 class="repair-num">
-                    <span class="t">E客实时订单数</span>
-                    <span class="num" id="num">0</span>
-                </h2>
-                <div class="maquee" style="height:150px;overflow:hidden;">
-                    <ul class="repair-news" id="repair-news">
-                        <li>
-                            <a href=""><span class="time">09:25</span><span class="cc">南京市白下区客户已在E客网成功下单</span></a>
-                        </li>
-                        <li>
-                            <a href=""><span class="time">11:04</span><span class="cc">上海市长宁区客户已在E客官网成功下单</span></a>
-                        </li>
-                        <li>
-                            <a href=""><span class="time">15:25</span><span class="cc">杭州市江干区客户已在E客网成功下单</span></a>
-                        </li>
-                        <li>
-                            <a href=""><span class="time">20:50</span><span class="cc">扬州市邗江区客户已在E客网成功下单</span></a>
-                        </li>
-                        <li>
-                            <a href=""><span class="time">21:50</span><span class="cc">泰安市泰山区客户已在E客网成功下单</span></a>
-                        </li>
-                        <li>
-                            <a href=""><span class="time">21:50</span><span class="cc">武汉市江夏区客户已在E客网成功下单</span></a>
-                        </li>
-                        <li>
-                            <a href=""><span class="time">08:50</span><span class="cc">荆州市石首市客户已在E客网成功下单</span></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="fr">
-                <p class="case-down"><img src="<?=$tplRootUrl ?>/img/ewm.png" />关注我们</p>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <div class="index-news">
     <div class="pageW clearfix">
+        <?php if ($home_news_id != -1) :?>
         <div class="indexnews_lf fl">
             <h2 class="title">最新动态</h2>
             <ul>
+                <?php
+                    $query = new WP_Query( array(
+                        'cat' => $home_news_id,
+                        'posts_per_page' => 3,
+                        'ignore_sticky_posts' => true
+                    ) );
+                    $i = 0;
+                    while( $query->have_posts() ):
+                        $i++;
+                        $query->the_post();
+                        $iimg = xy_thumb();
+                ?>
                 <li>
-                    <a class="clearfix" href="/cms/534.html">
+                    <a class="clearfix" href="<?php the_permalink();?>">
+                        <?php if (!empty($iimg)) :?>
                         <div class="pic">
-                          <img style="width: 100px;width: 100px;" src="<?=$tplRootUrl ?>/img/5a65567b6deb4.jpg" />                            </div>
+                          <img style="width: 100px;width: 100px;" src="<?=$iimg ?>" />
+                        </div>
+                        <?php endif; ?>
                         <div class="intro">
-                            <p class="t">互联网+时代，IT外包行业如何升级客户服务？</p>
-                            <p class="intr">随着企业信息化程度的日益加深，众多企业对IT服务的专业性和效益性要求也越来越高。当下，从成本、效率、收益等方面考虑，更多的中小型企业愿意选择IT整体化外包专业服务商来运维IT。</p>
-                            <p class="time">2018-01-22 11:14</p>
+                            <p class="t"><?php the_title();?></p>
+                            <p class="intr"><?php echo get_the_excerpt();?></p>
+                            <p class="time"><?php the_time('Y-m-d H:i');?></p>
                         </div>
                     </a>
-                </li><li>
-                    <a class="clearfix" href="/cms/525.html">
-                        <div class="pic">
-                          <img style="width: 100px;width: 100px;" src="<?=$tplRootUrl ?>/img/5a45ae20f3ca3.jpg" />                            </div>
-                        <div class="intro">
-                            <p class="t">2018年企业IT计划的五个现实预测</p>
-                            <p class="intr">2017年即将结束，很多企业正在规划2018年的采购设备和运营业务的预算。对于IT部门也是如此。企业致力于投资具有前景的技术和项目，但其最终花费的费用高于他们的预期，或者无法获得预期的回报。</p>
-                            <p class="time">2017-12-29 10:53</p>
-                        </div>
-                    </a>
-                </li><li>
-                    <a class="clearfix" href="/cms/522.html">
-                        <div class="pic">
-                          <img style="width: 100px;width: 100px;" src="<?=$tplRootUrl ?>/img/5a39bd6f2aa7b.jpg" />                            </div>
-                        <div class="intro">
-                            <p class="t">解读指南：IT外包趋势的七大热度指数</p>
-                            <p class="intr">伴随着IT组织变得更加战略性，与IT外包供应商的合作也更需要更强的合作关系。数字化转型，自动化和数据革命不仅仅动摇了IT的运营，而且还严重影响了与IT外包公司签约的服务的种类和质量。</p>
-                                            <p class="time">2017-12-20 09:31</p>
-                        </div>
-                    </a>
-                                    </li>               
-                                 </ul>
-            <a class="more" href="/9.html">更多新闻</a>
+                </li>
+                <?php endwhile;?>
+            </ul>
+            <a class="more" href="<?php echo get_category_link($home_news_id); ?>">更多新闻</a>
         </div>
+        <?php endif; ?>
+        <?php if ($home_tech_id != -1) :?>
         <div class="technical-txt  fr">
             <h2 class="title">技术文档</h2>
             <ul>
+                <?php
+                    $query = new WP_Query( array(
+                        'cat' => $home_tech_id,
+                        'posts_per_page' => 6,
+                        'ignore_sticky_posts' => true
+                    ) );
+                    $i = 0;
+                    while( $query->have_posts() ):
+                        $i++;
+                        $query->the_post();
+                ?>
                 <li>
-                        <a class="clearfix" href="/cms/index/detail/id/537.html">
-                            <span class="pic"><img src="<?=$tplRootUrl ?>/img/technical.png" /></span>
-                            <span class="tec-txt">win7恢复出厂设置的三大方法</span>
-                        </a>
-                    </li><li>
-                        <a class="clearfix" href="/cms/index/detail/id/536.html">
-                            <span class="pic"><img src="<?=$tplRootUrl ?>/img/technical.png" /></span>
-                            <span class="tec-txt">电脑上网慢怎么办，如何解决？</span>
-                        </a>
-                    </li><li>
-                        <a class="clearfix" href="/cms/index/detail/id/535.html">
-                            <span class="pic"><img src="<?=$tplRootUrl ?>/img/technical.png" /></span>
-                            <span class="tec-txt">鼠标不动了怎么了？分享鼠标常见</span>
-                        </a>
-                    </li><li>
-                        <a class="clearfix" href="/cms/index/detail/id/533.html">
-                            <span class="pic"><img src="<?=$tplRootUrl ?>/img/technical.png" /></span>
-                            <span class="tec-txt">高清监控不等于网络监控 模拟高</span>
-                        </a>
-                    </li><li>
-                        <a class="clearfix" href="/cms/index/detail/id/532.html">
-                            <span class="pic"><img src="<?=$tplRootUrl ?>/img/technical.png" /></span>
-                            <span class="tec-txt">为什么要将电脑自动更新的功能关</span>
-                        </a>
-                    </li><li>
-                        <a class="clearfix" href="/cms/index/detail/id/531.html">
-                            <span class="pic"><img src="<?=$tplRootUrl ?>/img/technical.png" /></span>
-                            <span class="tec-txt">公司局域网连不上怎么办？</span>
-                        </a>
-                    </li>                </ul>
-            <a class="more" href="/18.html">更多文档</a>
+                    <a class="clearfix" href="<?php the_permalink();?>">
+                        <span class="pic"><img src="<?=$tplRootUrl ?>/img/technical.png" /></span>
+                        <span class="tec-txt"><?php the_title();?></span>
+                    </a>
+                </li>
+                <?php endwhile;?>
+            </ul>
+            <a class="more" href="<?php echo get_category_link($home_news_id); ?>">更多文档</a>
         </div>
+        <?php endif; ?>
     </div>
 </div>
 

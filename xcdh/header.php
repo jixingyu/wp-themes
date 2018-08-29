@@ -70,6 +70,17 @@
         global $th_options;
         wp_head();
     ?>
+
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5630e81704fa9d2f2bc898973246137f";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
 </head>
 <body>
 
