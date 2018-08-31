@@ -201,9 +201,7 @@ class Xy_Navmainsub_Walker extends Walker_Nav_Menu {
         if ($depth == 0) {
             $output .= sprintf('</ul><div class="naversub-footer clearfix">'
                 . '<div class="subf-lf">'
-                . '<p><span><img src="%s/img/ewm.png" /></span>E客公众账号</p>'
-                . '<p><span><img src="%s/img/client.png" /></span>客户App下载</p>'
-                . '<p><span><img src="%s/img/engineer.png" /></span>工程师APP下载</p>'
+                . '<p><span><img src="%s/img/weixin.png" /></span>联系微信</p>'
                 . '</div>'
                 . '<div class="subf-rl">'
                 . '<a><span class="tel">400-7788-188</span></a>'
