@@ -9,27 +9,47 @@
     <div class="wrap_desc server_left max_desc">
         <ul id="server_wrap">
               <li>
-                 <a href="/itwaibao.html" target="_blank">
+                 <a href="/" target="_blank">
                     <div class="tin">
                         <img src="<?=$tplRootUrl ?>/img/1-16120F9222b54.png">
                     </div>
                     <div class="tin_desc">
-                        <h6>IT外包服务</h6>
-                        <p>企业IT外包服务、电脑维护、远程服务、到场服务、驻场服务</p>
+                        <h6>防泄密软件</h6>
+                        <p>信息安全、数据安全、商业秘密保护 、解决方案</p>
                     </div>
                   </a>
                 </li><li>
-                 <a href="/buxian.html" target="_blank">
+                 <a href="/" target="_blank">
+                    <div class="tin">
+                        <img src="<?=$tplRootUrl ?>/img/menjin.jpg">
+                    </div>
+                    <div class="tin_desc">
+                        <h6>网络安全</h6>
+                        <p>防勒索病毒、防火墙、工控机房维护、堡垒机保护、售后审计</p>
+                    </div>
+                  </a>
+                </li><li>
+                 <a href="/" target="_blank">
                     <div class="tin">
                         <img src="<?=$tplRootUrl ?>/img/1-16120F92Z70-L.png">
                     </div>
                     <div class="tin_desc">
-                        <h6>综合布线</h6>
-                        <p>管道预埋、线缆铺设、机柜安装、端口标签、线缆测试</p>
+                        <h6>云计算</h6>
+                        <p>私有云、公有云、混合云、超融合、大数据</p>
                     </div>
                   </a>
                 </li><li>
-                 <a href="/jiankong.html" target="_blank">
+                 <a href="/" target="_blank">
+                    <div class="tin">
+                        <img src="<?=$tplRootUrl ?>/img/1-16120F92923627.png">
+                    </div>
+                    <div class="tin_desc">
+                        <h6>网络存储</h6>
+                        <p>NAS存储、办公存储、扩充装置、中小企业、大型企业</p>
+                    </div>
+                  </a>
+                </li><li>
+                 <a href="/" target="_blank">
                     <div class="tin">
                         <img src="<?=$tplRootUrl ?>/img/1-1G21Q4560VB.png">
                     </div>
@@ -38,34 +58,14 @@
                         <p>摄像头布线安装调试、故障检测、监控设备解决方案</p>
                     </div>
                   </a>
-                </li><li>
-                 <a href="/internet.html" target="_blank">
-                    <div class="tin">
-                        <img src="<?=$tplRootUrl ?>/img/1-16120F92923627.png">
-                    </div>
-                    <div class="tin_desc">
-                        <h6>网络设备</h6>
-                        <p>路由器、防火墙、交换机、无线设备安装调试维护、检测维修</p>
-                    </div>
-                  </a>
-                </li><li>
-                 <a href="/menjin.html" target="_blank">
-                    <div class="tin">
-                        <img src="<?=$tplRootUrl ?>/img/menjin.jpg">
-                    </div>
-                    <div class="tin_desc">
-                        <h6>门禁系统</h6>
-                        <p>门禁安装服务、现场勘测、产品选型、图纸设计、故障检测</p>
-                    </div>
-                  </a>
                 </li> <li>
-                 <a href="/fuwuqi.html" target="_blank">
+                 <a href="/" target="_blank">
                     <div class="tin">
                         <img src="<?=$tplRootUrl ?>/img/1-16120F925100-L.png">
                     </div>
                     <div class="tin_desc">
-                        <h6>服务器</h6>
-                        <p>服务器系统安装、服务器上机架、硬盘、内存等安装</p>
+                        <h6>网络维护</h6>
+                        <p>服务器安装、上机架、硬盘、无线AP、交换机、防火墙、设备安装调试</p>
                     </div>
                   </a>
                 </li>     

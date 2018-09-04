@@ -72,13 +72,13 @@
     ?>
 
     <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?5630e81704fa9d2f2bc898973246137f";
-      var s = document.getElementsByTagName("script")[0]; 
-      s.parentNode.insertBefore(hm, s);
-    })();
+    // var _hmt = _hmt || [];
+    // (function() {
+    //   var hm = document.createElement("script");
+    //   hm.src = "https://hm.baidu.com/hm.js?5630e81704fa9d2f2bc898973246137f";
+    //   var s = document.getElementsByTagName("script")[0]; 
+    //   s.parentNode.insertBefore(hm, s);
+    // })();
     </script>
 
 </head>
@@ -125,105 +125,27 @@
     </div>
 </div>
 
+<?php
+    $slider_num = ( isset( $th_options['head-slider-num'] ) && $th_options['head-slider-num'] ) ? (int) $th_options['head-slider-num'] : 0;
+    if ( 0 < $slider_num ) :
+?>
 <!--banner-->
 <div class="slide-banner">
     <div class="swiper-container">
         <div class="swiper-wrapper">
+        <?php
+            for ( $i = 1; $i <= $slider_num; $i++ ) {
+                $pic = isset( $th_options[ 'head-slider-pic-' . $i ] ) ? esc_attr( $th_options[ 'head-slider-pic-' . $i ] ) : '';
+                $link = isset( $th_options[ 'head-slider-pic-link-' . $i ] ) ? esc_attr( $th_options[ 'head-slider-pic-link-' . $i ] ) : '';
+        ?>
             <div class="swiper-slide">
-                <div style="position: relative;width: 100%;height: 473px;">
-                    <div class="swiper-slideBg" style="background-image:url(<?=$tplRootUrl ?>/img/banner2.jpg);background-size:cover;">
-                        <div class="swiperW">
-                            <a class="swiperlink" href="">
-                                <p class="txt2 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.2s">
-                                    <img src="<?=$tplRootUrl ?>/img/txt2.png" />
-                                </p>
-                                <p class="txt3 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.4s">
-                                    <img src="<?=$tplRootUrl ?>/img/txt3.png" />
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="swiper-slide">
-                <div style="position: relative;width: 100%;height: 473px;">
-                    <div class="swiper-slideBg" style="background-image:url(<?=$tplRootUrl ?>/img/banner1.jpg);background-size:cover;">
-                        <div class="swiperW">
-                            <a class="swiperlink" href="">
-                                <p class="txt1 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.2s"><img src="<?=$tplRootUrl ?>/img/txt1.png"></p>
-                                <p class="txt8 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.4s">
-                                    <img src="<?=$tplRootUrl ?>/img/map.png"  />
-                                    <span class="map1"><i></i></span>
-                                    <span class="map2"><i></i></span>
-                                    <span class="map3"><i></i></span>
-                                    <span class="map4"><i></i></span>
-                                    <span class="map5"><i></i><i></i></span>
-                                </p>
-                            </a>
-                        </div>
-                    </div>
+                <div style="position: relative;width: 100%;">
+                    <?php if ($link) { ?><a href="<?=$link?>" target="_blank"><?php } ?><img style="width: 100%;" src="<?=$pic?>"><?php if ($link) { ?></a><?php } ?>
                 </div>
             </div>
-            <div class="swiper-slide">
-                <div style="position: relative;width: 100%;height: 473px;">
-                    <div class="swiper-slideBg" style="background-image:url(<?=$tplRootUrl ?>/img/banner4.jpg);background-size: cover;">
-                        <div class="swiperW">
-                            <a class="swiperlink" href="">
-                                <p class="txt6 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.2s">
-                                    <img src="<?=$tplRootUrl ?>/img/txt6.png" />
-                                </p>
-                                <p class="txt7 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.4s">
-                                    <img src="<?=$tplRootUrl ?>/img/txt7.png" />
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-btndow ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.2s">
-                        <div class="swiperW">
-                            <a class="linkmore" href="">查看详情</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div style="position: relative;width: 100%;height: 473px;">
-                    <div class="swiper-slideBg" style="background-image:url(<?=$tplRootUrl ?>/img/banner5.jpg);background-size:cover;">
-                        <div class="swiperW">
-                            <a class="swiperlink" href="">
-                                <p class="txt6 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.2s">
-                                    <img src="<?=$tplRootUrl ?>/img/txt8.png" />
-                                </p>
-                                <p class="txt9 ani"  swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.4s">
-                                    <img src="<?=$tplRootUrl ?>/img/txt10.png" />
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-btndow ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.2s">
-                        <div class="swiperW">
-                            <a class="linkmore" href="">查看详情</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div style="position: relative;width: 100%;height: 473px;">
-                    <div class="swiper-slideBg" style="background-image:url(<?=$tplRootUrl ?>/img/banner3.jpg);background-size:cover;">
-                        <div class="swiperW">
-                            <a class="swiperlink" href="">
-                                <p class="txt4 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.2s">
-                                    <img src="<?=$tplRootUrl ?>/img/txt4.png" />
-                                </p>
-                                <p class="txt5 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.4s">
-                                    <img src="<?=$tplRootUrl ?>/img/txt5.png" />
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <?php } ?>
         </div>
         <div class="swiper-pagination"></div>
     </div>
 </div>
+<?php endif; ?>

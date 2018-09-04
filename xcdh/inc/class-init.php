@@ -28,6 +28,7 @@ class Xy_init {
 		register_nav_menus( array(
 			'navmain' => '头部导航',
 			'navfooter' => '友情链接',
+			'navfooterother' => '底部其它链接',
 		) );
 	}
 

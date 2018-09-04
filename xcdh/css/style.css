@@ -256,11 +256,11 @@ input{border:none;outline: none;}
 .footer_wrap .footer-T{padding-top: 44px;}
 .footer_wrap .other{width: 152px;margin-left:23px;position: relative;background:url(../img/line.png) no-repeat top right;}
 .footer_wrap .tit{color: #b9c2c9;font-size: 16px;margin:5px 0 20px;}
-.footer_wrap p{color: #b9c2c9;font-size: 12px;line-height: 24px;}
+.footer_wrap p, .footer_wrap p span{color: #b9c2c9;font-size: 12px;line-height: 24px;}
 .footer_wrap p a{color: #b9c2c9;}
 .footer_wrap .friendlink{padding:0 20px;background:url(../img/line.png) no-repeat top right;}
 .footer_wrap .friendlink a{
-    padding-right: 2%;
+    padding-right: 6px;
 } 
 .footer_wrap .links{padding-left: 72px;position: relative;}
 .footer_wrap .links .phone{display: inline-block;vertical-align: top;}

@@ -230,7 +230,7 @@ class Xy_Friendlink_Walker extends Walker_Nav_Menu {
     }
 
     public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-        $output .= sprintf('<a href="%s" target="_blank">%s</a>', $item->url, $item->title);
+        $output .= $args->before . sprintf('<a href="%s" target="_blank">%s</a>', $item->url, $item->title) . $args->after;
     }
 
     public function end_el( &$output, $item, $depth = 0, $args = array() ) {
