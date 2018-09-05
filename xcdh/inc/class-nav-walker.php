@@ -206,7 +206,7 @@ class Xy_Navmainsub_Walker extends Walker_Nav_Menu {
                 . '<div class="subf-rl">'
                 . '<a><span class="tel">400-7788-188</span></a>'
                 . '<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2881781078&site=qq&menu=yes"><span class="titme">9:00-18:00 在线服务时间</span><a>'
-                . '<a href="/"><span class="addres">上海市普陀区祁连山南路2888号A座17C<br/>电话:021-66116920</span><a>'
+                . '<a href="/"><span class="addres">苏州工业园区世纪金融大厦4楼408A<br/>电话:021-66116920</span><a>'
                 . '</div></div>'
                 . '<div class="naversub-close">'
                 . '<a href="javascript:;">close</a>'
@@ -230,7 +230,11 @@ class Xy_Friendlink_Walker extends Walker_Nav_Menu {
     }
 
     public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-        $output .= $args->before . sprintf('<a href="%s" target="_blank">%s</a>', $item->url, $item->title) . $args->after;
+        if (isset($args->before)) {
+            $output .= $args->before . sprintf('<a href="%s" target="_blank">%s</a>', $item->url, $item->title) . $args->after;
+        } else {
+            $output .= sprintf('<a href="%s" target="_blank">%s</a>', $item->url, $item->title);
+        }
     }
 
     public function end_el( &$output, $item, $depth = 0, $args = array() ) {

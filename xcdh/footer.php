@@ -33,14 +33,14 @@
             </div>
             <div class="links fl">
                 <h3 class="tit">联系方式</h3>
-                <p>上海市普陀区祁连山南路2888号A座17C</p>
+                <p>苏州工业园区世纪金融大厦4楼408A</p>
                 <p>客服电话: <span class="phone">400-7788-188<br/>021-66116920</span></p>
                 <p class="gzh-pic"><img src="<?=$tplRootUrl ?>/img/weixin.png" /><span class="tx">联系微信</span></p>
             </div>
         </div>
         <div class="footer-b">
                   
-<p> Copyright 2018 All Rights Reserved 上海创轩网络科技有限公司
+<p> Copyright 2018 All Rights Reserved 苏州星辰大海网络科技有限公司
                 <br>电信与信息服务营业经营许可证：<a href="http://www.miitbeian.gov.cn/" rel="nofollow">沪ICP备16023643</a>
             <br>
               <a target="_blank" href="" rel="nofollow"><img src="<?=$tplRootUrl ?>/img/jc.png">沪公网安备 31010702002900号</a>
