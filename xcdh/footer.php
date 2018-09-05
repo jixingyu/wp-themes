@@ -34,7 +34,7 @@
             <div class="links fl">
                 <h3 class="tit">联系方式</h3>
                 <p>苏州工业园区世纪金融大厦4楼408A</p>
-                <p>客服电话: <span class="phone">400-7788-188<br/>021-66116920</span></p>
+                <p>客服电话: <span class="phone">18020266589<br/>18362725276</span></p>
                 <p class="gzh-pic"><img src="<?=$tplRootUrl ?>/img/weixin.png" /><span class="tx">联系微信</span></p>
             </div>
         </div>
