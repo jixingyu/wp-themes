@@ -128,7 +128,7 @@
         <div class="advantage-con">
             <div class="advantage-list">
                 <span class="advanico">
-                    <!-- <img src="<?=$tplRootUrl ?>/img/advan-ico1.png" /> -->
+                    
                     <i class="iconfont icon-youpinwangtubiaozhonggou-"></i> 
                 </span>
                 <h2>工程师</h2>
@@ -137,7 +137,7 @@
             </div>
             <div class="advantage-list">
                 <span class="advanico">
-                    <!-- <img src="<?=$tplRootUrl ?>/img/advan-ico2.png" /> -->
+                   
                     <i class="iconfont icon-zongcai"></i>
                 </span>
                 <h2>平台</h2>
@@ -146,7 +146,7 @@
             </div>
             <div class="advantage-list">
                 <span class="advanico">
-                    <!-- <img src="<?=$tplRootUrl ?>/img/advan-ico3.png" /> -->
+                    
                     <i class="iconfont icon-kefu"></i>
                 </span>
                 <h2>客服</h2>
@@ -166,8 +166,8 @@
                 <p>异地极速响应</p>
                 <p>最快1小时内到达</p>
             </div>
-            <p class="phone"><img src="<?=$tplRootUrl ?>/img/phone-c.png" /></p>
-            <div class="arror"><img src="<?=$tplRootUrl ?>/img/arror.png" /></div>
+            <p class="phone"></p>
+            <div class="arror"></div>
         </div>
         <div class="passagerl fl">
             <div class="passcirl animate1"></div>
@@ -175,35 +175,35 @@
             <div class="passcir3"></div>
             <div class="passcir-small">
                 <a class="indexlight cirl1" href="/home/index/baoxiu.html?catalogCode=5">
-                    <!-- <img class="replce-pic" src="<?=$tplRootUrl ?>/img/index3-hover.png" /> -->
+                    
                     <span class="iconWrap"><i class="iconfont icon-jiankong"></i><p>监控</p></span>
                 </a>
                 <a class="indexlight cirl2" href="/home/index/baoxiu.html?catalogCode=8">
-                    <!-- <img src="<?=$tplRootUrl ?>/img/index4-hover.png" /> -->
+                    
                     <span class="iconWrap"><i class="iconfont icon-icon-test"></i><p>定制保修</p></span>
                 </a>
                 <a class="indexlight cirl3" href="/home/index/baoxiu.html?catalogCode=1">
-                    <!-- <img src="<?=$tplRootUrl ?>/img/index5-hover.png" /> -->
+                    
                     <span class="iconWrap"><i class="iconfont icon-dayinji"></i><p>办公设备</p></span>
                 </a>
                 <a class="indexlight cirl4" href="/home/index/baoxiu.html?catalogCode=7">
-                    <!-- <img src="<?=$tplRootUrl ?>/img/index6-hover.png" /> -->
+                   
                     <span class="iconWrap"><i class="iconfont icon-posji"></i><p>POS系统</p></span>
                 </a>
                 <a class="indexlight cirl5" href="/home/index/baoxiu.html?catalogCode=6">
-                    <!-- <img src="<?=$tplRootUrl ?>/img/index7-hover.png" /> -->
+                    
                     <span class="iconWrap"><i class="iconfont icon-wuxian"></i><p>网络设备</p></span>
                 </a>
                 <a class="indexlight cirl6" href="/home/index/baoxiu.html?catalogCode=4">
-                    <!-- <img src="<?=$tplRootUrl ?>/img/index8-hover.png" /> -->
+                   
                     <span class="iconWrap"><i class="iconfont icon-diannao"></i><p>电脑维护</p></span>
                 </a>
                 <a class="indexlight cirl7" href="/home/index/baoxiu.html?catalogCode=3">
-                    <!-- <img src="<?=$tplRootUrl ?>/img/index1-hover.png" /> -->
+                  
                     <span class="iconWrap"><i class="iconfont icon-msnui-server"></i><p>服务器</p></span>
                 </a>
                 <a class="indexlight cirl8" href="/home/index/baoxiu.html?catalogCode=2">
-                    <!-- <img src="<?=$tplRootUrl ?>/img/index2-hover.png" /> -->
+                   
                     <span class="iconWrap"><i class="iconfont icon-menjinguanli"></i><p>门禁系统</p></span>
                 </a>
             </div>

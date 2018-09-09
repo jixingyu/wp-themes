@@ -60,8 +60,9 @@
     <meta name="keywords" content="<?php echo $keywords; ?>" />
     <link href="<?=$tplRootUrl ?>/css/idangerous.swiper.css" type="text/css" rel="stylesheet" />
     <link href="<?=$tplRootUrl ?>/css/animate.min.css" type="text/css" rel="stylesheet" />
-    <link href="<?=$tplRootUrl ?>/css/style.css" type="text/css" rel="stylesheet" />
-    <link href="<?=$tplRootUrl ?>/css/inner.css" type="text/css" rel="stylesheet" />
+    <link href="<?=$tplRootUrl ?>/css/inner.css?v=20180908" type="text/css" rel="stylesheet" />
+    <link href="<?=$tplRootUrl ?>/css/style.css?v=<?php echo date('Y-m-d');?>" type="text/css" rel="stylesheet" />
+    
     <link href="<?=$tplRootUrl ?>/css/iconfontnew.css" type="text/css" rel="stylesheet" />
     <!-- Stylesheets -->
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_url');?>" type="text/css" media="screen" />
@@ -91,9 +92,10 @@
             <a class="logo" href="/"></a>
             <div class="naver-nav clearfix">
                 <ul class="nav clearfix" id="nav_ul">
-                    <li class="active">
+                    <!-- 当前选择页面为active -->
+                    <!--  <li class="active">
                         <a href="/">首页</a>
-                    </li>
+                    </li> -->
                     <?php
                         wp_nav_menu( array(
                             'theme_location' => 'navmain',
@@ -129,23 +131,31 @@
     $slider_num = ( isset( $th_options['head-slider-num'] ) && $th_options['head-slider-num'] ) ? (int) $th_options['head-slider-num'] : 0;
     if ( 0 < $slider_num ) :
 ?>
-<!--banner-->
-<div class="slide-banner">
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
+<div class="banner">
+    <div class="imgbox">
         <?php
             for ( $i = 1; $i <= $slider_num; $i++ ) {
                 $pic = isset( $th_options[ 'head-slider-pic-' . $i ] ) ? esc_attr( $th_options[ 'head-slider-pic-' . $i ] ) : '';
                 $link = isset( $th_options[ 'head-slider-pic-link-' . $i ] ) ? esc_attr( $th_options[ 'head-slider-pic-link-' . $i ] ) : '';
         ?>
-            <div class="swiper-slide">
-                <div style="position: relative;width: 100%;">
-                    <?php if ($link) { ?><a href="<?=$link?>" target="_blank"><?php } ?><img style="width: 100%;" src="<?=$pic?>"><?php if ($link) { ?></a><?php } ?>
-                </div>
+            <div class="img <?php echo $i==1 ?'opactiy01':'' ?>">
+            <?php if ($link) { ?>
+            <a  href="<?=$link?>" target="_blank"><?php } ?><img style="width: 100%;" src="<?=$pic?>"><?php if ($link) { ?></a><?php } ?>
             </div>
         <?php } ?>
-        </div>
-        <div class="swiper-pagination"></div>
     </div>
+    <div class="cirboxbg">
+        <div class="cirbox">
+            <?php
+            for ( $i = 1; $i <= $slider_num; $i++ ) {
+                $pic = isset( $th_options[ 'head-slider-pic-' . $i ] ) ? esc_attr( $th_options[ 'head-slider-pic-' . $i ] ) : '';
+                $link = isset( $th_options[ 'head-slider-pic-link-' . $i ] ) ? esc_attr( $th_options[ 'head-slider-pic-link-' . $i ] ) : '';
+            ?>
+                <div class="cir <?php echo $i==1 ?'cr':'' ?>"></div>
+            <?php } ?>
+        </div>
+    </div>
+    
 </div>
+
 <?php endif; ?>

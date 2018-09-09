@@ -35,8 +35,10 @@ $().ready(function() {
 		var topScr = $(window).scrollTop();
 		if(topScr > head) {
 			$(".header_wrap").addClass("naver-fixed");
+			$("body").addClass("fixnav");
 		} else {
 			$(".header_wrap").removeClass("naver-fixed");
+			$("body").removeClass("fixnav");
 		}
 	})
 
@@ -46,6 +48,7 @@ $().ready(function() {
 	$('.downlist-subnav .naversub-wrap').css('height', 'auto');
 
 	function showDialog(obj) {
+
 		clearTimeout(timer);
 		$('.downlist-subnav').stop().animate({
 			height: '436'
@@ -55,6 +58,16 @@ $().ready(function() {
 			$(obj).addClass("hover");
 			$('.naversub-con[data-link=' + getVal + ']').show().siblings('.naversub-con').hide();
 		}
+	}
+	function showDialogMobile(index) {
+
+		$(".naver-subbg").fadeIn('fast');
+		$('.naversub-con[data-link=' + index + ']').show().siblings('.naversub-con').hide();
+	}
+	function hideDialogMobile(index) {
+
+		$(".naver-subbg").fadeOut('fast');
+		$('.naversub-con[data-link=' + index + ']').hide();
 	}
 
 	function hideDialog(obj, timeOut) {
@@ -73,25 +86,72 @@ $().ready(function() {
 		}, timeOut);
 	}
 
-	$(".naver-nav li").hover(function() {
-		var getVal = $(this).data('subnav');
-		if(getVal){
-			$(".naver-subbg").fadeIn('fast');
-			showDialog(this);
-		}
-	}, function() {
-		hideDialog(this);
-	});
+	// 是否为pc
+	function isPC() {
+	    var userAgentInfo = navigator.userAgent.toLowerCase();
+	    var Agents = new Array("android", "iphone", "symbianOS", "windows phone", "ipad", "ipod");
+	    var flag = true;
+	    for (var v = 0; v < Agents.length; v++) {
+	        if (userAgentInfo.indexOf(Agents[v]) > 0) { flag = false; break; }
+	    }
+	    return flag;
+	}
 
-	$(".downlist-subnav .naversub-con").hover(function() {
-		var getVal = $(this).data('link');
-		var obj = $('.nav li[data-subnav=' + getVal + ']')[0];
-		showDialog(obj)
-	}, function() {
-		var getVal = $(this).data('link');
-		var obj = $('.nav li[data-subnav=' + getVal + ']')[0];
-		hideDialog(obj);
-	});
+
+
+
+	var isPC = isPC();
+    if(!isPC){
+
+        // 首先判断导航是否有链接，如果有就不做操作，如果没有就添加点击事件
+        var naverNavas = $('.naver-nav li');
+        $.each(naverNavas,function(i,item){
+        	var isthislink = $(this).find('a').attr('href'),
+        	    thisindex =  $(this).attr('data-subnav'),
+        	    clickcount = 0;
+
+			if(!isthislink){
+				$(this).click(function(event) {
+					clickcount++;
+					console.log(clickcount%2 == 0);
+					if(clickcount%2 == 0){
+						hideDialogMobile(thisindex);
+					}else{
+						showDialogMobile(thisindex);
+					}
+		        	
+		        });
+			}
+        });
+
+    }else{
+    	$(".naver-nav li").hover(function() {
+		var getVal = $(this).data('subnav');
+		    if(getVal){
+				$(".naver-subbg").fadeIn('fast');
+			}
+
+			showDialog(this);
+		}, function() {
+			hideDialog(this);
+		});
+
+		$(".downlist-subnav .naversub-con").hover(function() {
+			var getVal = $(this).data('link');
+			var obj = $('.nav li[data-subnav=' + getVal + ']')[0];
+			showDialog(obj)
+		}, function() {
+			var getVal = $(this).data('link');
+			var obj = $('.nav li[data-subnav=' + getVal + ']')[0];
+			hideDialog(obj);
+		});
+    }
+
+
+
+	
+
+
 
 	$(".naversub-close a").click(function(){
 		var getVal = $(this).parent().parent().data('link');

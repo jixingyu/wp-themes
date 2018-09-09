@@ -46,29 +46,33 @@
     margin-right: 10px;
     margin-left: 10px;
 }
+
 .pagesize .page-number{
+	float: left;
+}
+.pagesize .page-number a,.pagesize  span.page-numbers{
+    display: inline-block;
     border: 1px solid #e1e2e3;
     margin-right: 10px;
     margin-left: 10px;
-}
-.pagesize .page-number,.pagesize .page-number a{
-	float: left;
-	width: 34px;
+    padding-left: 5px;
+    padding-right: 5px;
     height: 34px;
     cursor: pointer;
     text-align: center;
     line-height: 34px;
     border-radius: 4px;
+    width: 25px;
 }
 
-.pagesize .page-number a.cur,.pagesize .page-number a:hover{
+.pagesize .page-number span.current,.pagesize .page-number a:hover,
+.pagesize .page-number span:hover{
 	background:#216dd9;
 	color: #FFFFFF;
-	display: block;
-	width: 34px;
-    height: 34px;
     text-align: center;
-    line-height: 34px;
+}
+.pagesize .page-numbers.next,.pagesize .page-numbers.prev{
+    min-width: 70px;
 }
 
 /*newscon*/

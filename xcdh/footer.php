@@ -58,7 +58,10 @@
 <script src="<?=$tplRootUrl ?>/js/swiper.animate1.0.2.min.js"></script>
 <script src="<?=$tplRootUrl ?>/js/vue.min.js"></script>
 <script src="<?=$tplRootUrl ?>/js/vue-resource.min.js"></script>
-<script src="<?=$tplRootUrl ?>/js/index.js"></script>
+<script src="<?=$tplRootUrl ?>/js/index.js?v=<?php echo date('Y-m-d');?>"></script>
+<!-- 新幻灯片片 -->
+<script src="<?=$tplRootUrl ?>/js/banner_slide.js?v=<?php echo date('Y-m-d');?>"></script>  
+
 
 <?php wp_footer(); ?>
 </body>
