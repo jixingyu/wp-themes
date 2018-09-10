@@ -74,11 +74,15 @@ class Xy_Navmain_Walker extends Walker_Nav_Menu {
          */
         $title = apply_filters( 'nav_menu_item_title', $title, $item, $args, $depth );
 
-        $item_output = $args->before;
-        $item_output .= '<a'. $attributes .'>';
-        $item_output .= $args->link_before . $title . $args->link_after;
-        $item_output .= '</a>';
-        $item_output .= $args->after;
+        if ( $depth == 0 && in_array( 'menu-item-has-children', $item->classes ) && $this->is_mobile() ) {
+            $item_output = '<a>' . $args->link_before . $title . $args->link_after . '</a>';
+        } else {
+            $item_output = $args->before;
+            $item_output .= '<a'. $attributes .'>';
+            $item_output .= $args->link_before . $title . $args->link_after;
+            $item_output .= '</a>';
+            $item_output .= $args->after;
+        }
 
         /**
          * Filter a menu item's starting output.
@@ -99,6 +103,26 @@ class Xy_Navmain_Walker extends Walker_Nav_Menu {
 
     public function end_el( &$output, $item, $depth = 0, $args = array() ) {
         $output .= "</li>\n";
+    }
+
+    public function is_mobile() {
+        $user_agent = $_SERVER['HTTP_USER_AGENT'];
+        $mobile_browser = Array(
+            "mqqbrowser", //手机QQ浏览器
+            "opera mobi", //手机opera
+            "juc","iuc",//uc浏览器
+            "fennec","ios","applewebKit/420","applewebkit/525","applewebkit/532","ipad","iphone","ipaq","ipod",
+            "iemobile", "windows ce",//windows phone
+            "240x320","480x640","acer","android","anywhereyougo.com","asus","audio","blackberry","blazer","coolpad" ,"dopod", "etouch", "hitachi","htc","huawei", "jbrowser", "lenovo","lg","lg-","lge-","lge", "mobi","moto","nokia","phone","samsung","sony","symbian","tablet","tianyu","wap","xda","xde","zte"
+        );
+        $is_mobile = false;
+        foreach ($mobile_browser as $device) {
+            if (stristr($user_agent, $device)) {
+                $is_mobile = true;
+                break;
+            }
+        }
+        return $is_mobile;
     }
 }
 
