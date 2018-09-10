@@ -88,7 +88,7 @@
                         <i class="iconfont icon-xiangmu"></i>
                     </div>
                     <h2>防泄密软件服务</h2>
-                    <p class="txt">文档安全管理、系统数据保护管理、文档安全网关、只能移动终端</p>
+                    <p class="txt">文档安全管理、系统数据保护管理、文档安全网关</p>
                 </div>
                 <div class="solvecon-c">
                     <p class="intro">通过数据加密防泄漏完善的系统防止内部操作不当信息泄露、临时访客有意无意带出、外部恶意访问窃取、第三方合作伙伴恶意扩散等方式泄露公司秘密。智能识别各种截录屏行为，有效禁止针对涉密数据的各种截录屏操作。敏感数据加密保护、个人及非工作文档明文存储、防止过量加密、降低管理成本</p>
@@ -292,19 +292,19 @@
         <h1 class="title"></h1>
         <ul class="cooperation-list">
             <li>
-                <div class="cooperation-div"><a href=""><img src="<?=$tplRootUrl ?>/img/link1.jpg" /></a></div>
+                <div class="cooperation-div"><img src="<?=$tplRootUrl ?>/img/link1.png" /></div>
             </li>
             <li>
-                <div class="cooperation-div"><a href=""><img src="<?=$tplRootUrl ?>/img/link2.jpg" /></a></div>
+                <div class="cooperation-div"><img src="<?=$tplRootUrl ?>/img/link2.png" /></div>
             </li>
             <li>
-                <div class="cooperation-div"><a href=""><img src="<?=$tplRootUrl ?>/img/link3.jpg" /></a></div>
+                <div class="cooperation-div"><img src="<?=$tplRootUrl ?>/img/link3.png" /></div>
             </li>
             <li>
-                <div class="cooperation-div"><a href=""><img src="<?=$tplRootUrl ?>/img/link4.jpg" /></a></div>
+                <div class="cooperation-div"><img src="<?=$tplRootUrl ?>/img/link4.png" /></div>
             </li>
             <li>
-                <div class="cooperation-div"><a href=""><img src="<?=$tplRootUrl ?>/img/link5.jpg" /></a></div>
+                <div class="cooperation-div"><img src="<?=$tplRootUrl ?>/img/link5.png" /></div>
             </li>
         </ul>
     </div>
