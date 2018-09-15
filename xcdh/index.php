@@ -156,69 +156,22 @@
         </div>
     </div>
 </div>
-<!--passageway-->
-<div class="index-passageway">
-    <div class="passagewaycon pageW clearfix">
-        <div class="passagefl fl">
-            <h1 class="index-title">快速报修通道</h1>
-            <div class="passway-txt">
-                <p>一键下单，全程服务无忧</p>
-                <p>异地极速响应</p>
-                <p>最快1小时内到达</p>
+<div class="index-advantage" style="background-color:#fff;">
+    <div class="pageW">
+        <h1 class="index-title">我们的代理资质</h1>
+        <div class="advantage-con">
+            <div class="advantage-list">
+               <img src="<?=$tplRootUrl ?>/img/img-shouquan.jpg" alt="授权书">
             </div>
-            <p class="phone"></p>
-            <div class="arror"></div>
-        </div>
-        <div class="passagerl fl">
-            <div class="passcirl animate1"></div>
-            <div class="passcir2 animate2"></div>
-            <div class="passcir3"></div>
-            <div class="passcir-small">
-                <a class="indexlight cirl1" href="/home/index/baoxiu.html?catalogCode=5">
-                    
-                    <span class="iconWrap"><i class="iconfont icon-jiankong"></i><p>监控</p></span>
-                </a>
-                <a class="indexlight cirl2" href="/home/index/baoxiu.html?catalogCode=8">
-                    
-                    <span class="iconWrap"><i class="iconfont icon-icon-test"></i><p>定制保修</p></span>
-                </a>
-                <a class="indexlight cirl3" href="/home/index/baoxiu.html?catalogCode=1">
-                    
-                    <span class="iconWrap"><i class="iconfont icon-dayinji"></i><p>办公设备</p></span>
-                </a>
-                <a class="indexlight cirl4" href="/home/index/baoxiu.html?catalogCode=7">
-                   
-                    <span class="iconWrap"><i class="iconfont icon-posji"></i><p>POS系统</p></span>
-                </a>
-                <a class="indexlight cirl5" href="/home/index/baoxiu.html?catalogCode=6">
-                    
-                    <span class="iconWrap"><i class="iconfont icon-wuxian"></i><p>网络设备</p></span>
-                </a>
-                <a class="indexlight cirl6" href="/home/index/baoxiu.html?catalogCode=4">
-                   
-                    <span class="iconWrap"><i class="iconfont icon-diannao"></i><p>电脑维护</p></span>
-                </a>
-                <a class="indexlight cirl7" href="/home/index/baoxiu.html?catalogCode=3">
-                  
-                    <span class="iconWrap"><i class="iconfont icon-msnui-server"></i><p>服务器</p></span>
-                </a>
-                <a class="indexlight cirl8" href="/home/index/baoxiu.html?catalogCode=2">
-                   
-                    <span class="iconWrap"><i class="iconfont icon-menjinguanli"></i><p>门禁系统</p></span>
-                </a>
+            <div class="advantage-list">
+               <img src="<?=$tplRootUrl ?>/img/img-shouquan.jpg" alt="授权书">
             </div>
-            <div class="passcir-arround">
-                <div class="passcir4 anround">
-                    <div class="passcir5"></div>
-                </div>
-                <div class="passcir6 "></div>
-                <div class="passcir7 anround"></div>
-                <div class="passcir8 anround"></div>
+            <div class="advantage-list">
+               <img src="<?=$tplRootUrl ?>/img/img-shouquan.jpg" alt="授权书">
             </div>
         </div>
     </div>
 </div>
-
 
 <div class="index-news">
     <div class="pageW clearfix">

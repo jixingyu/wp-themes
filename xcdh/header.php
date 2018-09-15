@@ -61,7 +61,7 @@
     <link href="<?=$tplRootUrl ?>/css/idangerous.swiper.css" type="text/css" rel="stylesheet" />
     <link href="<?=$tplRootUrl ?>/css/animate.min.css" type="text/css" rel="stylesheet" />
     <link href="<?=$tplRootUrl ?>/css/inner.css?v=20180908" type="text/css" rel="stylesheet" />
-    <link href="<?=$tplRootUrl ?>/css/style.css?v=<?php echo date('Y-m-d');?>" type="text/css" rel="stylesheet" />
+    <link href="<?=$tplRootUrl ?>/css/style.css?v=2018091501" type="text/css" rel="stylesheet" />
     
     <link href="<?=$tplRootUrl ?>/css/iconfontnew.css" type="text/css" rel="stylesheet" />
     <!-- Stylesheets -->
