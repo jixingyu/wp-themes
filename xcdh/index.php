@@ -161,15 +161,15 @@
     <div class="pageW">
         <h1 class="index-title">我们的代理资质</h1>
         <div class="advantage-con">
+            <div class="advantage-list">
+               <img src="<?=$tplRootUrl ?>/img/img-shouquan.jpg" alt="授权书">
+            </div>
+            <div class="advantage-list">
+               <img src="<?=$tplRootUrl ?>/img/img-shouquan2.jpg" alt="授权书">
+            </div>
             <!-- <div class="advantage-list">
                <img src="<?=$tplRootUrl ?>/img/img-shouquan.jpg" alt="授权书">
-            </div>
-            <div class="advantage-list">
-               <img src="<?=$tplRootUrl ?>/img/img-shouquan.jpg" alt="授权书">
             </div> -->
-            <div class="advantage-list">
-               <img src="<?=$tplRootUrl ?>/img/img-shouquan.jpg" alt="授权书">
-            </div>
         </div>
     </div>
 </div>
