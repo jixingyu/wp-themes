@@ -21,28 +21,28 @@ function xy_upload_image_limit( $file ){
 	return $file;
 }
 
-// add_filter('pre_site_transient_update_core',    create_function('$a', "return null;"));
-// add_filter('pre_site_transient_update_plugins', create_function('$a', "return null;"));
-// add_filter('pre_site_transient_update_themes',  create_function('$a', "return null;"));
-// remove_action('admin_init', '_maybe_update_core');
-// remove_action('admin_init', '_maybe_update_plugins');
-// remove_action('admin_init', '_maybe_update_themes');
+add_filter('pre_site_transient_update_core',    create_function('$a', "return null;"));
+add_filter('pre_site_transient_update_plugins', create_function('$a', "return null;"));
+add_filter('pre_site_transient_update_themes',  create_function('$a', "return null;"));
+remove_action('admin_init', '_maybe_update_core');
+remove_action('admin_init', '_maybe_update_plugins');
+remove_action('admin_init', '_maybe_update_themes');
 
-// remove_action( 'wp_head', 'feed_links', 2 );
-// remove_action( 'wp_head', 'feed_links_extra', 3 );
-// remove_action( 'wp_head', 'rsd_link' );
-// remove_action( 'wp_head', 'wlwmanifest_link' );
-// remove_action( 'wp_head', 'index_rel_link' );
-// remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );
-// remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );
-// remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
-// remove_action( 'publish_future_post', 'check_and_publish_future_post', 10, 1 );
-// remove_action( 'wp_head', 'wp_generator' );
-// remove_action( 'wp_footer', 'wp_print_footer_scripts' );
-// remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
-// remove_action( 'template_redirect', 'wp_shortlink_header', 11, 0 );
-// remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
-// remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
+remove_action( 'wp_head', 'feed_links', 2 );
+remove_action( 'wp_head', 'feed_links_extra', 3 );
+remove_action( 'wp_head', 'rsd_link' );
+remove_action( 'wp_head', 'wlwmanifest_link' );
+remove_action( 'wp_head', 'index_rel_link' );
+remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );
+remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
+remove_action( 'publish_future_post', 'check_and_publish_future_post', 10, 1 );
+remove_action( 'wp_head', 'wp_generator' );
+remove_action( 'wp_footer', 'wp_print_footer_scripts' );
+remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
+remove_action( 'template_redirect', 'wp_shortlink_header', 11, 0 );
+remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
+remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
 
 require_once( 'inc/class-init.php' );
 require_once( 'inc/class-nav-walker.php' );

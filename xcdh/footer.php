@@ -15,9 +15,6 @@
                   'depth' => 1,
                 ) );
                 ?>
-                <p><a href="/exceptions">免责条款</a></p>
-                <p><a href="/privacy_protection">隐私保护</a></p>
-                <p><a href="/about">公司简介</a></p>
             </div>
             <div class="friendlink fl">
                 <h3 class="tit">友情链接</h3>
@@ -41,9 +38,7 @@
         <div class="footer-b">
                   
 <p> Copyright 2018 All Rights Reserved 苏州星辰大海网络科技有限公司
-                <br>电信与信息服务营业经营许可证：<a href="http://www.miitbeian.gov.cn/" rel="nofollow">沪ICP备16023643</a>
-            <br>
-              <a target="_blank" href="" rel="nofollow"><img src="<?=$tplRootUrl ?>/img/jc.png">沪公网安备 31010702002900号</a>
+                <br>ICP经营许可证：<a href="http://www.miitbeian.gov.cn/" rel="nofollow">苏ICP备18054498</a>
   <br/>
   </p>
         </div>
