@@ -4,7 +4,7 @@
   $home_tech_id = ( isset( $th_options['home-tech'] ) && $th_options['home-tech'] ) ? $th_options['home-tech'] : '';
 ?>
 <div class="c_itbox">
-  <div class="menu1 wrap"><h3><span class="s1">全国</span>&nbsp;&nbsp;<span>六大核心业务</span></h3></div>
+  <div class="menu1 wrap"><h3><span class="s1">星辰大海六大核心业务</span></h3></div>
   <div class="server wrap">
     <div class="wrap_desc server_left max_desc">
         <ul id="server_wrap">
@@ -14,8 +14,8 @@
                         <img src="<?=$tplRootUrl ?>/img/1-16120F9222b54.png">
                     </div>
                     <div class="tin_desc">
-                        <h6>防泄密软件</h6>
-                        <p>信息安全、数据安全、商业秘密保护 、解决方案</p>
+                        <h6>信息数据防泄密</h6>
+                        <p>信息安全、数据安全、商业秘密保护等行业解决方案</p>
                     </div>
                   </a>
                 </li><li>
@@ -25,7 +25,7 @@
                     </div>
                     <div class="tin_desc">
                         <h6>网络安全</h6>
-                        <p>防勒索病毒、防火墙、工控机房维护、堡垒机保护、售后审计</p>
+                        <p>防火墙、防勒索软件、工控机房维护、堡垒机、售后审计</p>
                     </div>
                   </a>
                 </li><li>
@@ -80,7 +80,7 @@
 <!--solve-->
 <div class="index-solve">
     <div class="pageW">
-        <h1 class="index-title">我们可以为您解决什么</h1>
+        <h1 class="index-title">星辰大海为您解决什么</h1>
         <ul class="solvecon clearfix">
             <li class="solve1">
                 <div class="solvecon-t">
@@ -125,7 +125,7 @@
 <div class="index-advantage">
     <div class="trangler"></div>
     <div class="pageW">
-        <h1 class="index-title">我们的优势是什么</h1>
+        <h1 class="index-title">星辰大海的优势是什么</h1>
         <div class="advantage-con">
             <div class="advantage-list">
                 <span class="advanico">
@@ -159,7 +159,7 @@
 </div>
 <div class="index-advantage" style="background-color:#fff;">
     <div class="pageW">
-        <h1 class="index-title">我们的代理资质</h1>
+        <h1 class="index-title">星辰大海代理资质</h1>
         <div class="advantage-con">
             <div class="advantage-list">
                <img src="<?=$tplRootUrl ?>/img/img-shouquan.jpg" alt="授权书">
