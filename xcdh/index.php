@@ -54,8 +54,8 @@
                         <img src="<?=$tplRootUrl ?>/img/1-1G21Q4560VB.png">
                     </div>
                     <div class="tin_desc">
-                        <h6>监控设备</h6>
-                        <p>摄像头布线安装调试、故障检测、监控设备解决方案</p>
+                        <h6>网络通用产品</h6>
+                        <p>防火墙、网关、服务器、交换机、无线AP等网络设备</p>
                     </div>
                   </a>
                 </li> <li>
