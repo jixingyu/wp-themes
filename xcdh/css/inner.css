@@ -81,7 +81,7 @@
 .newscontent .c{text-align: center;margin-top: 14px;color: #989898;font-size: 12px;}
 .newscontent .c .tag{padding-left: 24px;}
 .newscontent .newscc{margin-top: 40px;border-bottom: 1px solid #e4e4e4;}
-.newscontent .newscc p{color: #5c5c5c;font-size: 12px;text-indent: 2em;line-height: 20px;}
+.newscontent .newscc p{color: #5c5c5c;font-size: 12px;text-indent: 2em;line-height: 1.5;margin-block-start: 1em;margin-block-end: 1em;margin-inline-start: 0px;margin-inline-end: 0px;}
 .newscontent .newscc h2{color: #5c5c5c;font-size: 14px;text-indent: 2em;}
 .newscontent .chapter{margin-top: 24px;}
 .newscontent .chapter p{color:#303030;font-size: 12px;margin-bottom: 10px;}

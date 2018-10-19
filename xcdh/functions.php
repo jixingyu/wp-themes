@@ -20,6 +20,23 @@ function xy_upload_image_limit( $file ){
 		$file['error'] = '图片名请不要使用中文';
 	return $file;
 }
+function add_editor_buttons($buttons) {
+	$buttons[] = 'fontselect';
+	$buttons[] = 'fontsizeselect';
+	$buttons[] = 'backcolor';
+	$buttons[] = 'underline';
+	$buttons[] = 'hr';
+	$buttons[] = 'sub';
+	$buttons[] = 'sup';
+	$buttons[] = 'cut';
+	$buttons[] = 'copy';
+	$buttons[] = 'paste';
+	$buttons[] = 'cleanup';
+	$buttons[] = 'wp_page';
+	$buttons[] = 'newdocument';
+	return $buttons;
+}
+add_filter("mce_buttons_3", "add_editor_buttons");
 
 add_filter('pre_site_transient_update_core',    create_function('$a', "return null;"));
 add_filter('pre_site_transient_update_plugins', create_function('$a', "return null;"));
