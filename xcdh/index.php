@@ -9,7 +9,7 @@
     <div class="wrap_desc server_left max_desc">
         <ul id="server_wrap">
               <li>
-                 <a href="/" target="_blank">
+                 <a href="/xxsjfxm" target="_blank">
                     <div class="tin">
                         <img src="<?=$tplRootUrl ?>/img/1-16120F9222b54.png">
                     </div>
@@ -19,7 +19,7 @@
                     </div>
                   </a>
                 </li><li>
-                 <a href="/" target="_blank">
+                 <a href="/wlaq" target="_blank">
                     <div class="tin">
                         <img src="<?=$tplRootUrl ?>/img/menjin.jpg">
                     </div>
@@ -29,7 +29,7 @@
                     </div>
                   </a>
                 </li><li>
-                 <a href="/" target="_blank">
+                 <a href="/yunjisuan-2" target="_blank">
                     <div class="tin">
                         <img src="<?=$tplRootUrl ?>/img/1-16120F92Z70-L.png">
                     </div>
@@ -39,7 +39,7 @@
                     </div>
                   </a>
                 </li><li>
-                 <a href="/" target="_blank">
+                 <a href="/wlcc" target="_blank">
                     <div class="tin">
                         <img src="<?=$tplRootUrl ?>/img/1-16120F92923627.png">
                     </div>
@@ -49,7 +49,7 @@
                     </div>
                   </a>
                 </li><li>
-                 <a href="/" target="_blank">
+                 <a href="/wlsb" target="_blank">
                     <div class="tin">
                         <img src="<?=$tplRootUrl ?>/img/1-1G21Q4560VB.png">
                     </div>
@@ -59,7 +59,7 @@
                     </div>
                   </a>
                 </li> <li>
-                 <a href="/" target="_blank">
+                 <a href="/wlwh" target="_blank">
                     <div class="tin">
                         <img src="<?=$tplRootUrl ?>/img/1-16120F925100-L.png">
                     </div>
