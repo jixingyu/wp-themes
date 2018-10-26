@@ -54,7 +54,7 @@
                         <img src="<?=$tplRootUrl ?>/img/1-1G21Q4560VB.png">
                     </div>
                     <div class="tin_desc">
-                        <h6>网络通用产品</h6>
+                        <h6>网络设备</h6>
                         <p>防火墙、网关、服务器、交换机、无线AP等网络设备</p>
                     </div>
                   </a>
