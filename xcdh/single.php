@@ -9,7 +9,7 @@
 
 <div class="news_Container">
   <div class="newscon pageW">
-      <div class="positon"><?php xy_breadcrumb(); ?></div>
+      <div class="positon"><?php //xy_breadcrumb(); ?></div>
       <div class="news_wrap clearfix" style="min-height: 840px">
           <div class="newslist fl">
             <?php while( have_posts() ): the_post(); ?>
