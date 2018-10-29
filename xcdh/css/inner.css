@@ -86,6 +86,7 @@
 .newscontent .chapter{margin-top: 24px;}
 .newscontent .chapter p{color:#303030;font-size: 12px;margin-bottom: 10px;}
 .newscontent .chapter a{color:#8b8a8a;}
+.newscontent img{max-width: 100%;height: auto;}
 
 /*case*/
 .caseContainer{background:#f4f4f4 url(../img/casebg.png) no-repeat top left;width: 100%;}
