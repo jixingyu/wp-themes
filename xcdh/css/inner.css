@@ -1,4 +1,4 @@
-.positon{color: #221e56;font-size:16px;padding: 4% 0 2% 4%;}
+.positon{color: #221e56;font-size:16px;padding: 2% 0 1% 2%;}
 .positon a{color: #221e56;}
 .positon .now{color: #2c70ed;text-decoration: underline;}
 
@@ -8,7 +8,7 @@
 .news_Container .news_wrap{background: #FFFFFF;padding-bottom: 5%;}
 .news_wrap .newslist {
     width: 90%;
-    padding: 36px 0 0 5%;
+    padding: 10px 0 0 5%;
 }
 .newslist .newstab{margin-bottom: 25px;}
 .newslist .newstab li{display: inline-block;color: #216dd9;font-size: 16px;width: 124px;height: 30px;text-align: center;line-height: 30px;cursor: pointer;}
@@ -76,11 +76,11 @@
 }
 
 /*newscon*/
-.newscontent{margin: 19px auto 0;width: 100%;}
+.newscontent{margin: 10px auto 0;width: 100%;}
 .newscontent .title{color: #303030;font-size: 18px;text-align: center;border-bottom: 1px solid #e4e4e4;padding-bottom: 16px;}
 .newscontent .c{text-align: center;margin-top: 14px;color: #989898;font-size: 12px;}
 .newscontent .c .tag{padding-left: 24px;}
-.newscontent .newscc{margin-top: 40px;border-bottom: 1px solid #e4e4e4;}
+.newscontent .newscc{margin-top: 10px;border-bottom: 1px solid #e4e4e4;}
 .newscontent .newscc p{color: #5c5c5c;font-size: 12px;text-indent: 2em;line-height: 1.5;margin-block-start: 1em;margin-block-end: 1em;margin-inline-start: 0px;margin-inline-end: 0px;}
 .newscontent .newscc h2{color: #5c5c5c;font-size: 14px;text-indent: 2em;}
 .newscontent .chapter{margin-top: 24px;}

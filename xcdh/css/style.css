@@ -23,7 +23,7 @@ em,i{font-style: normal;}
 input{border:none;outline: none;}	
 
 .pageW{width: 1200px;margin: 0 auto;}
-.index-title{color: #5fb9da;font-size: 30px;text-align: center;font-family: "fzltzh";}
+.index-title{color: #5fb9da;font-size: 30px;text-align: center;font:30px/1.8 "微软雅黑";}
 .fl{float: left;}
 .fr{float: right;}
 
@@ -266,7 +266,7 @@ input{border:none;outline: none;}
 .advantage-con .advantage-list .advanico .iconfont{color:#1384DB;font-size:50px;}
 .advantage-con .advantage-list:first-child .advanico .iconfont{color:#1384DB;font-size:40px;}
 .advantage-con .advantage-list h2{font-size: 24px;color: #303030;margin: 12px 0 21px;}
-.advantage-con .advantage-list .into{font-size: 15px;line-height: 26px;height:196px;color: #7c7c7c;text-indent: 2em;}
+.advantage-con .advantage-list .into{font-size: 15px;line-height: 26px;height:196px;color: #7c7c7c;text-indent: 2em;text-align: left;}
 .advantage-con .advantage-list .tag{background: url(../img/advan-bg.png) no-repeat center center / 100% 100%;width:100%;height: 36px;line-height: 36px;text-align: center;color: #1384db;font-size: 18px;}
 .advantage-con .advantage-list:hover .advanico{transform: translateY(-5px);transition: transform 0.5s ease-in 0s;}
 
