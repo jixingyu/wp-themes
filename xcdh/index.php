@@ -39,16 +39,6 @@
                     </div>
                   </a>
                 </li><li>
-                 <a href="/wlcc" target="_blank">
-                    <div class="tin">
-                        <img src="<?=$tplRootUrl ?>/img/1-16120F92923627.png">
-                    </div>
-                    <div class="tin_desc">
-                        <h6>网络存储</h6>
-                        <p>NAS存储、办公存储、扩充装置、中小企业、大型企业</p>
-                    </div>
-                  </a>
-                </li><li>
                  <a href="/wlsb" target="_blank">
                     <div class="tin">
                         <img src="<?=$tplRootUrl ?>/img/1-1G21Q4560VB.png">
@@ -68,7 +58,17 @@
                         <p>服务器安装、上机架、硬盘、无线AP、交换机、防火墙、设备安装调试</p>
                     </div>
                   </a>
-                </li>     
+                </li><li>
+                 <a href="/it" target="_blank">
+                    <div class="tin">
+                        <img src="<?=$tplRootUrl ?>/img/1-16120F92923627.png">
+                    </div>
+                    <div class="tin_desc">
+                        <h6>IT服务与外包</h6>
+                        <p>网络维护、电脑维护、机房维护、远程服务、驻场服务</p>
+                    </div>
+                  </a>
+                </li>
         </ul>
     </div>
     <div class="wrap_desc server_right min_desc">
@@ -112,7 +112,7 @@
                         <i class="iconfont icon-icon-test"></i>
                     </div>
                     <h2>IT外包服务</h2>
-                    <p class="txt">IT外包服务、网络维护、电脑维护、机房维护、远程服务、驻场服务、租赁服务</p>
+                    <p class="txt">网络维护、电脑维护、机房维护、远程服务、驻场服务</p>
                 </div>
                 <div class="solvecon-c">
                     <p class="intro">已在全国范围内拥有注册工程师超过20000名，可以为各大企业的全国性、突发性IT维护提供专业、及时的技术支持，提供标准规范的IT服务内容包括电脑、服务器、网络设备、监控系统、无线网络、POS系统、办公设备等的上门售后安装维护，及调试、定期巡检、验收等综合IT技术服务。</p>
