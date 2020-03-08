@@ -38,7 +38,7 @@
         <div class="footer-b">
                   
 <p> Copyright 2018 All Rights Reserved 苏州星辰大海网络科技有限公司
-                <br>ICP经营许可证：<a href="http://www.miitbeian.gov.cn/" rel="nofollow">苏ICP备18054498</a>
+                <br>ICP经营许可证：<a href="http://www.beian.miit.gov.cn" rel="nofollow">苏ICP备18054498</a>
   <br/>
   </p>
         </div>
